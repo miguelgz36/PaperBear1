@@ -13,7 +13,10 @@ public class FireWeapon : MonoBehaviour
 
     private float currentAmmo;
     private bool isShooting;
+    private bool isRealoding;
     private Coroutine pullTheTriggerCourutine;
+    private Coroutine startReloadingCourutine;
+
 
     public void SetIsShooting(bool isShooting)
     {
@@ -24,9 +27,31 @@ public class FireWeapon : MonoBehaviour
     {
         currentAmmo = ammoPerCharger;
         isShooting = true;
+        isRealoding = false;
     }
 
     private void Update()
+    {
+        if (currentAmmo == 0 && !isRealoding)
+        {
+            isRealoding = true;
+            StartReloading();
+        }
+        else if (!isRealoding)
+        {
+            StartFiring();
+        }
+    }
+
+    private void StartReloading()
+    {
+        if (startReloadingCourutine == null)
+        {
+            startReloadingCourutine = StartCoroutine(ReloadWeapon());
+        } 
+    }
+
+    private void StartFiring()
     {
         if (isShooting)
         {
@@ -35,24 +60,43 @@ public class FireWeapon : MonoBehaviour
                 pullTheTriggerCourutine = StartCoroutine(PullTheTrigger());
             }
         }
-        else
+    }
+
+    private void StopFiring()
+    {
+        if (pullTheTriggerCourutine != null)
         {
-            if (pullTheTriggerCourutine != null)
-            {
-                StopCoroutine(pullTheTriggerCourutine);
-                pullTheTriggerCourutine = null;
-            }
+            StopCoroutine(pullTheTriggerCourutine);
+            pullTheTriggerCourutine = null;
+        }
+    }
+
+    private void StopRealoding()
+    {
+        if (startReloadingCourutine != null)
+        {
+            StopCoroutine(startReloadingCourutine);
+            startReloadingCourutine = null;
+            isRealoding = false;
         }
     }
 
     IEnumerator PullTheTrigger()
     {
-        while (true)
+        while (currentAmmo > 0)
         {
             GameObject instanceBullet = Instantiate(bullet, firePoint.transform.position, this.transform.rotation);
             currentAmmo--;
             yield return new WaitForSeconds(fireRatePerMinute);
         }
+    }
+
+    IEnumerator ReloadWeapon()
+    {
+        StopFiring();
+        yield return new WaitForSeconds(reloadedRate);
+        currentAmmo = ammoPerCharger;
+        StopRealoding();
     }
 
 }
