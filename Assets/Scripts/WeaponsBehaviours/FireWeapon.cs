@@ -7,7 +7,6 @@ public class FireWeapon : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject firePoint;
     [SerializeField] float fireRatePerMinute = 1;
-    [SerializeField] float precision = 1;
     [SerializeField] float ammoPerCharger = 12;
     [SerializeField] float reloadedRate = 10;
 
