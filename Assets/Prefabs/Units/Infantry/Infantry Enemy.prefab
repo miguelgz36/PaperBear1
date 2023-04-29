@@ -17,6 +17,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738756307646533153, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738756307646533153, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4433437603108382498, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
@@ -114,3 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315c8283a4f919e4db1beffedebb4fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2

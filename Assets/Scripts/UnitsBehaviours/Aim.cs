@@ -11,11 +11,13 @@ public class Aim : MonoBehaviour
     private GameObject target;
     private Quaternion startedRotation;
     private FireWeapon fireWeapon;
+    private EnemyMove enemyMove;
 
     private void Start()
     {
         startedRotation = currentUnit.transform.rotation;
         fireWeapon = weapon.GetComponent<FireWeapon>();
+        enemyMove = currentUnit.GetComponent<EnemyMove>();
     }
     private void Update()
     {
@@ -39,7 +41,9 @@ public class Aim : MonoBehaviour
         {
             Debug.Log(collision.gameObject.tag + " " + currentUnit.tag);
             target = collision.gameObject;
+            AimTarger();
             fireWeapon.SetIsShooting(true);
+            if (enemyMove != null) enemyMove.SetIsMove(false);
         }
     }
 
@@ -50,6 +54,7 @@ public class Aim : MonoBehaviour
             target = null;
             currentUnit.transform.rotation = startedRotation;
             fireWeapon.SetIsShooting(false);
+            if (enemyMove != null) enemyMove.SetIsMove(true);
         }
     }
 

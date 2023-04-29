@@ -23,8 +23,9 @@ public class Health : MonoBehaviour
         currentHealth = baseHealth;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("HIT");
         if (collision.gameObject.CompareTag("Projectile"))
         {
             collision.gameObject.SetActive(false);
@@ -32,4 +33,5 @@ public class Health : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+    
 }

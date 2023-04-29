@@ -128,16 +128,16 @@ Rigidbody2D:
   m_GameObject: {fileID: 4433437603108382498}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &7527488207122888416
 GameObject:
@@ -198,6 +198,7 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 10, y: 20}
+      - {x: 0, y: 25}
       - {x: -10, y: 20}
       - {x: -2, y: -4}
       - {x: 2, y: -4}
