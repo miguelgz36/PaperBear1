@@ -20,12 +20,16 @@ public class FireWeapon : MonoBehaviour
     public void SetIsShooting(bool isShooting)
     {
         this.isShooting = isShooting;
+        if (!isShooting)
+        {
+            StopFiring();
+        }
     }
 
     private void Start()
     {
         currentAmmo = ammoPerCharger;
-        isShooting = true;
+        isShooting = false;
         isRealoding = false;
     }
 
@@ -84,7 +88,7 @@ public class FireWeapon : MonoBehaviour
     {
         while (currentAmmo > 0)
         {
-            GameObject instanceBullet = Instantiate(bullet, firePoint.transform.position, this.transform.rotation);
+            Instantiate(bullet, firePoint.transform.position, this.transform.rotation);
             currentAmmo--;
             yield return new WaitForSeconds(fireRatePerMinute);
         }

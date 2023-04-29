@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 9184339470090621262}
   - component: {fileID: 5996279622273365688}
-  - component: {fileID: 2418442570046300755}
-  - component: {fileID: 1147558529953742309}
+  - component: {fileID: 6331160871693665650}
+  - component: {fileID: 3463784451582973751}
+  - component: {fileID: 2718632099613564105}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Allied
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,7 +88,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &2418442570046300755
+--- !u!58 &6331160871693665650
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4433437603108382498}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
+--- !u!114 &3463784451582973751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4433437603108382498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9abd60adb22eb9440bfd0841b601948d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentUnit: {fileID: 8934272404496599324}
+  baseHealth: 100
+--- !u!50 &2718632099613564105
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -108,22 +139,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &1147558529953742309
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4433437603108382498}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.3
 --- !u!1 &7527488207122888416
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92a4532145d748b4d80edaf7ef23c9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 6420063834360954770}
   currentUnit: {fileID: 8934272404496599324}
 --- !u!1 &8934272404496599324
 GameObject:
@@ -292,5 +308,10 @@ PrefabInstance:
 --- !u!4 &3369888408901907111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+  m_PrefabInstance: {fileID: 7160813512498029677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6420063834360954770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4213390104135834623, guid: b49f98137328b0744a6181428099f7ae, type: 3}
   m_PrefabInstance: {fileID: 7160813512498029677}
   m_PrefabAsset: {fileID: 0}

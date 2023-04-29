@@ -5,9 +5,18 @@ using UnityEngine;
 
 public class Aim : MonoBehaviour
 {
-    private GameObject target;
+    [SerializeField] private GameObject weapon;
     [SerializeField] private GameObject currentUnit;
 
+    private GameObject target;
+    private Quaternion startedRotation;
+    private FireWeapon fireWeapon;
+
+    private void Start()
+    {
+        startedRotation = currentUnit.transform.rotation;
+        fireWeapon = weapon.GetComponent<FireWeapon>();
+    }
     private void Update()
     {
         AimTarger();
@@ -15,7 +24,7 @@ public class Aim : MonoBehaviour
 
     private void AimTarger()
     {
-        if (target != null)
+        if (target != null && target.activeSelf)
         {
             float angle = Mathf.Atan2(target.transform.position.y - currentUnit.transform.position.y,
                           target.transform.position.x - currentUnit.transform.position.x)
@@ -24,12 +33,23 @@ public class Aim : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (target == null && !collision.gameObject.CompareTag(currentUnit.tag))
+        if (target == null && !collision.gameObject.CompareTag(currentUnit.tag) && !collision.gameObject.CompareTag("Projectile"))
         {
-            Debug.Log("is aiming");
+            Debug.Log(collision.gameObject.tag + " " + currentUnit.tag);
             target = collision.gameObject;
+            fireWeapon.SetIsShooting(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(target != null && target == collision.gameObject)
+        {
+            target = null;
+            currentUnit.transform.rotation = startedRotation;
+            fireWeapon.SetIsShooting(false);
         }
     }
 
