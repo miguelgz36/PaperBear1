@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6331160871693665650}
   - component: {fileID: 3463784451582973751}
   - component: {fileID: 2718632099613564105}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 8087574299932919798}
   - component: {fileID: 3738756307646533153}
   - component: {fileID: 267453742970581912}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VisionField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8756682713332659998}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Infantry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,9 +256,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9184339470090621262}
     m_Modifications:
+    - target: {fileID: 537477614366167307, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4213390104135834623, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_Name
       value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213390104135834623, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_RootOrder
