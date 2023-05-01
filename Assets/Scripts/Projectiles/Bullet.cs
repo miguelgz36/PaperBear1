@@ -6,10 +6,19 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] float lifeTime = 5;
     [SerializeField] float speed = 100;
+    [SerializeField] bool isEnemy = false;
 
     private new Rigidbody2D rigidbody;
 
+    public void SetIsEnemy(bool isEnemy)
+    {
+        this.isEnemy = isEnemy;
+    }
 
+    public bool IsEnemy()
+    {
+        return isEnemy;
+    }
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
