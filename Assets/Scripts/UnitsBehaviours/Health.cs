@@ -25,7 +25,6 @@ public class Health : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("HIT");
         if (collision.gameObject.CompareTag("Projectile"))
         {
             collision.gameObject.SetActive(false);

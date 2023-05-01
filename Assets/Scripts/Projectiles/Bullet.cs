@@ -13,14 +13,11 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-
-        rigidbody.velocity = speed * Time.deltaTime * transform.up;
-
         StartCoroutine(DestroyBullet());
     }
     private void FixedUpdate()
     {
-        rigidbody.velocity = speed * Time.fixedDeltaTime * transform.up;
+        rigidbody.MovePosition(speed * Time.fixedDeltaTime * transform.up + transform.position);
     }
 
     IEnumerator DestroyBullet()
