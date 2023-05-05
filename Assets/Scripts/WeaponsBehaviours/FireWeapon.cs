@@ -102,11 +102,10 @@ public class FireWeapon : MonoBehaviour
                 Debug.Log(hit.collider.gameObject);
                 if (enemy != null && enemy.IsEnemy() != isEnemy)
                 {
-                    Debug.Log("HIT");
                     GameObject instancie = Instantiate(bullet, firePoint.transform.position, this.transform.rotation);
                     instancie.GetComponent<Bullet>().SetIsEnemy(isEnemy);
                     currentAmmo--;
-                    resources.ConsumeBox(ammoConsume);
+                    if(!isEnemy) resources.ConsumeBox(ammoConsume);
                     float fireRateFinal = !isEnemy && resources.IsOutOfResources() ? fireRatePerMinute * 5 : fireRatePerMinute;
                     yield return new WaitForSeconds(fireRateFinal);
                 }    
