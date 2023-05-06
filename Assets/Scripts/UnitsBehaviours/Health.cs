@@ -10,6 +10,9 @@ public class Health : MonoBehaviour
 
     private float currentHealth;
     private bool isEnemy;
+    private Structure onStructure;
+
+    public Structure OnStructure { get => onStructure; set => onStructure = value; }
 
     public bool IsEnemy()
     {
@@ -18,6 +21,7 @@ public class Health : MonoBehaviour
     
     public void GetDamage(float baseDamage)
     {
+        if (onStructure != null && onStructure.RejectProjectile()) return;
         currentHealth -= baseDamage;
         if(currentHealth <= 0)
         {
