@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7041f865f2584348be6b46eb716ee6a, type: 3}
-  m_Name: Wave-Full-Recon
+  m_Script: {fileID: 11500000, guid: f63141181eec3914790309714ae8346b, type: 3}
+  m_Name: AttritionGroup
   m_EditorClassIdentifier: 
-  attackGroups:
-  - {fileID: 11400000, guid: 7a0e73e11a3a116428ad6e9ddc954392, type: 2}
-  - {fileID: 11400000, guid: 6c12b71e6970e58438e3d25423b8cf70, type: 2}
-  timeBetweenAssaultGroups: 30
+  squads: []
+  timeToSpawn: 1
