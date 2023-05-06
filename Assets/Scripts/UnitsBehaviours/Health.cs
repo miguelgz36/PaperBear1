@@ -9,6 +9,12 @@ public class Health : MonoBehaviour
     [SerializeField] private float baseHealth = 100;
 
     private float currentHealth;
+    private bool isEnemy;
+
+    public bool IsEnemy()
+    {
+        return isEnemy;
+    }
     
     public void GetDamage(float baseDamage)
     {
@@ -21,14 +27,19 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = baseHealth;
+        isEnemy = currentUnit.GetComponent<Unit>().IsEnemy();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
+            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+            if (isEnemy != bullet.IsEnemy()) 
+            {
+                GetDamage(20);
+            }
             collision.gameObject.SetActive(false);
-            GetDamage(20);
             Destroy(collision.gameObject);
         }
     }
