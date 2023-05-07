@@ -5,16 +5,21 @@ using UnityEngine;
 public class PlacementManager : MonoBehaviour
 {
     private GameObject selectedObject;
-    private Playercontrols playerControls;
+    private PlayerControls playerControls;
 
     private void Awake()
     {
-        playerControls = new Playercontrols();
+        playerControls = new PlayerControls();
     }
 
     private void OnEnable()
     {
         playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable();
     }
 
     private void Start()
