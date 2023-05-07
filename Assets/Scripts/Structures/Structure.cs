@@ -15,19 +15,21 @@ public class Structure : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        ChangeStructureUnit(collision, this);
+    }
+
+    private void ChangeStructureUnit(Collider2D collision, Structure structure)
+    {
         Health health = collision.gameObject.GetComponent<Health>();
         if (health != null)
         {
-            health.OnStructure = this;
+            health.OnStructure = structure;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Health health = collision.gameObject.GetComponent<Health>();
-        if (health != null)
-        {
-            health.OnStructure = null;
-        }
+        ChangeStructureUnit(collision, null);
+
     }
 }
