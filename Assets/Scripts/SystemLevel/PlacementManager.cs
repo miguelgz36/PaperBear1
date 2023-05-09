@@ -28,11 +28,12 @@ public class PlacementManager : MonoBehaviour
     }
     private void PlaceUnit()
     {
-        Debug.Log("PLACE");
         if(selectedObject != null)
         {
             Vector3 positionToPlace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             positionToPlace.z = 0;
+            positionToPlace.y = (Mathf.Floor(positionToPlace.y / 4f) * 4f) + 2f;
+            positionToPlace.x = (Mathf.Floor(positionToPlace.x / 4f) * 4f) + 2f;
             Instantiate(selectedObject, positionToPlace, Quaternion.Euler(0, 0, -90));
             selectedObject = null;
         }
