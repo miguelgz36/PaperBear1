@@ -11,6 +11,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Projectile Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1245880355223150276, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325289180526132574, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
+      propertyPath: speed
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325289180526132574, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
+      propertyPath: lifeTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153873657231610609, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
+      propertyPath: m_Time
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7153873657231610609, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.a
       value: 1
