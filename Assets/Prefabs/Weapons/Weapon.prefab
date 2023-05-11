@@ -131,6 +131,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 573419845114353113, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
   firePoint: {fileID: 537477614366167307}
+  unit: {fileID: 0}
   fireRatePerMinute: 0.5
   ammoPerCharger: 20
   reloadedRate: 6
+  ammoConsume: 1
+  dispersion: 0.05
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 0

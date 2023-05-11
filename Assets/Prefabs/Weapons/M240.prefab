@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1455907731412465789
+--- !u!1001 &5229392905325249790
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,19 +9,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4213390104135834623, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_Name
-      value: AK47
+      value: M240
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 5270870499025655409, guid: 600a8b307fa814a4a9d8a23b6b6a714a, type: 3}
-    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: dispersion
-      value: 0.08
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: ammoConsume
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: alliedWeapon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: reloadedRate
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: ammoPerCharger
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: fireRatePerMinute
-      value: 0.8
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_RootOrder

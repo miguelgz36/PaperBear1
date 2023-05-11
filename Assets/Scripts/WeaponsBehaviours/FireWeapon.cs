@@ -11,6 +11,7 @@ public class FireWeapon : MonoBehaviour
     [SerializeField] float ammoPerCharger = 12;
     [SerializeField] float reloadedRate = 10;
     [SerializeField] float ammoConsume = 1;
+    [SerializeField] float dispersion = .1f;
 
     private float currentAmmo;
     private bool isShooting;
@@ -102,11 +103,13 @@ public class FireWeapon : MonoBehaviour
                 Debug.Log(hit.collider.gameObject);
                 if (enemy != null && enemy.IsEnemy() != isEnemy)
                 {
-                    GameObject instancie = Instantiate(bullet, firePoint.transform.position, this.transform.rotation);
+                    Quaternion rotation = this.transform.rotation;
+                    rotation.z += Random.Range(-dispersion,dispersion);
+                    GameObject instancie = Instantiate(bullet, firePoint.transform.position, rotation);
                     instancie.GetComponent<Bullet>().SetIsEnemy(isEnemy);
                     currentAmmo--;
                     if(!isEnemy) resources.ConsumeBox(ammoConsume);
-                    float fireRateFinal = !isEnemy && resources.IsOutOfResources() ? fireRatePerMinute * 5 : fireRatePerMinute;
+                    float fireRateFinal = !isEnemy && resources.IsOutOfResources() ? fireRatePerMinute * 100 : fireRatePerMinute;
                     yield return new WaitForSeconds(fireRateFinal);
                 }    
             }

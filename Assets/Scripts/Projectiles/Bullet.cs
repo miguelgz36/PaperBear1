@@ -7,8 +7,12 @@ public class Bullet : MonoBehaviour
     [SerializeField] float lifeTime = 5;
     [SerializeField] float speed = 100;
     [SerializeField] bool isEnemy = false;
+    
+    bool impactedEnemy = false;
 
     private new Rigidbody2D rigidbody;
+
+    public bool ImpactedEnemy { get => impactedEnemy; set => impactedEnemy = value; }
 
     public void SetIsEnemy(bool isEnemy)
     {
@@ -26,6 +30,7 @@ public class Bullet : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (impactedEnemy) return;
         rigidbody.MovePosition(speed * Time.fixedDeltaTime * transform.up + transform.position);
     }
 
