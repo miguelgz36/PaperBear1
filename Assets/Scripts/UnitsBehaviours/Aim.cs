@@ -37,7 +37,8 @@ public class Aim : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (target == null && !collision.gameObject.CompareTag(currentUnit.tag) && !collision.gameObject.CompareTag("Projectile") && !collision.gameObject.CompareTag("Structures"))
+        Health health = collision.GetComponent<Health>();
+        if (target == null && !collision.gameObject.CompareTag(currentUnit.tag) && health)
         {
             Debug.Log(collision.gameObject.tag + " " + currentUnit.tag);
             target = collision.gameObject;

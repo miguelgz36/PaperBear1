@@ -108,10 +108,10 @@ public class FireWeapon : MonoBehaviour
                     GameObject instancie = Instantiate(bullet, firePoint.transform.position, rotation);
                     instancie.GetComponent<Bullet>().SetIsEnemy(isEnemy);
                     currentAmmo--;
-                    if(!isEnemy) resources.ConsumeBox(ammoConsume);
                     float fireRateFinal = !isEnemy && resources.IsOutOfResources() ? fireRatePerMinute * 100 : fireRatePerMinute;
+                    if (!isEnemy) resources.ConsumeBox(ammoConsume);
                     yield return new WaitForSeconds(fireRateFinal);
-                }    
+                }
             }
             yield return new WaitForSeconds(0.1f);
 

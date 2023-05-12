@@ -12,6 +12,8 @@ public class Resources : MonoBehaviour
     private float currentResources;
     private float currentSourcePerSecond;
 
+    public float CurrentResources { get => currentResources; set => currentResources = value; }
+
     public void ConsumeBox(float amount)
     {
         currentResources -= amount;

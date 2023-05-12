@@ -40,17 +40,12 @@ public class Health : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile"))
         {
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
-            if (isEnemy != bullet.IsEnemy() && !bullet.ImpactedEnemy) 
+            if (isEnemy != bullet.IsEnemy()) 
             {
-                bullet.ImpactedEnemy = true;
-                bool didDamage = GetDamage(25);
-                if (didDamage)
-                {
-                    bullet.gameObject.SetActive(false);
-                    Destroy(bullet.gameObject);
-                }               
+                GetDamage(25);                               
             }
-            
+            bullet.gameObject.SetActive(false);
+            Destroy(bullet.gameObject);
         }
     }
     
