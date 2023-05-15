@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 341eff4c7f3003f448072822648c6e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicCost: 300
+  basicCost: 250
 --- !u!114 &1625877584591328502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a104bcfed0f0a1428153699fc830006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  units: []
 --- !u!1001 &1444673195178423266
 PrefabInstance:
   m_ObjectHideFlags: 0

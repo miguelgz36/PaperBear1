@@ -14,28 +14,23 @@ public class FireWeapon : MonoBehaviour
     [SerializeField] float dispersion = .1f;
 
     private float currentAmmo;
+    private bool startShooting;
     private bool isShooting;
     private bool isRealoding;
-    private Coroutine pullTheTriggerCourutine;
-    private Coroutine startReloadingCourutine;
     private Resources resources;
     private bool isEnemy;
     public LayerMask hitMask;
 
-    public void SetIsShooting(bool isShooting)
+    public void SetIsShooting(bool startShooting)
     {
-        this.isShooting = isShooting;
-        if (!isShooting)
-        {
-            StopFiring();
-        }
+        this.startShooting = startShooting;
     }
 
     private void Start()
     {
         resources = FindAnyObjectByType<Resources>();
         currentAmmo = ammoPerCharger;
-        isShooting = false;
+        startShooting = false;
         isRealoding = false;
         isEnemy = unit.GetComponent<Unit>().IsEnemy();
     }
@@ -44,57 +39,21 @@ public class FireWeapon : MonoBehaviour
     {
         if (currentAmmo == 0 && !isRealoding)
         {
-            isRealoding = true;
-            StartReloading();
+           StartCoroutine(ReloadWeapon());
         }
-        else if (!isRealoding)
+        else if (startShooting && !isRealoding && !isShooting)
         {
-            StartFiring();
-        }
-    }
-
-    private void StartReloading()
-    {
-        if (startReloadingCourutine == null)
-        {
-            startReloadingCourutine = StartCoroutine(ReloadWeapon());
-        } 
-    }
-
-    private void StartFiring()
-    {
-        if (isShooting)
-        {
-            if (pullTheTriggerCourutine == null)
-            {
-                pullTheTriggerCourutine = StartCoroutine(PullTheTrigger());
-            }
+           StartCoroutine(PullTheTrigger());
         }
     }
 
-    private void StopFiring()
-    {
-        if (pullTheTriggerCourutine != null)
-        {
-            StopCoroutine(pullTheTriggerCourutine);
-            pullTheTriggerCourutine = null;
-        }
-    }
-
-    private void StopRealoding()
-    {
-        if (startReloadingCourutine != null)
-        {
-            StopCoroutine(startReloadingCourutine);
-            startReloadingCourutine = null;
-            isRealoding = false;
-        }
-    }
+ 
 
     IEnumerator PullTheTrigger()
     {
-        while (currentAmmo > 0)
+        while (currentAmmo > 0 && (isEnemy || !resources.IsOutOfResources()))
         {
+            isShooting = true;
             RaycastHit2D hit = Physics2D.Raycast(firePoint.transform.position, firePoint.transform.up, 100, LayerMask.GetMask("Units"));
             if (hit.collider != null)
             {
@@ -106,22 +65,21 @@ public class FireWeapon : MonoBehaviour
                     GameObject instancie = Instantiate(bullet, firePoint.transform.position, rotation);
                     instancie.GetComponent<Bullet>().SetIsEnemy(isEnemy);
                     currentAmmo--;
-                    float fireRateFinal = !isEnemy && resources.IsOutOfResources() ? fireRatePerMinute * 100 : fireRatePerMinute;
                     if (!isEnemy) resources.ConsumeBox(ammoConsume);
-                    yield return new WaitForSeconds(fireRateFinal);
+                    yield return new WaitForSeconds(fireRatePerMinute);
                 }
             }
             yield return new WaitForSeconds(0.1f);
-
         }
+        isShooting = false;
     }
 
     IEnumerator ReloadWeapon()
     {
-        StopFiring();
+        isRealoding = true;
         yield return new WaitForSeconds(reloadedRate);
         currentAmmo = ammoPerCharger;
-        StopRealoding();
+        isRealoding = false;
     }
 
 }
