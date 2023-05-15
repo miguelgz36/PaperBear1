@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class LevelStateManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private Canvas canvasWin;
+    [SerializeField] private Canvas canvasLose;
+
+    private PlacementManager placementManager;
+
+
+    private void Awake()
     {
-        
+        placementManager = FindAnyObjectByType<PlacementManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Win()
     {
-        
+        placementManager.enabled = false;
+        canvasWin.gameObject.SetActive(true);
+    }
+
+    public void Lose()
+    {
+        placementManager.enabled = false;
+        canvasLose.gameObject.SetActive(true);
     }
 }

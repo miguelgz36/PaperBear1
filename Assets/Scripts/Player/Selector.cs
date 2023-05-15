@@ -17,8 +17,6 @@ public class Selector : MonoBehaviour
         mousePosition.z = 0f;
 
         transform.position = mousePosition;
-
-        Debug.Log(interactableToSelect);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

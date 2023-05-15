@@ -96,11 +96,9 @@ public class FireWeapon : MonoBehaviour
         while (currentAmmo > 0)
         {
             RaycastHit2D hit = Physics2D.Raycast(firePoint.transform.position, firePoint.transform.up, 100, LayerMask.GetMask("Units"));
-            Debug.DrawLine(firePoint.transform.position, firePoint.transform.position + firePoint.transform.up * 100);
             if (hit.collider != null)
             {
                 Health enemy = hit.collider.gameObject.GetComponent<Health>();
-                Debug.Log(hit.collider.gameObject);
                 if (enemy != null && enemy.IsEnemy() != isEnemy)
                 {
                     Quaternion rotation = this.transform.rotation;

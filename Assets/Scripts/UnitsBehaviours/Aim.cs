@@ -40,7 +40,6 @@ public class Aim : MonoBehaviour
         Health health = collision.GetComponent<Health>();
         if (target == null && !collision.gameObject.CompareTag(currentUnit.tag) && health)
         {
-            Debug.Log(collision.gameObject.tag + " " + currentUnit.tag);
             target = collision.gameObject;
             AimTarger();
             fireWeapon.SetIsShooting(true);
