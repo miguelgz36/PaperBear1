@@ -23,6 +23,7 @@ public class Health : MonoBehaviour
     {
         if (onStructure != null && onStructure.RejectProjectile()) return false;
         currentHealth -= baseDamage;
+        StartCoroutine(GetComponent<HitBlink>().FlashRoutine());
         if(currentHealth <= 0)
         {
             Destroy(currentUnit);
