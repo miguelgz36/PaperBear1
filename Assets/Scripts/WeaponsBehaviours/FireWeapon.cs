@@ -48,7 +48,7 @@ public class FireWeapon : MonoBehaviour
 
     IEnumerator PullTheTrigger()
     {
-        while (currentAmmo > 0 && (unitController.IsEnemy() || !resources.IsOutOfResources()))
+        while (currentAmmo > 0 && (unitController.IsEnemy() || !resources.IsOutOfResources()) && startShooting)
         {
             isShooting = true;
             RaycastHit2D hit = Physics2D.Raycast(firePoint.transform.position, firePoint.transform.up, 100, LayerMask.GetMask("Units"));
