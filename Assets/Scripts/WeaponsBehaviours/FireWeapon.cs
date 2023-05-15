@@ -6,7 +6,7 @@ public class FireWeapon : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject firePoint;
-    [SerializeField] GameObject unit;
+    [SerializeField] UnitController unitController;
     [SerializeField] float fireRatePerMinute = 1;
     [SerializeField] float ammoPerCharger = 12;
     [SerializeField] float reloadedRate = 10;
@@ -18,8 +18,6 @@ public class FireWeapon : MonoBehaviour
     private bool isShooting;
     private bool isRealoding;
     private Resources resources;
-    private bool isEnemy;
-    public LayerMask hitMask;
 
     public void SetIsShooting(bool startShooting)
     {
@@ -32,7 +30,6 @@ public class FireWeapon : MonoBehaviour
         currentAmmo = ammoPerCharger;
         startShooting = false;
         isRealoding = false;
-        isEnemy = unit.GetComponent<Unit>().IsEnemy();
     }
 
     private void Update()
@@ -51,21 +48,21 @@ public class FireWeapon : MonoBehaviour
 
     IEnumerator PullTheTrigger()
     {
-        while (currentAmmo > 0 && (isEnemy || !resources.IsOutOfResources()))
+        while (currentAmmo > 0 && (unitController.IsEnemy() || !resources.IsOutOfResources()))
         {
             isShooting = true;
             RaycastHit2D hit = Physics2D.Raycast(firePoint.transform.position, firePoint.transform.up, 100, LayerMask.GetMask("Units"));
             if (hit.collider != null)
             {
                 Health enemy = hit.collider.gameObject.GetComponent<Health>();
-                if (enemy != null && enemy.IsEnemy() != isEnemy)
+                if (enemy != null && enemy.IsEnemy() != unitController.IsEnemy())
                 {
                     Quaternion rotation = this.transform.rotation;
                     rotation.z += Random.Range(-dispersion,dispersion);
                     GameObject instancie = Instantiate(bullet, firePoint.transform.position, rotation);
-                    instancie.GetComponent<Bullet>().SetIsEnemy(isEnemy);
+                    instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
                     currentAmmo--;
-                    if (!isEnemy) resources.ConsumeBox(ammoConsume);
+                    if (!unitController.IsEnemy()) resources.ConsumeBox(ammoConsume);
                     yield return new WaitForSeconds(fireRatePerMinute);
                 }
             }
@@ -76,10 +73,12 @@ public class FireWeapon : MonoBehaviour
 
     IEnumerator ReloadWeapon()
     {
+        unitController.StartReloading();
         isRealoding = true;
         yield return new WaitForSeconds(reloadedRate);
         currentAmmo = ammoPerCharger;
         isRealoding = false;
+        unitController.StopReloading();
     }
 
 }

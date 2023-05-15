@@ -32,7 +32,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = baseHealth;
-        isEnemy = currentUnit.GetComponent<Unit>().IsEnemy();
+        isEnemy = currentUnit.GetComponent<UnitController>().IsEnemy();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

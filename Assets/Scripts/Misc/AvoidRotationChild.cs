@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AvoidRotationChild : MonoBehaviour
 {
-    void Update()
+    void LateUpdate()
     {
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
     }
 }

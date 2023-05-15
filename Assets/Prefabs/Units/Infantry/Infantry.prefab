@@ -227,13 +227,15 @@ GameObject:
   - component: {fileID: 5787365826635467393}
   - component: {fileID: 6495918381480667496}
   - component: {fileID: 3701922412004370703}
+  - component: {fileID: 475081583997348284}
+  - component: {fileID: 8091378626590136099}
   m_Layer: 0
   m_Name: TextReloading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4297004578669301649
 Transform:
   m_ObjectHideFlags: 0
@@ -242,7 +244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8013414414874964620}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1.63, z: 0}
+  m_LocalPosition: {x: 0, y: -1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -256,7 +258,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8013414414874964620}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -301,13 +303,13 @@ TextMesh:
   m_GameObject: {fileID: 8013414414874964620}
   m_Text: Reloading
   m_OffsetZ: 0
-  m_CharacterSize: 0.05
+  m_CharacterSize: 0.03
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 64
-  m_FontStyle: 0
+  m_FontSize: 70
+  m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 0}
   m_Color:
@@ -325,6 +327,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f850d23e261dc2a48ab07c3836dffa7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &475081583997348284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8013414414874964620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950d5a41ace4e174c80e3ca990d118e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &8091378626590136099
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8013414414874964620}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!1 &8934272404496599324
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,3 +408,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
+  reloadingText: {fileID: 475081583997348284}

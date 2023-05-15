@@ -8,7 +8,7 @@ public class Squad : MonoBehaviour
 
     private void Awake()
     {
-        foreach(Unit unit in GetComponentsInChildren<Unit>()) {
+        foreach(UnitController unit in GetComponentsInChildren<UnitController>()) {
             units.Add(unit.gameObject);
         }
     }
