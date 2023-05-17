@@ -6,8 +6,11 @@ public class Selector : MonoBehaviour
 {
 
     private Interactable interactableToSelect;
+    private PlaceableZone placableToSelect;
 
     public Interactable InteractableToSelect { get => interactableToSelect; }
+    public PlaceableZone PlaceableZoneToSelect { get => placableToSelect; }
+
 
     void Update()
     {
@@ -26,6 +29,11 @@ public class Selector : MonoBehaviour
         {
             interactableToSelect = interactable;
         }
+        PlaceableZone placeableZone = collision.GetComponent<PlaceableZone>();
+        if (placeableZone)
+        {
+            placableToSelect = placeableZone;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -34,6 +42,11 @@ public class Selector : MonoBehaviour
         if (interactable && interactable == interactableToSelect)
         {
             interactableToSelect = null;
+        }
+        PlaceableZone placeableZone = collision.GetComponent<PlaceableZone>();
+        if (placeableZone && placeableZone == placableToSelect)
+        {
+            placableToSelect = null;
         }
     }
 }

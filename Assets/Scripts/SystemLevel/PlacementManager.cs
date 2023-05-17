@@ -34,20 +34,17 @@ public class PlacementManager : MonoBehaviour
     {
         Vector3 inputMouse = Input.mousePosition;
         if (selectedObject != null && resources.CurrentResources >= selectedObject.GetComponent<AlliedSquad>().BasicCost 
-            && selector.InteractableToSelect 
-            && selector.InteractableToSelect.gameObject.GetComponent<Cell>())
+            && selector.PlaceableZoneToSelect && selector.PlaceableZoneToSelect.ObjectInZone == null)
         {
             Vector3 positionToPlace = Camera.main.ScreenToWorldPoint(inputMouse);
             positionToPlace.z = 0;
             positionToPlace.y = (Mathf.Floor(positionToPlace.y / 4f) * 4f) + 2f;
             positionToPlace.x = (Mathf.Floor(positionToPlace.x / 4f) * 4f) + 2f;
-            Instantiate(selectedObject, positionToPlace, Quaternion.Euler(0, 0, -90));
+            GameObject instance = Instantiate(selectedObject, positionToPlace, Quaternion.Euler(0, 0, -90));
             resources.CurrentResources -= selectedObject.GetComponent<AlliedSquad>().BasicCost;
-        } 
-        else
-        {
-           selectedObject = null;
+            selector.PlaceableZoneToSelect.ObjectInZone = instance;
         }
+        selectedObject = null;
     }
     public void SetUnitToPlace(GameObject selected)
     {

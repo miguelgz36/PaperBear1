@@ -12,6 +12,7 @@ public class FireWeapon : MonoBehaviour
     [SerializeField] float reloadedRate = 10;
     [SerializeField] float ammoConsume = 1;
     [SerializeField] float dispersion = .1f;
+    [SerializeField] float percentajeVarianceFireRate = 0.2f;
 
     private float currentAmmo;
     private bool startShooting;
@@ -19,6 +20,7 @@ public class FireWeapon : MonoBehaviour
     private bool isRealoding;
     private Resources resources;
     private SoundWeapon soundWeapon;
+    private float varianceFireRate;
 
     private void Awake()
     {
@@ -32,6 +34,7 @@ public class FireWeapon : MonoBehaviour
 
     private void Start()
     {
+        varianceFireRate = percentajeVarianceFireRate * fireRatePerMinute;
         currentAmmo = ammoPerCharger;
         startShooting = false;
         isRealoding = false;
@@ -69,7 +72,8 @@ public class FireWeapon : MonoBehaviour
                     soundWeapon.PlaySoundFire();
                     currentAmmo--;
                     if (!unitController.IsEnemy()) resources.ConsumeBox(ammoConsume);
-                    yield return new WaitForSeconds(fireRatePerMinute);
+                    float finalFireRate = Random.Range(fireRatePerMinute - varianceFireRate, fireRatePerMinute + varianceFireRate);
+                    yield return new WaitForSeconds(finalFireRate);
                 }              
             }
             yield return new WaitForSeconds(0.01f);
