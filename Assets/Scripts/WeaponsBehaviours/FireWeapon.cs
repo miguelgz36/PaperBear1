@@ -18,7 +18,13 @@ public class FireWeapon : MonoBehaviour
     private bool isShooting;
     private bool isRealoding;
     private Resources resources;
+    private SoundWeapon soundWeapon;
 
+    private void Awake()
+    {
+        soundWeapon = GetComponent<SoundWeapon>();
+        resources = FindAnyObjectByType<Resources>();
+    }
     public void SetIsShooting(bool startShooting)
     {
         this.startShooting = startShooting;
@@ -26,7 +32,6 @@ public class FireWeapon : MonoBehaviour
 
     private void Start()
     {
-        resources = FindAnyObjectByType<Resources>();
         currentAmmo = ammoPerCharger;
         startShooting = false;
         isRealoding = false;
@@ -61,12 +66,14 @@ public class FireWeapon : MonoBehaviour
                     rotation.z += Random.Range(-dispersion,dispersion);
                     GameObject instancie = Instantiate(bullet, firePoint.transform.position, rotation);
                     instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
+                    soundWeapon.PlaySoundFire();
                     currentAmmo--;
                     if (!unitController.IsEnemy()) resources.ConsumeBox(ammoConsume);
                     yield return new WaitForSeconds(fireRatePerMinute);
-                }
+                }              
             }
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.01f);
+
         }
         isShooting = false;
     }

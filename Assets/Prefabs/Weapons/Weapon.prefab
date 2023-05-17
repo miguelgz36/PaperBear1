@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 5594717946205099722}
   - component: {fileID: 3934303848656773661}
   - component: {fileID: 4750939607522340647}
+  - component: {fileID: 8006837228641442840}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -131,12 +132,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 573419845114353113, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
   firePoint: {fileID: 537477614366167307}
-  unit: {fileID: 0}
+  unitController: {fileID: 0}
   fireRatePerMinute: 0.5
   ammoPerCharger: 20
   reloadedRate: 6
   ammoConsume: 1
   dispersion: 0.05
-  hitMask:
-    serializedVersion: 2
-    m_Bits: 0
+  clipFire: {fileID: 8300000, guid: 4b20c812266ad1f4d9a987aeb8156d8c, type: 3}
+--- !u!114 &8006837228641442840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4213390104135834623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873ec9023ec3c594eab3e21183eceeb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFire: {fileID: 8300000, guid: 4b20c812266ad1f4d9a987aeb8156d8c, type: 3}
+  volumeFire: 0.5
