@@ -2279,7 +2279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b21b95f26178b44580421ec0b1bcb7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialBoxResources: 3000
+  initialBoxResources: 3300
   initialSourcePerSecond: 5
   textBoxes: {fileID: 445523844}
 --- !u!4 &1979319317
