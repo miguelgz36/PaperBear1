@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelStateManager : MonoBehaviour
 {
@@ -26,5 +27,16 @@ public class LevelStateManager : MonoBehaviour
     {
         placementManager.enabled = false;
         canvasLose.gameObject.SetActive(true);
+    }
+
+    public void LoadSameGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+        Debug.Log("Quiting");
     }
 }
