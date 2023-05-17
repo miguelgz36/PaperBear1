@@ -10,12 +10,14 @@ public class PlacementButton : MonoBehaviour
     private Resources resources;
     private AlliedSquad alliedSquad;
     private Button button;
+    private PlaceableCells placeableCells;
     private void Awake()
     {
         placementManager = FindAnyObjectByType<PlacementManager>();
         resources = FindAnyObjectByType<Resources>();
         alliedSquad = unitPrefab.GetComponent<AlliedSquad>();
         button = GetComponentInParent<Button>();
+        placeableCells = FindAnyObjectByType<PlaceableCells>();
     }
  
 
@@ -31,6 +33,7 @@ public class PlacementButton : MonoBehaviour
     }
     public void SetCurrentUnitToPlace()
     {
+        placeableCells.ShowPlaceableZone();
         placementManager.SetUnitToPlace(unitPrefab);
     }
 }

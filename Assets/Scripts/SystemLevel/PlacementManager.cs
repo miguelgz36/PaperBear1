@@ -8,12 +8,14 @@ public class PlacementManager : MonoBehaviour
     private PlayerControls playerControls;
     private Resources resources;
     private Selector selector;
+    private PlaceableCells placeableCells;
 
     private void Awake()
     {
         playerControls = new PlayerControls();
         resources = FindAnyObjectByType<Resources>();
         selector = FindAnyObjectByType<Selector>();
+        placeableCells = FindAnyObjectByType<PlaceableCells>();
     }
 
     private void OnEnable()
@@ -45,6 +47,7 @@ public class PlacementManager : MonoBehaviour
             selector.PlaceableZoneToSelect.ObjectInZone = instance;
         }
         selectedObject = null;
+        placeableCells.HidePlaceableZone();
     }
     public void SetUnitToPlace(GameObject selected)
     {
