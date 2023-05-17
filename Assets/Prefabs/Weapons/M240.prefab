@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5229392905325249790
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4213390104135834623, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_Name
+      value: M240
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: dispersion
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: ammoConsume
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: alliedWeapon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: reloadedRate
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: ammoPerCharger
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: fireRatePerMinute
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006837228641442840, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: volumeFire
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b49f98137328b0744a6181428099f7ae, type: 3}

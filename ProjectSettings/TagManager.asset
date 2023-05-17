@@ -3,17 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Allied
+  - Projectile
+  - Structures
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Selector
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Projectiles
+  - Map
+  - Units
   - 
   - 
   - 
