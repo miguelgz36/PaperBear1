@@ -28,12 +28,12 @@ public class Resources : MonoBehaviour
     {
         currentResources = initialBoxResources;
         currentSourcePerSecond = initialSourcePerSecond;
-        textBoxes.text = currentResources.ToString();
+        textBoxes.text = "Ammo: " + currentResources.ToString() + "  " + "Ammo per second: " + currentSourcePerSecond.ToString();
     }
 
     private void Update()
     {
         currentResources += currentSourcePerSecond * Time.deltaTime;
-        textBoxes.text = currentResources.ToString();
+        textBoxes.text = "Ammo: " + currentResources.ToString() + "  " + "Ammo/s: " + currentSourcePerSecond.ToString();
     }
 }

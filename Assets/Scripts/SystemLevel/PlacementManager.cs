@@ -47,7 +47,7 @@ public class PlacementManager : MonoBehaviour
             selector.PlaceableZoneToSelect.ObjectInZone = instance;
         }
         selectedObject = null;
-        placeableCells.HidePlaceableZone();
+        placeableCells.HidePlaceableZones();
     }
     public void SetUnitToPlace(GameObject selected)
     {
