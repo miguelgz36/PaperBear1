@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed = 100;
     [SerializeField] bool isEnemy = false;
     
-    private new Rigidbody2D rigidbody;
+    private Rigidbody2D rigidBody;
 
     public void SetIsEnemy(bool isEnemy)
     {
@@ -21,12 +21,12 @@ public class Bullet : MonoBehaviour
     }
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rigidBody = GetComponent<Rigidbody2D>();
         StartCoroutine(DestroyBullet());
     }
     private void FixedUpdate()
     {
-        rigidbody.MovePosition(speed * Time.fixedDeltaTime * transform.up + transform.position);
+        rigidBody.MovePosition(speed * Time.fixedDeltaTime * transform.up + transform.position);
     }
 
     IEnumerator DestroyBullet()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Selector : MonoBehaviour
+public class Selector : Singleton<Selector>
 {
 
     private Interactable interactableToSelect;
