@@ -42,7 +42,7 @@ public class PlacementManager : Singleton<PlacementManager>
             Selector.Instance.PlaceableZoneToSelect.ObjectInZone = instance;
         }
         selectedObject = null;
-        PlaceableCells.Instance.HidePlaceableZone();
+        PlaceableCells.Instance.HidePlaceableZones();
     }
     public void SetUnitToPlace(GameObject selected)
     {

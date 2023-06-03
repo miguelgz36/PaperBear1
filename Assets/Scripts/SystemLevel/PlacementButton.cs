@@ -28,7 +28,7 @@ public class PlacementButton : MonoBehaviour
     }
     public void SetCurrentUnitToPlace()
     {
-        PlaceableCells.Instance.ShowPlaceableZone();
+        PlaceableCells.Instance.ShowPlaceableZones();
         PlacementManager.Instance.SetUnitToPlace(unitPrefab);
     }
 }

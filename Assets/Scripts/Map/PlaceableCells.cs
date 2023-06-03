@@ -6,7 +6,8 @@ using UnityEngine.Tilemaps;
 public class PlaceableCells : Singleton<PlaceableCells>
 {
     private TilemapRenderer tilemapRenderer;
-  
+    List<PlaceableZone> placeableZones;
+
     protected override void Awake()
     {
         base.Awake();
