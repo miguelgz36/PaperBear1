@@ -7,15 +7,7 @@ public class ManagerWaves : MonoBehaviour
     [SerializeField] private List<Wave> waves;
     [SerializeField] private List<Transform> spawnPoints;
 
-    private LevelStateManager levelStateManager;
-
     bool finalWave = false;
-
-
-    private void Awake()
-    {
-        levelStateManager = FindAnyObjectByType<LevelStateManager>();
-    }
 
     private void Start()
     {
@@ -26,7 +18,7 @@ public class ManagerWaves : MonoBehaviour
     {
         if (finalWave && FindObjectsOfType<EnemyMove>().Length == 0)
         {
-            levelStateManager.Win();
+            LevelStateManager.Instance.Win();
         }
     }
 

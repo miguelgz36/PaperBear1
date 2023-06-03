@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Resources : MonoBehaviour
+public class Resources : Singleton<Resources>
 {
     [SerializeField] private float initialBoxResources;
     [SerializeField] private float initialSourcePerSecond;
@@ -14,6 +14,10 @@ public class Resources : MonoBehaviour
 
     public float CurrentResources { get => currentResources; set => currentResources = value; }
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
     public void ConsumeBox(float amount)
     {
         currentResources -= amount;

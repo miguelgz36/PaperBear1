@@ -2,20 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlacementManager : MonoBehaviour
+public class PlacementManager : Singleton<PlacementManager>
 {
     private GameObject selectedObject;
     private PlayerControls playerControls;
-    private Resources resources;
-    private Selector selector;
-    private PlaceableCells placeableCells;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         playerControls = new PlayerControls();
-        resources = FindAnyObjectByType<Resources>();
-        selector = FindAnyObjectByType<Selector>();
-        placeableCells = FindAnyObjectByType<PlaceableCells>();
     }
 
     private void OnEnable()
@@ -35,19 +30,19 @@ public class PlacementManager : MonoBehaviour
     private void PlaceUnit()
     {
         Vector3 inputMouse = Input.mousePosition;
-        if (selectedObject != null && resources.CurrentResources >= selectedObject.GetComponent<AlliedSquad>().BasicCost 
-            && selector.PlaceableZoneToSelect && selector.PlaceableZoneToSelect.ObjectInZone == null)
+        if (selectedObject != null && Resources.Instance.CurrentResources >= selectedObject.GetComponent<AlliedSquad>().BasicCost 
+            && Selector.Instance.PlaceableZoneToSelect && Selector.Instance.PlaceableZoneToSelect.ObjectInZone == null)
         {
             Vector3 positionToPlace = Camera.main.ScreenToWorldPoint(inputMouse);
             positionToPlace.z = 0;
             positionToPlace.y = (Mathf.Floor(positionToPlace.y / 4f) * 4f) + 2f;
             positionToPlace.x = (Mathf.Floor(positionToPlace.x / 4f) * 4f) + 2f;
             GameObject instance = Instantiate(selectedObject, positionToPlace, Quaternion.Euler(0, 0, -90));
-            resources.CurrentResources -= selectedObject.GetComponent<AlliedSquad>().BasicCost;
-            selector.PlaceableZoneToSelect.ObjectInZone = instance;
+            Resources.Instance.CurrentResources -= selectedObject.GetComponent<AlliedSquad>().BasicCost;
+            Selector.Instance.PlaceableZoneToSelect.ObjectInZone = instance;
         }
         selectedObject = null;
-        placeableCells.HidePlaceableZone();
+        PlaceableCells.Instance.HidePlaceableZone();
     }
     public void SetUnitToPlace(GameObject selected)
     {

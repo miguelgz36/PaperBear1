@@ -18,14 +18,12 @@ public class FireWeapon : MonoBehaviour
     private bool startShooting;
     private bool isShooting;
     private bool isRealoding;
-    private Resources resources;
     private SoundWeapon soundWeapon;
     private float varianceFireRate;
 
     private void Awake()
     {
         soundWeapon = GetComponent<SoundWeapon>();
-        resources = FindAnyObjectByType<Resources>();
     }
     public void SetIsShooting(bool startShooting)
     {
@@ -56,7 +54,7 @@ public class FireWeapon : MonoBehaviour
 
     IEnumerator PullTheTrigger()
     {
-        while (currentAmmo > 0 && (unitController.IsEnemy() || !resources.IsOutOfResources()) && startShooting)
+        while (currentAmmo > 0 && (unitController.IsEnemy() || !Resources.Instance.IsOutOfResources()) && startShooting)
         {
             isShooting = true;
             RaycastHit2D hit = Physics2D.Raycast(firePoint.transform.position, firePoint.transform.up, 100, LayerMask.GetMask("Units"));
@@ -71,7 +69,7 @@ public class FireWeapon : MonoBehaviour
                     instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
                     soundWeapon.PlaySoundFire();
                     currentAmmo--;
-                    if (!unitController.IsEnemy()) resources.ConsumeBox(ammoConsume);
+                    if (!unitController.IsEnemy()) Resources.Instance.ConsumeBox(ammoConsume);
                     float finalFireRate = Random.Range(fireRatePerMinute - varianceFireRate, fireRatePerMinute + varianceFireRate);
                     yield return new WaitForSeconds(finalFireRate);
                 }              

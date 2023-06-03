@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PlaceableCells : MonoBehaviour
+public class PlaceableCells : Singleton<PlaceableCells>
 {
     private TilemapRenderer tilemapRenderer;
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         tilemapRenderer = GetComponent<TilemapRenderer>();
     }
 
