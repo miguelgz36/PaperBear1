@@ -15,10 +15,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Allied
       objectReference: {fileID: 0}
-    - target: {fileID: 5787365826635467393, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5996279622273365688, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_FlipX
       value: 1
@@ -144,23 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9655ecd994b029f46b1c3919880422a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &4874561384678390515 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8013414414874964620, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
-  m_PrefabInstance: {fileID: 3211266871672866943}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8952038644417225626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4874561384678390515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 950d5a41ace4e174c80e3ca990d118e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6045486714604181809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9184339470090621262, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
@@ -188,7 +167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 375742088946569780, guid: 6bf97e5460d6ccb4ca5f8f688bdab1a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.536
+      value: 0.484
       objectReference: {fileID: 0}
     - target: {fileID: 375742088946569780, guid: 6bf97e5460d6ccb4ca5f8f688bdab1a7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -232,7 +211,7 @@ PrefabInstance:
       objectReference: {fileID: 1236376155617012751}
     - target: {fileID: 8280570356720574209, guid: 6bf97e5460d6ccb4ca5f8f688bdab1a7, type: 3}
       propertyPath: m_Name
-      value: M240
+      value: M249
       objectReference: {fileID: 0}
     - target: {fileID: 9082631960672577251, guid: 6bf97e5460d6ccb4ca5f8f688bdab1a7, type: 3}
       propertyPath: m_SortingOrder

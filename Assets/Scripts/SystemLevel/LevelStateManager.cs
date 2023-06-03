@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelStateManager : Singleton<LevelStateManager>
 {
@@ -23,5 +24,16 @@ public class LevelStateManager : Singleton<LevelStateManager>
     {
         PlacementManager.Instance.enabled = false;
         canvasLose.gameObject.SetActive(true);
+    }
+
+    public void LoadSameGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+        Debug.Log("Quiting");
     }
 }

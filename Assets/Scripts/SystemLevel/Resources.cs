@@ -32,12 +32,12 @@ public class Resources : Singleton<Resources>
     {
         currentResources = initialBoxResources;
         currentSourcePerSecond = initialSourcePerSecond;
-        textBoxes.text = currentResources.ToString();
+        textBoxes.text = "Supplies: " + currentResources.ToString() + "  " + "Supplies per second: " + currentSourcePerSecond.ToString();
     }
 
     private void Update()
     {
         currentResources += currentSourcePerSecond * Time.deltaTime;
-        textBoxes.text = currentResources.ToString();
+        textBoxes.text = "Supplies: " + currentResources.ToString() + "  " + "Supplies/s: " + currentSourcePerSecond.ToString();
     }
 }
