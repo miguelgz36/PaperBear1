@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 5760439683050204164}
+    - target: {fileID: 267453742970581912, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: objectToRotate
+      value: 
+      objectReference: {fileID: 7471695162061592184}
     - target: {fileID: 3463784451582973751, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: baseHealth
       value: 200

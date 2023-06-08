@@ -6,7 +6,7 @@ using UnityEngine;
 public class Aim : MonoBehaviour
 {
     [SerializeField] private GameObject weapon;
-    [SerializeField] private GameObject currentUnit;
+    [SerializeField] private GameObject objectToRotate;
 
     private GameObject target;
     private Quaternion startedRotation;
@@ -15,9 +15,9 @@ public class Aim : MonoBehaviour
 
     private void Start()
     {
-        startedRotation = currentUnit.transform.rotation;
+        startedRotation = objectToRotate.transform.rotation;
         fireWeapon = weapon.GetComponent<FireWeapon>();
-        enemyMove = currentUnit.GetComponent<EnemyMove>();
+        enemyMove = objectToRotate.GetComponent<EnemyMove>();
     }
     private void Update()
     {
@@ -28,17 +28,17 @@ public class Aim : MonoBehaviour
     {
         if (target != null && target.activeSelf)
         {
-            float angle = Mathf.Atan2(target.transform.position.y - currentUnit.transform.position.y,
-                          target.transform.position.x - currentUnit.transform.position.x)
+            float angle = Mathf.Atan2(target.transform.position.y - objectToRotate.transform.position.y,
+                          target.transform.position.x - objectToRotate.transform.position.x)
               * Mathf.Rad2Deg - 90;
-            currentUnit.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            objectToRotate.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         Health health = collision.GetComponent<Health>();
-        if (target == null && !collision.gameObject.CompareTag(currentUnit.tag) && health)
+        if (target == null && !collision.gameObject.CompareTag(objectToRotate.tag) && health)
         {
             target = collision.gameObject;
             AimTarger();
@@ -52,7 +52,7 @@ public class Aim : MonoBehaviour
         if(target != null && target == collision.gameObject)
         {
             target = null;
-            currentUnit.transform.rotation = startedRotation;
+            objectToRotate.transform.rotation = startedRotation;
             fireWeapon.SetIsShooting(false);
             if (enemyMove != null) enemyMove.SetIsMove(true);
         }

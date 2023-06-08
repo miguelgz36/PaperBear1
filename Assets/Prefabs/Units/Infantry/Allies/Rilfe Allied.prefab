@@ -89,6 +89,10 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 7775004219345967428}
+    - target: {fileID: 267453742970581912, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: objectToRotate
+      value: 
+      objectReference: {fileID: 6299514836813529443}
     - target: {fileID: 4433437603108382498, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_TagString
       value: Allied

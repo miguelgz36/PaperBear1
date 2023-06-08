@@ -89,6 +89,10 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 7833159525494841353}
+    - target: {fileID: 267453742970581912, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: objectToRotate
+      value: 
+      objectReference: {fileID: 1565700252210668028}
     - target: {fileID: 3738756307646533153, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
       value: 10
