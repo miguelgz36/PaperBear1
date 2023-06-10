@@ -36,6 +36,7 @@ public class Health : MonoBehaviour
         isEnemy = currentUnit.GetComponent<UnitController>().IsEnemy();
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Projectile"))
@@ -43,10 +44,11 @@ public class Health : MonoBehaviour
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
             if (isEnemy != bullet.IsEnemy()) 
             {
-                GetDamage(25);                               
+                GetDamage(25);
+                bullet.gameObject.SetActive(false);
+                Destroy(bullet.gameObject);
             }
-            bullet.gameObject.SetActive(false);
-            Destroy(bullet.gameObject);
+            
         }
     }
     

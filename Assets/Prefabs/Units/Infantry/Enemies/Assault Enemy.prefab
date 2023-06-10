@@ -90,6 +90,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7833159525494841353}
     - target: {fileID: 267453742970581912, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: enemyMove
+      value: 
+      objectReference: {fileID: 5526748587795349236}
+    - target: {fileID: 267453742970581912, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: objectToRotate
       value: 
       objectReference: {fileID: 1565700252210668028}

@@ -7,17 +7,18 @@ public class Aim : MonoBehaviour
 {
     [SerializeField] private GameObject weapon;
     [SerializeField] private GameObject objectToRotate;
+    [SerializeField] private EnemyMove enemyMove;
+    [SerializeField] private bool primaryAim = true;
+
 
     private GameObject target;
     private Quaternion startedRotation;
     private FireWeapon fireWeapon;
-    private EnemyMove enemyMove;
 
-    private void Start()
+    private void Awake()
     {
         startedRotation = objectToRotate.transform.rotation;
         fireWeapon = weapon.GetComponent<FireWeapon>();
-        enemyMove = objectToRotate.GetComponent<EnemyMove>();
     }
     private void Update()
     {
@@ -43,7 +44,7 @@ public class Aim : MonoBehaviour
             target = collision.gameObject;
             AimTarger();
             fireWeapon.SetIsShooting(true);
-            if (enemyMove != null) enemyMove.SetIsMove(false);
+            if (enemyMove != null && primaryAim) enemyMove.SetIsMove(false);
         }
     }
 

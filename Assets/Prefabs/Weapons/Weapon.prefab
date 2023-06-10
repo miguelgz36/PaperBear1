@@ -131,7 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7133303741234010807, guid: 96957bc87d096894eb6032c856a35456, type: 3}
-  firePoint: {fileID: 537477614366167307}
+  firePoint: {fileID: 9134193017431837156}
+  aimPointVehicle: {fileID: 0}
   unitController: {fileID: 0}
   fireRatePerMinute: 0.05
   ammoPerCharger: 200

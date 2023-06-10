@@ -5,7 +5,8 @@ using UnityEngine;
 public class FireWeapon : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
-    [SerializeField] GameObject firePoint;
+    [SerializeField] Transform firePoint;
+    [SerializeField] GameObject aimPointVehicle;
     [SerializeField] UnitController unitController;
     [SerializeField] float fireRatePerMinute = 1;
     [SerializeField] float ammoPerCharger = 12;
@@ -57,7 +58,7 @@ public class FireWeapon : MonoBehaviour
         while (currentAmmo > 0 && (unitController.IsEnemy() || !Resources.Instance.IsOutOfResources()) && startShooting)
         {
             isShooting = true;
-            RaycastHit2D hit = Physics2D.Raycast(firePoint.transform.position, firePoint.transform.up, 100, LayerMask.GetMask("Units"));
+            RaycastHit2D hit = Physics2D.Raycast(aimPointVehicle ? aimPointVehicle.transform.position : firePoint.transform.position, aimPointVehicle ? aimPointVehicle.transform.up : firePoint.transform.up, 100, LayerMask.GetMask("Units"));
             if (hit.collider != null)
             {
                 Health enemy = hit.collider.gameObject.GetComponent<Health>();
@@ -65,7 +66,7 @@ public class FireWeapon : MonoBehaviour
                 {
                     Quaternion rotation = this.transform.rotation;
                     rotation.z += Random.Range(-dispersion,dispersion);
-                    GameObject instancie = Instantiate(bullet, firePoint.transform.position, rotation);
+                    GameObject instancie = Instantiate(bullet, firePoint.position, rotation);
                     instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
                     soundWeapon.PlaySoundFire();
                     currentAmmo--;

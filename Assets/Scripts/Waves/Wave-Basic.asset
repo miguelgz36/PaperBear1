@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Wave-Basic
   m_EditorClassIdentifier: 
   attackGroups:
+  - {fileID: 11400000, guid: 13ab89a91e8e15f4696c9951766b0980, type: 2}
   - {fileID: 11400000, guid: 7a0e73e11a3a116428ad6e9ddc954392, type: 2}
   - {fileID: 11400000, guid: 6c12b71e6970e58438e3d25423b8cf70, type: 2}
   - {fileID: 11400000, guid: 9257117ba6538524d88be7938cfa2953, type: 2}
