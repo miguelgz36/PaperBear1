@@ -77,6 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 1825783776016890398}
   objectToRotate: {fileID: 9108768916533981210}
+  enemyMove: {fileID: 0}
+  primaryAim: 0
 --- !u!1 &845729743098853778
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 4679656587388501217}
   objectToRotate: {fileID: 9108768916533981210}
+  enemyMove: {fileID: 0}
+  primaryAim: 1
 --- !u!1 &7081954856874935672
 GameObject:
   m_ObjectHideFlags: 0
