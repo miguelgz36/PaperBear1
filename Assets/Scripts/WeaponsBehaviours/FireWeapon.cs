@@ -14,6 +14,7 @@ public class FireWeapon : MonoBehaviour
     [SerializeField] float ammoConsume = 1;
     [SerializeField] float dispersion = .1f;
     [SerializeField] float percentajeVarianceFireRate = 0.2f;
+    [SerializeField] float rangeFire = 10f;
 
     private float currentAmmo;
     private bool startShooting;
@@ -58,14 +59,14 @@ public class FireWeapon : MonoBehaviour
         while (currentAmmo > 0 && (unitController.IsEnemy() || !Resources.Instance.IsOutOfResources()) && startShooting)
         {
             isShooting = true;
-            RaycastHit2D hit = Physics2D.Raycast(aimPointVehicle ? aimPointVehicle.transform.position : firePoint.transform.position, aimPointVehicle ? aimPointVehicle.transform.up : firePoint.transform.up, 100, LayerMask.GetMask("Units"));
+            RaycastHit2D hit = RayCastToTarget();
             if (hit.collider != null)
             {
                 Health enemy = hit.collider.gameObject.GetComponent<Health>();
-                if (enemy != null && enemy.IsEnemy() != unitController.IsEnemy())
+                if (enemy != null && enemy.IsEnemy() != unitController.IsEnemy() && IsInRangeFire(enemy))
                 {
                     Quaternion rotation = this.transform.rotation;
-                    rotation.z += Random.Range(-dispersion,dispersion);
+                    rotation.z += Random.Range(-dispersion, dispersion);
                     GameObject instancie = Instantiate(bullet, firePoint.position, rotation);
                     instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
                     soundWeapon.PlaySoundFire();
@@ -73,12 +74,24 @@ public class FireWeapon : MonoBehaviour
                     if (!unitController.IsEnemy()) Resources.Instance.ConsumeBox(ammoConsume);
                     float finalFireRate = Random.Range(fireRatePerMinute - varianceFireRate, fireRatePerMinute + varianceFireRate);
                     yield return new WaitForSeconds(finalFireRate);
-                }              
+                }
             }
             yield return new WaitForSeconds(0.01f);
 
         }
         isShooting = false;
+    }
+
+    public bool IsInRangeFire(Health enemy)
+    {
+        return Vector2.Distance(transform.position, enemy.transform.position) < rangeFire;
+    }
+
+    private RaycastHit2D RayCastToTarget()
+    {
+        return Physics2D.Raycast(aimPointVehicle ? aimPointVehicle.transform.position : firePoint.transform.position,
+            aimPointVehicle ? aimPointVehicle.transform.up : firePoint.transform.up,
+            100, LayerMask.GetMask("Units"));
     }
 
     IEnumerator ReloadWeapon()

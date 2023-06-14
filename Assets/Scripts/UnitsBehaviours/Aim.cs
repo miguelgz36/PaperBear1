@@ -39,13 +39,16 @@ public class Aim : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         Health health = collision.GetComponent<Health>();
-        if (target == null && !collision.gameObject.CompareTag(objectToRotate.tag) && health)
+        if(!collision.gameObject.CompareTag(objectToRotate.tag) && health)
         {
-            target = collision.gameObject;
-            AimTarger();
-            fireWeapon.SetIsShooting(true);
-            if (enemyMove != null && primaryAim) enemyMove.SetIsMove(false);
+            if (enemyMove != null && primaryAim && fireWeapon.IsInRangeFire(health)) enemyMove.SetIsMove(false);
+            if (target == null && !collision.gameObject.CompareTag(objectToRotate.tag) && health)
+            {
+                target = collision.gameObject;
+                fireWeapon.SetIsShooting(true);
+            }
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)

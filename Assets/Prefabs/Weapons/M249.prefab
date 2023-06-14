@@ -20,6 +20,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7133303741234010807, guid: 96957bc87d096894eb6032c856a35456, type: 3}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: rangeFire
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: dispersion
       value: 0.09
       objectReference: {fileID: 0}
