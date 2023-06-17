@@ -6,9 +6,12 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] float lifeTime = 5;
     [SerializeField] float speed = 100;
+    [SerializeField] float damage = 30;
     [SerializeField] bool isEnemy = false;
     
     private Rigidbody2D rigidBody;
+
+    public float Damage { get => damage; }
 
     public void SetIsEnemy(bool isEnemy)
     {

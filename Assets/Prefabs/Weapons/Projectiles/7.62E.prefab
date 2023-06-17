@@ -16,6 +16,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4325289180526132574, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
+      propertyPath: damage
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325289180526132574, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
       propertyPath: isEnemy
       value: 1
       objectReference: {fileID: 0}
