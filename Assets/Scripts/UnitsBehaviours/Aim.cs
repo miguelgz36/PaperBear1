@@ -6,19 +6,20 @@ using UnityEngine;
 public class Aim : MonoBehaviour
 {
     [SerializeField] private GameObject weapon;
+    [SerializeField] private GameObject secondaryWeapon;
     [SerializeField] private GameObject objectToRotate;
     [SerializeField] private EnemyMove enemyMove;
-    [SerializeField] private bool primaryAim = true;
-
 
     private GameObject target;
     private Quaternion startedRotation;
-    private FireWeapon fireWeapon;
+    private FireWeapon primaryFireWeapon;
+    private FireWeapon secondaryFireWeapon;
 
     private void Awake()
     {
         startedRotation = objectToRotate.transform.rotation;
-        fireWeapon = weapon.GetComponent<FireWeapon>();
+        primaryFireWeapon = weapon.GetComponent<FireWeapon>();
+        if (secondaryWeapon) secondaryFireWeapon = secondaryWeapon.GetComponent<FireWeapon>();
     }
     private void Update()
     {
@@ -29,6 +30,8 @@ public class Aim : MonoBehaviour
     {
         if (target != null && target.activeSelf)
         {
+            if (enemyMove != null && primaryFireWeapon.IsInRangeFire(target.GetComponent<Health>())) enemyMove.SetIsMove(false);
+
             float angle = Mathf.Atan2(target.transform.position.y - objectToRotate.transform.position.y,
                           target.transform.position.x - objectToRotate.transform.position.x)
               * Mathf.Rad2Deg - 90;
@@ -41,11 +44,11 @@ public class Aim : MonoBehaviour
         Health health = collision.GetComponent<Health>();
         if(!collision.gameObject.CompareTag(objectToRotate.tag) && health)
         {
-            if (enemyMove != null && primaryAim && fireWeapon.IsInRangeFire(health)) enemyMove.SetIsMove(false);
             if (target == null && !collision.gameObject.CompareTag(objectToRotate.tag) && health)
             {
                 target = collision.gameObject;
-                fireWeapon.SetIsShooting(true);
+                primaryFireWeapon.SetIsShooting(true);
+                if (secondaryWeapon) secondaryFireWeapon.SetIsShooting(true);
             }
         }
         
@@ -57,7 +60,8 @@ public class Aim : MonoBehaviour
         {
             target = null;
             objectToRotate.transform.rotation = startedRotation;
-            fireWeapon.SetIsShooting(false);
+            primaryFireWeapon.SetIsShooting(false);
+            if (secondaryWeapon) secondaryFireWeapon.SetIsShooting(false);
             if (enemyMove != null) enemyMove.SetIsMove(true);
         }
     }
