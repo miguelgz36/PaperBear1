@@ -5,7 +5,6 @@ using UnityEngine;
 public class Squad : MonoBehaviour
 {
     [SerializeField] List<GameObject> units;
-
     private void Awake()
     {
         foreach(UnitController unit in GetComponentsInChildren<UnitController>()) {
