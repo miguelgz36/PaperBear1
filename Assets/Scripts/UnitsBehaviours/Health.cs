@@ -42,13 +42,16 @@ public class Health : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile"))
         {
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
-            if (isEnemy != bullet.IsEnemy()) 
+            if (bullet && isEnemy != bullet.IsEnemy()) 
             {
                 DoDamage(bullet.Damage);
-                bullet.gameObject.SetActive(false);
-                Destroy(bullet.gameObject);
+                bullet.ImpactBullet();
             }
-            
+            VolumetricDamage volumetricDamage = collision.gameObject.GetComponent<VolumetricDamage>();
+            if (volumetricDamage)
+            {
+                DoDamage(100 / volumetricDamage.RadiusDamage.radius);
+            }
         }
     }
     
