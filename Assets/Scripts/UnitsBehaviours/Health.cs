@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
         return isEnemy;
     }
     
-    public bool GetDamage(float baseDamage)
+    public bool DoDamage(float baseDamage)
     {
         if (onStructure != null && onStructure.RejectProjectile()) return false;
         currentHealth -= baseDamage;
@@ -42,13 +42,16 @@ public class Health : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile"))
         {
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
-            if (isEnemy != bullet.IsEnemy()) 
+            if (bullet && isEnemy != bullet.IsEnemy()) 
             {
-                GetDamage(25);
-                bullet.gameObject.SetActive(false);
-                Destroy(bullet.gameObject);
+                DoDamage(bullet.Damage);
+                bullet.ImpactBullet();
             }
-            
+            VolumetricDamage volumetricDamage = collision.gameObject.GetComponent<VolumetricDamage>();
+            if (volumetricDamage)
+            {
+                DoDamage(100 / volumetricDamage.RadiusDamage.radius);
+            }
         }
     }
     
