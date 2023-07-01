@@ -44,8 +44,8 @@ public class Health : MonoBehaviour
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
             if (bullet && isEnemy != bullet.IsEnemy()) 
             {
-                DoDamage(bullet.Damage);
-                bullet.ImpactBullet();
+                bool didDamage = DoDamage(bullet.Damage);
+                if (didDamage) bullet.ImpactBullet();
             }
             VolumetricDamage volumetricDamage = collision.gameObject.GetComponent<VolumetricDamage>();
             if (volumetricDamage)
