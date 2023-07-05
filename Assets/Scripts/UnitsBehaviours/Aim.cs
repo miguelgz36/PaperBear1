@@ -38,8 +38,16 @@ public class Aim : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        LockTarget(collision);
+    }
+
+    protected void LockTarget(Collider2D collision)
+    {
         Health health = collision.GetComponent<Health>();
-        if (target == null && !collision.gameObject.CompareTag(objectToRotate.tag) && health)
+        if (target == null
+             && health
+             && (collision.gameObject.tag.Contains("Enemy") && objectToRotate.tag.Contains("Allied")
+                || collision.gameObject.tag.Contains("Allied") && objectToRotate.tag.Contains("Enemy")))
         {
             target = collision.gameObject;
             AimTarger();
