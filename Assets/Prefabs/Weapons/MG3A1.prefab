@@ -55,8 +55,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3914090985901837594, guid: 6bf97e5460d6ccb4ca5f8f688bdab1a7, type: 3}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: rangeFire
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: dispersion
-      value: 0.05
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: ammoConsume

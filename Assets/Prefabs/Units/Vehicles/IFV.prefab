@@ -1,84 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &530725494
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 530725495}
-  - component: {fileID: 530725497}
-  - component: {fileID: 530725496}
-  m_Layer: 0
-  m_Name: VisionFieldMG
-  m_TagString: Allied
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &530725495
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530725494}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4322720553244786620}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &530725497
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530725494}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 5, y: 20}
-      - {x: 0, y: 25}
-      - {x: -5, y: 20}
-      - {x: -2, y: -4}
-      - {x: 2, y: -4}
---- !u!114 &530725496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530725494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92a4532145d748b4d80edaf7ef23c9db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 1825783776016890398}
-  objectToRotate: {fileID: 9108768916533981210}
-  enemyMove: {fileID: 0}
-  primaryAim: 0
 --- !u!1 &845729743098853778
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +12,7 @@ GameObject:
   - component: {fileID: 2240747131757080316}
   - component: {fileID: 1392633684350486940}
   m_Layer: 0
-  m_Name: VisionFieldCannon
+  m_Name: VisionField
   m_TagString: Allied
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4322720553244786620}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &2240747131757080316
 PolygonCollider2D:
@@ -137,9 +58,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 5, y: 10}
-      - {x: 0, y: 20}
-      - {x: -5, y: 10}
+    - - {x: 6, y: 35}
+      - {x: 0, y: 35}
+      - {x: -6, y: 35}
       - {x: -2, y: -4}
       - {x: 2, y: -4}
 --- !u!114 &1392633684350486940
@@ -155,9 +76,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 4679656587388501217}
+  secondaryWeapon: {fileID: 1825783776016890398}
   objectToRotate: {fileID: 9108768916533981210}
   enemyMove: {fileID: 0}
-  primaryAim: 1
 --- !u!1 &7081954856874935672
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +322,6 @@ Transform:
   m_Children:
   - {fileID: 3976084128045789652}
   - {fileID: 7965430705646679851}
-  - {fileID: 530725495}
   - {fileID: 372858183881813573}
   m_Father: {fileID: 8247053862640557497}
   m_RootOrder: 1
