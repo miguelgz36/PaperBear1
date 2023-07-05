@@ -47,10 +47,8 @@ public class Aim : MonoBehaviour
     protected void LockTarget(Collider2D collision)
     {
         Health health = collision.GetComponent<Health>();
-        if (target == null
-             && health
-             && (collision.gameObject.tag.Contains("Enemy") && objectToRotate.tag.Contains("Allied")
-                || collision.gameObject.tag.Contains("Allied") && objectToRotate.tag.Contains("Enemy")))
+        if (collision.gameObject.tag.Contains("Enemy") && objectToRotate.tag.Contains("Allied")
+                || collision.gameObject.tag.Contains("Allied") && objectToRotate.tag.Contains("Enemy"))
         {
             if (target == null && !collision.gameObject.CompareTag(objectToRotate.tag) && health)
             {

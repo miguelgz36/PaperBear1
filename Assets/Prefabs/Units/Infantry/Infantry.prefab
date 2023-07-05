@@ -163,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8087574299932919798}
   - component: {fileID: 267453742970581912}
-  - component: {fileID: 6227128044377061995}
+  - component: {fileID: 7668579510059950979}
   m_Layer: 0
   m_Name: VisionField
   m_TagString: Untagged
@@ -202,19 +202,22 @@ MonoBehaviour:
   secondaryWeapon: {fileID: 0}
   objectToRotate: {fileID: 0}
   enemyMove: {fileID: 0}
-  primaryAim: 1
---- !u!114 &6227128044377061995
-MonoBehaviour:
+--- !u!58 &7668579510059950979
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7527488207122888416}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01424cfaec3bfa74cb6001420a6db544, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 30
 --- !u!1 &8934272404496599324
 GameObject:
   m_ObjectHideFlags: 0
