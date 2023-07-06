@@ -1,37 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4919033970434544789
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3287379613967126215}
-  m_Layer: 0
-  m_Name: AimPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3287379613967126215
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4919033970434544789}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8661559438095280245}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3859695104526073535
+--- !u!1001 &4586519687526725021
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -41,50 +10,38 @@ PrefabInstance:
     - target: {fileID: 3934303848656773661, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 29d91c951812eca4a970ba05a4d0d92a, type: 3}
-    - target: {fileID: 3934303848656773661, guid: b49f98137328b0744a6181428099f7ae, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 7e79c6e180dafa0459689b8d9a791ee0, type: 3}
     - target: {fileID: 4213390104135834623, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_Name
-      value: MG3A1
+      value: 2A42Cannon
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
-      propertyPath: firePoint
+      propertyPath: bullet
       value: 
-      objectReference: {fileID: 3914090985901837594, guid: 6bf97e5460d6ccb4ca5f8f688bdab1a7, type: 3}
+      objectReference: {fileID: 4443514160472047864, guid: 65227dd3fc2bf5c4e9d9fb08108149bb, type: 3}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: rangeFire
-      value: 45
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: dispersion
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
-      propertyPath: ammoConsume
-      value: 2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: reloadedRate
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: ammoPerCharger
-      value: 300
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
-      propertyPath: aimPointVehicle
-      value: 
-      objectReference: {fileID: 4919033970434544789}
-    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: fireRatePerMinute
-      value: 0.09
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: percentajeVarianceFireRate
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_RootOrder
@@ -134,10 +91,9 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9134193017431837156, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.634
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b49f98137328b0744a6181428099f7ae, type: 3}
---- !u!4 &8661559438095280245 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
-  m_PrefabInstance: {fileID: 3859695104526073535}
-  m_PrefabAsset: {fileID: 0}

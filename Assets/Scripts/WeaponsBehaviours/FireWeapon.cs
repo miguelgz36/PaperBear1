@@ -67,7 +67,7 @@ public class FireWeapon : MonoBehaviour
                 {
                     Quaternion rotation = this.transform.rotation;
                     rotation.z += Random.Range(-dispersion, dispersion);
-                    GameObject instancie = Instantiate(bullet, firePoint.position, rotation);
+                    GameObject instancie = Instantiate(bullet, firePoint.transform.position, rotation);
                     instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
                     soundWeapon.PlaySoundFire();
                     currentAmmo--;
