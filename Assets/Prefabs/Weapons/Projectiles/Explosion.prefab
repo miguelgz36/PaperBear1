@@ -61,5 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b1b2842bd2f0849a9ac8dc20ea7aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionFx: {fileID: 8316273492138182439, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
   maxRadius: 1
   speedExplosion: 5
