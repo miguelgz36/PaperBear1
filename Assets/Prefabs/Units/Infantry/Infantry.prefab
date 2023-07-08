@@ -163,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8087574299932919798}
   - component: {fileID: 267453742970581912}
-  - component: {fileID: 26834102103383937}
+  - component: {fileID: 7668579510059950979}
   m_Layer: 0
   m_Name: VisionField
   m_TagString: Untagged
@@ -202,7 +202,7 @@ MonoBehaviour:
   secondaryWeapon: {fileID: 0}
   objectToRotate: {fileID: 0}
   enemyMove: {fileID: 0}
---- !u!58 &26834102103383937
+--- !u!58 &7668579510059950979
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
