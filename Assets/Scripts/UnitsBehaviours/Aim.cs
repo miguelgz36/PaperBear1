@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Aim : MonoBehaviour
 {
-    [SerializeField] private GameObject weapon;
-    [SerializeField] private GameObject secondaryWeapon;
+    [SerializeField] protected GameObject weapon;
+    [SerializeField] protected GameObject secondaryWeapon;
     [SerializeField] private GameObject objectToRotate;
     [SerializeField] private EnemyMove enemyMove;
 
@@ -47,17 +47,31 @@ public class Aim : MonoBehaviour
     protected void LockTarget(Collider2D collision)
     {
         Health health = collision.GetComponent<Health>();
-        if (collision.gameObject.tag.Contains("Enemy") && objectToRotate.tag.Contains("Allied")
-                || collision.gameObject.tag.Contains("Allied") && objectToRotate.tag.Contains("Enemy"))
+        if (IsFromTheOpposingTeam(collision.gameObject) 
+            && ShouldBeNewTarget(gameObject.gameObject) 
+            && !collision.gameObject.CompareTag(objectToRotate.tag) 
+            && health)
         {
-            if (target == null && !collision.gameObject.CompareTag(objectToRotate.tag) && health)
-            {
-                target = collision.gameObject;
-                primaryFireWeapon.SetIsShooting(true);
-                if (secondaryWeapon) secondaryFireWeapon.SetIsShooting(true);
-            }
+            target = collision.gameObject;
+            primaryFireWeapon.SetIsShooting(true);
+            if (secondaryWeapon) secondaryFireWeapon.SetIsShooting(true);
+            SelectWeapon(collision);
         }
-        
+    }
+
+    private bool IsFromTheOpposingTeam(GameObject gameObject)
+    {
+        return gameObject.tag.Contains("Enemy") && objectToRotate.tag.Contains("Allied")
+                || gameObject.tag.Contains("Allied") && objectToRotate.tag.Contains("Enemy");
+    }
+
+    protected virtual void SelectWeapon(Collider2D collision)
+    {
+    }
+
+    protected virtual bool ShouldBeNewTarget(GameObject newTarget)
+    {
+        return target == null;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
