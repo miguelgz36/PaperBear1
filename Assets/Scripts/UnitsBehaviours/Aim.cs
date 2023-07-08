@@ -54,11 +54,11 @@ public class Aim : MonoBehaviour
         {
             target = collision.gameObject;
             SelectWeapon(collision);
-            StartCoroutine(shoot());
+            StartCoroutine(Shoot());
         }
     }
 
-    private IEnumerator shoot()
+    private IEnumerator Shoot()
     {
         do
         {

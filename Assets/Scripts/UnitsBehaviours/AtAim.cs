@@ -10,8 +10,8 @@ public class AtAim: Aim
         if (IsTank(collision.gameObject))
         {
             SelectRpg();
-        } 
-        if(IsEnemyNoTank(collision.gameObject))
+        }
+        else
         {
             SelectPrimaryWeapon();
         }
@@ -43,10 +43,5 @@ public class AtAim: Aim
     private bool IsTank(GameObject gameObject)
     {
         return gameObject.tag.Contains("Tank");
-    }
-
-    private bool IsEnemyNoTank(GameObject gameObject)
-    {
-        return gameObject.tag.Equals("Enemy");
     }
 }

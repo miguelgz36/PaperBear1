@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2747569111894630711}
   - component: {fileID: 3936327487035093010}
   m_Layer: 0
-  m_Name: Assault squad
+  m_Name: At squad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
