@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Squad : MonoBehaviour
 {
-    [SerializeField] List<GameObject> units;
+    List<GameObject> units;
     private void Awake()
     {
-        foreach(UnitController unit in GetComponentsInChildren<UnitController>()) {
+        units = new List<GameObject>();
+        foreach (UnitController unit in GetComponentsInChildren<UnitController>()) {
             units.Add(unit.gameObject);
         }
     }
