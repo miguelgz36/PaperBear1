@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5229392905325249790
+--- !u!1001 &4586519687526725021
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,46 +10,38 @@ PrefabInstance:
     - target: {fileID: 3934303848656773661, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 29d91c951812eca4a970ba05a4d0d92a, type: 3}
+      objectReference: {fileID: 21300000, guid: 7e79c6e180dafa0459689b8d9a791ee0, type: 3}
     - target: {fileID: 4213390104135834623, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_Name
-      value: M249
+      value: 2A42Cannon
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 7133303741234010807, guid: 96957bc87d096894eb6032c856a35456, type: 3}
+      objectReference: {fileID: 4443514160472047864, guid: 65227dd3fc2bf5c4e9d9fb08108149bb, type: 3}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: rangeFire
-      value: 40
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: dispersion
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
-      propertyPath: ammoConsume
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
-      propertyPath: alliedWeapon
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: reloadedRate
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: ammoPerCharger
-      value: 125
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: fireRatePerMinute
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: percentajeVarianceFireRate
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_RootOrder
@@ -96,16 +88,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8006837228641442840, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: soundFire
+      value: 
+      objectReference: {fileID: 8300000, guid: 7cd3ad9d88cb595438a61bf4bdae63cb, type: 3}
+    - target: {fileID: 8006837228641442840, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: volumeFire
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9134193017431837156, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.013
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9134193017431837156, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.402
+      value: 1.634
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b49f98137328b0744a6181428099f7ae, type: 3}

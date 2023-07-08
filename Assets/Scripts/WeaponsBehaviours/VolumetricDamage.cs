@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class VolumetricDamage : MonoBehaviour
 {
+    [SerializeField] GameObject explosionFx;
+
     [SerializeField] float maxRadius;
     [SerializeField] float speedExplosion;
 
@@ -15,6 +17,11 @@ public class VolumetricDamage : MonoBehaviour
     private void Awake()
     {
         radiusDamage = GetComponent<CircleCollider2D>();
+    }
+
+    private void Start()
+    {
+        Instantiate(explosionFx, this.transform.position, this.transform.rotation);
     }
 
     private void Update()
