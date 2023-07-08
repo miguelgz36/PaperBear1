@@ -186,6 +186,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7149875991331868202}
     m_Modifications:
+    - target: {fileID: 2498680715881093728, guid: cb2b041085e3b324bbd3b0370ca3e627, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3336212569256633218, guid: cb2b041085e3b324bbd3b0370ca3e627, type: 3}
       propertyPath: m_Name
       value: AK47
@@ -204,11 +208,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6453660509313658551, guid: cb2b041085e3b324bbd3b0370ca3e627, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.137
+      value: 0.106
       objectReference: {fileID: 0}
     - target: {fileID: 6453660509313658551, guid: cb2b041085e3b324bbd3b0370ca3e627, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.526
+      value: 0.474
       objectReference: {fileID: 0}
     - target: {fileID: 6453660509313658551, guid: cb2b041085e3b324bbd3b0370ca3e627, type: 3}
       propertyPath: m_LocalPosition.z

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squads:
   - {fileID: 7659294987983672360, guid: 55e7ed84401399c4c92ae8ab2bf9e0aa, type: 3}
+  - {fileID: 7659294987983672360, guid: 0949d665b7e21d6469428bccc4f785a7, type: 3}
   - {fileID: 7659294987983672360, guid: 55e7ed84401399c4c92ae8ab2bf9e0aa, type: 3}
+  - {fileID: 7659294987983672360, guid: 0949d665b7e21d6469428bccc4f785a7, type: 3}
   - {fileID: 7659294987983672360, guid: 55e7ed84401399c4c92ae8ab2bf9e0aa, type: 3}
-  - {fileID: 7659294987983672360, guid: 55e7ed84401399c4c92ae8ab2bf9e0aa, type: 3}
-  - {fileID: 7659294987983672360, guid: 55e7ed84401399c4c92ae8ab2bf9e0aa, type: 3}
-  - {fileID: 7659294987983672360, guid: 55e7ed84401399c4c92ae8ab2bf9e0aa, type: 3}
-  - {fileID: 7659294987983672360, guid: 55e7ed84401399c4c92ae8ab2bf9e0aa, type: 3}
+  - {fileID: 7659294987983672360, guid: 0949d665b7e21d6469428bccc4f785a7, type: 3}
+  - {fileID: 7659294987983672360, guid: 0949d665b7e21d6469428bccc4f785a7, type: 3}
   - {fileID: 7659294987983672360, guid: 55e7ed84401399c4c92ae8ab2bf9e0aa, type: 3}
   timeToSpawn: 10
