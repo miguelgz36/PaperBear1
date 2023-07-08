@@ -10,7 +10,7 @@ public class Aim : MonoBehaviour
     [SerializeField] private GameObject objectToRotate;
     [SerializeField] private EnemyMove enemyMove;
 
-    private GameObject target;
+    protected GameObject target;
     private Quaternion startedRotation;
     private FireWeapon primaryFireWeapon;
     private FireWeapon secondaryFireWeapon;
@@ -53,10 +53,20 @@ public class Aim : MonoBehaviour
             && health)
         {
             target = collision.gameObject;
+            SelectWeapon(collision);
+            StartCoroutine(shoot());
+        }
+    }
+
+    private IEnumerator shoot()
+    {
+        do
+        {
+            yield return new WaitForSeconds(0.5f);
             primaryFireWeapon.SetIsShooting(true);
             if (secondaryWeapon) secondaryFireWeapon.SetIsShooting(true);
-            SelectWeapon(collision);
         }
+        while (weapon.active || secondaryWeapon.active);
     }
 
     private bool IsFromTheOpposingTeam(GameObject gameObject)

@@ -19,7 +19,7 @@ public class AtAim: Aim
 
     protected override bool ShouldBeNewTarget(GameObject newTarget)
     {
-        return base.ShouldBeNewTarget(newTarget) || IsTank(newTarget);
+        return base.ShouldBeNewTarget(newTarget) || (!IsTank(base.target) && IsTank(newTarget));
     }
 
     private void SelectRpg()
@@ -29,7 +29,6 @@ public class AtAim: Aim
             base.weapon.SetActive(false);
             base.secondaryWeapon.SetActive(true);
         }
-
     }
 
     private void SelectPrimaryWeapon()
