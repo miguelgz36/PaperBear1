@@ -67,7 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a104bcfed0f0a1428153699fc830006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  units: []
 --- !u!65 &6297556541574247708
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -95,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trenchButtonObject: {fileID: 3425475353508417192}
   trench: {fileID: 4783572659949523749}
+  secondsBeforeAppearingForTheFirstTime: 0.5
 --- !u!1001 &1110819261088697314
 PrefabInstance:
   m_ObjectHideFlags: 0
