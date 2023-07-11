@@ -67,7 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a104bcfed0f0a1428153699fc830006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  units: []
 --- !u!65 &6297556541574247708
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -344,6 +343,10 @@ PrefabInstance:
     - target: {fileID: 6299514836813529443, guid: 3195581a69ac3ce41baec32a24f9c5ef, type: 3}
       propertyPath: m_Name
       value: At Allied
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614743827757000512, guid: 3195581a69ac3ce41baec32a24f9c5ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3195581a69ac3ce41baec32a24f9c5ef, type: 3}

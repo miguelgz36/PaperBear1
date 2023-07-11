@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SoundWeapon : MonoBehaviour
 {
-    [SerializeField] private AudioClip soundFire;
+    [SerializeField] protected AudioClip soundFire;
     [Range(0, 1)]
-    [SerializeField] private float volumeFire = 1f;
+    [SerializeField] protected float volumeFire = 1f;
 
     public void PlaySoundFire()
     {
