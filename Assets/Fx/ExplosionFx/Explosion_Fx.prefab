@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5897812705957358343}
   - component: {fileID: 1613113941512596533}
   - component: {fileID: 532623397710111972}
+  - component: {fileID: 2619366545569779895}
   m_Layer: 6
   m_Name: Explosion_Fx
   m_TagString: Untagged
@@ -41,7 +42,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8316273492138182439}
   serializedVersion: 8
-  lengthInSec: 0.2
+  lengthInSec: 0.25
   simulationSpeed: 1
   stopAction: 2
   cullingMode: 0
@@ -4812,3 +4813,17 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2619366545569779895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316273492138182439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac1d18b2ede51547a17ee3617c4cbbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFire: {fileID: 8300000, guid: ae1190eddbc838e458dcbe4d84dfd4ce, type: 3}
+  volumeFire: 1

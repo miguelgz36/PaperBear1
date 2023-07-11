@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3934303848656773661, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 281966e747bff0b4caad72e87b89d4f8, type: 3}
+      objectReference: {fileID: 21300000, guid: 102c911b7d12b8f4ea4323fa4108a137, type: 3}
     - target: {fileID: 4213390104135834623, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_Name
       value: RPG7
@@ -49,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.012
       objectReference: {fileID: 0}
     - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -87,9 +87,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8006837228641442840, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: soundFire
+      value: 
+      objectReference: {fileID: 8300000, guid: 1969ea3ac0108af45a407dd55c2e04dd, type: 3}
+    - target: {fileID: 8006837228641442840, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: volumeFire
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9134193017431837156, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.019
+      objectReference: {fileID: 0}
+    - target: {fileID: 9134193017431837156, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.114
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b49f98137328b0744a6181428099f7ae, type: 3}

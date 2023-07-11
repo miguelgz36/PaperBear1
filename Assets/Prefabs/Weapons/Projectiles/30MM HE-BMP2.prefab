@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 4325289180526132574, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
       propertyPath: explosion
       value: 
-      objectReference: {fileID: 54203551852581530, guid: 149eafe63c503294dae8a692f0d4440b, type: 3}
+      objectReference: {fileID: 182820430186786428, guid: ec7671b07c8a4ac4183e160dca9184b4, type: 3}
     - target: {fileID: 7153873657231610609, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
       propertyPath: m_Time
       value: 0.1
