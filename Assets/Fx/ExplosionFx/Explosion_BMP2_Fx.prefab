@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1613113941512596533, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613113941512596533, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613113941512596533, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2619366545569779895, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: soundFire
       value: 
@@ -57,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8316273492138182439, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: m_Name
-      value: Explosion_BMP3_Fx
+      value: Explosion_BMP2_Fx
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
