@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1613113941512596533, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: lengthInSec
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1613113941512596533, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: NoiseModule.enabled
@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1613113941512596533, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1613113941512596533, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: InitialModule.startSpeed.minScalar

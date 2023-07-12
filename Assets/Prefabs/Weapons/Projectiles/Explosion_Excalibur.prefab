@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 54203551852581527, guid: 149eafe63c503294dae8a692f0d4440b, type: 3}
       propertyPath: maxRadius
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 54203551852581527, guid: 149eafe63c503294dae8a692f0d4440b, type: 3}
       propertyPath: explosionFx
