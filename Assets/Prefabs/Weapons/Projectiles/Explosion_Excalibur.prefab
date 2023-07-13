@@ -8,8 +8,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 54203551852581527, guid: 149eafe63c503294dae8a692f0d4440b, type: 3}
+      propertyPath: maxDamage
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 54203551852581527, guid: 149eafe63c503294dae8a692f0d4440b, type: 3}
       propertyPath: maxRadius
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 54203551852581527, guid: 149eafe63c503294dae8a692f0d4440b, type: 3}
       propertyPath: explosionFx

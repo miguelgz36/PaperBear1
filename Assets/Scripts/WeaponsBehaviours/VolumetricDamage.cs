@@ -8,11 +8,13 @@ public class VolumetricDamage : MonoBehaviour
 
     [SerializeField] float maxRadius;
     [SerializeField] float speedExplosion;
+    [SerializeField] float maxDamage = 100f;
 
 
     CircleCollider2D radiusDamage;
 
     public CircleCollider2D RadiusDamage { get => radiusDamage;}
+    public float MaxDamage { get => maxDamage;}
 
     private void Awake()
     {

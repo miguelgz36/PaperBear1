@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 54203551852581529, guid: 149eafe63c503294dae8a692f0d4440b, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 54203551852581530, guid: 149eafe63c503294dae8a692f0d4440b, type: 3}
       propertyPath: m_Name
       value: Explosion_BMP2_projectile
