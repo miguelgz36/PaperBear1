@@ -75,5 +75,29 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4325289180526132574, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
+--- !u!1 &5348639075438021840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 573419845114353113, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
+  m_PrefabInstance: {fileID: 5606731573349226761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-3028368707158198572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5348639075438021840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1761767335c62f45ac1a3b273bf88ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 20
+  speed: 20
+  damage: 5000
+  isEnemy: 0
+  explosion: {fileID: 6530446993557903272, guid: aaf52e00a79615f4dbf7c33a442ef460, type: 3}
+  proximityThreshold: 1
