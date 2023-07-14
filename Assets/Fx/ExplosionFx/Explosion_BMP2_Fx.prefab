@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: soundFire
       value: 
       objectReference: {fileID: 8300000, guid: 5ec8e24ba2f509340b356a7acae3a244, type: 3}
+    - target: {fileID: 2619366545569779895, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
+      propertyPath: volumeFire
+      value: 0.647
+      objectReference: {fileID: 0}
     - target: {fileID: 5897812705957358343, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: m_RootOrder
       value: 0

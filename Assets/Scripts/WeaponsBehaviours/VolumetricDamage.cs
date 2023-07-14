@@ -34,7 +34,7 @@ public class VolumetricDamage : MonoBehaviour
         Debug.DrawLine(this.gameObject.transform.position, this.gameObject.transform.position + (Vector3.left * RadiusDamage.radius), Color.black, Time.deltaTime);
         Debug.DrawLine(this.gameObject.transform.position, this.gameObject.transform.position + (Vector3.right * RadiusDamage.radius), Color.black, Time.deltaTime);
         Debug.DrawLine(this.gameObject.transform.position, this.gameObject.transform.position + (Vector3.down * RadiusDamage.radius), Color.black, Time.deltaTime);
-        if (RadiusDamage.radius < maxRadius)
+        if (RadiusDamage.radius <= maxRadius)
         {
             float nextRadius = RadiusDamage.radius + (speedExplosion * Time.deltaTime);
             bool isInMaxRadius = nextRadius > maxRadius;
