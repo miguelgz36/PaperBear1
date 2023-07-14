@@ -100,4 +100,4 @@ MonoBehaviour:
   damage: 5000
   isEnemy: 0
   explosion: {fileID: 6530446993557903272, guid: aaf52e00a79615f4dbf7c33a442ef460, type: 3}
-  proximityThreshold: 1
+  proximityThreshold: 0.5
