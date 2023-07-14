@@ -77,8 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62760e14de165eb4688351d16bf2b5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionAlliedSupportingFire: {fileID: 0}
-  positionEnemySupportingFire: {fileID: 0}
+  positionAlliedSupportingFire: {fileID: 1529663150912692701}
+  positionEnemySupportingFire: {fileID: 1529663152929701070}
 --- !u!1 &1529663152929701069
 GameObject:
   m_ObjectHideFlags: 0

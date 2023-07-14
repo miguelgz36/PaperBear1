@@ -8,11 +8,12 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected float speed = 100;
     [SerializeField] float damage = 30;
     [SerializeField] bool isEnemy = false;
-    [SerializeField] GameObject explosion;
+    [SerializeField] protected GameObject explosion;
     
     protected Rigidbody2D rigidBody;
 
     public float Damage { get => damage; }
+    public GameObject Explosion { get => explosion; }
 
     public void SetIsEnemy(bool isEnemy)
     {
@@ -38,9 +39,9 @@ public class Bullet : MonoBehaviour
 
     public void ImpactBullet()
     {
-        if (explosion)
+        if (Explosion)
         {
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(Explosion, transform.position, transform.rotation);
         }
         gameObject.SetActive(false);
         Destroy(gameObject);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,13 @@ using UnityEngine;
 public class VolumetricDamage : MonoBehaviour
 {
     [SerializeField] GameObject explosionFx;
+    [SerializeField] GameObject explosionPreview;
 
     [SerializeField] float maxRadius;
     [SerializeField] float speedExplosion;
     [SerializeField] float maxDamage = 100f;
 
-
+    private GameObject instantiatePreview;
     CircleCollider2D radiusDamage;
 
     public CircleCollider2D RadiusDamage { get => radiusDamage;}
@@ -48,5 +50,20 @@ public class VolumetricDamage : MonoBehaviour
         }
 
 
+    }
+
+    internal void DeactivedPreviewExplosion()
+    {
+        instantiatePreview.GetComponent<ExplosionPreview>().Deactived();
+    }
+
+    internal void ActivedPreviewExplosion()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        mousePosition.z = 0f;
+        instantiatePreview = Instantiate(explosionPreview, mousePosition, Quaternion.identity);
+        instantiatePreview.GetComponent<ExplosionPreview>().Actived();
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,17 +6,15 @@ using UnityEngine;
 public class ArtilleryShell : Bullet
 {
     [SerializeField] float proximityThreshold = 0.1f;
-    Transform target;
+    Vector3 target;
+    bool fire = false;
 
-    protected override void Start()
-    {
-        FireShell(FindAnyObjectByType<Enemy>().gameObject.transform);
-    }
+    
     protected override void FixedUpdate()
-    {  
-        if (target)
+    {
+        if (fire)
         {
-            if (Vector3.Distance(transform.position, target.position) < proximityThreshold)
+            if (Vector3.Distance(transform.position, target) < proximityThreshold)
             {
                 ImpactBullet();
             }
@@ -23,16 +22,28 @@ public class ArtilleryShell : Bullet
         }
     }
 
-    public void FireShell(Transform target)
+    internal void ActivedPreviewExplosion()
+    {
+        VolumetricDamage volumetricDamage = explosion.GetComponent<VolumetricDamage>();
+        if (volumetricDamage)
+        {
+            volumetricDamage.ActivedPreviewExplosion();
+        }
+    }
+
+    public void FireShell(Vector3 target)
     {
         this.target = target;
         DefineRotation();
+        fire = true;
+        VolumetricDamage volumetricDamage = explosion.GetComponent<VolumetricDamage>();
+        volumetricDamage.DeactivedPreviewExplosion();
     }
 
     private void DefineRotation()
     {
-        float angle = Mathf.Atan2(target.transform.position.y - gameObject.transform.position.y,
-                          target.transform.position.x - gameObject.transform.position.x)
+        float angle = Mathf.Atan2(target.y - gameObject.transform.position.y,
+                          target.x - gameObject.transform.position.x)
               * Mathf.Rad2Deg - 90;
         gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
