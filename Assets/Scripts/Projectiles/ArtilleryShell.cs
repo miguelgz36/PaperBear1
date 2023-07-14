@@ -6,6 +6,10 @@ using UnityEngine;
 public class ArtilleryShell : Bullet
 {
     [SerializeField] float proximityThreshold = 0.1f;
+    [SerializeField] float delayFire = 3f;
+    [SerializeField] Sound soundFire;
+    [SerializeField] Sound soundIncoming;
+
     Vector3 target;
     bool fire = false;
 
@@ -35,9 +39,17 @@ public class ArtilleryShell : Bullet
     {
         this.target = target;
         DefineRotation();
-        fire = true;
         VolumetricDamage volumetricDamage = explosion.GetComponent<VolumetricDamage>();
         volumetricDamage.DeactivedPreviewExplosion();
+        StartCoroutine(Fire());
+    }
+
+    private IEnumerator Fire()
+    {
+        soundFire.PlayAtPoint();
+        yield return new WaitForSeconds(delayFire);
+        fire = true;
+        soundIncoming.Play();
     }
 
     private void DefineRotation()
