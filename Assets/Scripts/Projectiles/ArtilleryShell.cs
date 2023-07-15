@@ -35,6 +35,12 @@ public class ArtilleryShell : Bullet
         }
     }
 
+    internal void DeactivedPreviewExplosion()
+    {
+        VolumetricDamage volumetricDamage = explosion.GetComponent<VolumetricDamage>();
+        volumetricDamage.DeactivedPreviewExplosion();
+    }
+
     public void FireShell(Vector3 target)
     {
         this.target = target;

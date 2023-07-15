@@ -6,9 +6,11 @@ using UnityEngine;
 public class Artillery : Placeable
 {
     [SerializeField] GameObject projectile;
-    [SerializeField] int amount;
+    [SerializeField] int amount = 1;
+    [SerializeField] float delaySplashs = 1f;
+    bool firing = true;
 
-    internal void ActivedPreviewExplosion()
+    public void ActivedPreviewExplosion()
     {
         ArtilleryShell artilleryShell = projectile.GetComponent<ArtilleryShell>();
         if (artilleryShell)
@@ -17,9 +19,34 @@ public class Artillery : Placeable
         }
     }
 
-    internal void FireShell(Vector3 target)
+    private void Update()
     {
-        GameObject projectileInsantiate = Instantiate(projectile, transform.position, Quaternion.identity);
-        projectileInsantiate.GetComponent<ArtilleryShell>().FireShell(target);
+        if (!firing) Destroy(this.gameObject);
+    }
+
+    public void FireShells(Vector3 target)
+    {
+        StartCoroutine(StartFiring(target));
+        DeactivedPreviewExplosion();
+    }
+
+    public IEnumerator StartFiring(Vector3 target)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            yield return new WaitForSeconds(delaySplashs);
+            GameObject projectileInsantiate = Instantiate(projectile, SupportFireManager.Instance.PositionAlliedSupportingFire.position, Quaternion.identity);
+            projectileInsantiate.GetComponent<ArtilleryShell>().FireShell(target);
+        }
+        firing = false;
+    }
+
+    public void DeactivedPreviewExplosion()
+    {
+        ArtilleryShell artilleryShell = projectile.GetComponent<ArtilleryShell>();
+        if (artilleryShell)
+        {
+            artilleryShell.DeactivedPreviewExplosion();
+        }
     }
 }

@@ -54,7 +54,7 @@ public class VolumetricDamage : MonoBehaviour
 
     internal void DeactivedPreviewExplosion()
     {
-        instantiatePreview.GetComponent<ExplosionPreview>().Deactived();
+        Destroy(instantiatePreview);
     }
 
     internal void ActivedPreviewExplosion()

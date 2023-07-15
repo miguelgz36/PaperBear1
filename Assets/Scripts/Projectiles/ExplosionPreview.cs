@@ -27,8 +27,4 @@ public class ExplosionPreview : MonoBehaviour
         spriteRenderer.enabled = true;
     }
 
-    internal void Deactived()
-    {
-        spriteRenderer.enabled = false;
-    }
 }

@@ -38,13 +38,21 @@ public class PlacementManager : Singleton<PlacementManager>
             Artillery artillery = selectedObject.GetComponent<Artillery>();
             if (artillery)
             {
-                Instantiate(selectedObject, SupportFireManager.Instance.PositionAlliedSupportingFire.position, Quaternion.identity);
-                artillery.FireShell(positionToPlace);
+                if (Selector.Instance.InteractableToSelect)
+                {
+                    GameObject artilleryInsantiate = Instantiate(selectedObject, SupportFireManager.Instance.PositionAlliedSupportingFire.position, Quaternion.identity);
+                    artillery = artilleryInsantiate.GetComponent<Artillery>();
+                    artillery.FireShells(positionToPlace);
+                }
+                else
+                {
+                    artillery.DeactivedPreviewExplosion();
+                }
             }
             else
             {
-                if (Resources.Instance.CurrentResources >= selectedObject.GetComponent<AlliedSquad>().BasicCost
-                            && Selector.Instance.PlaceableZoneToSelect && Selector.Instance.PlaceableZoneToSelect.ObjectInZone == null)
+                if (Resources.Instance.CurrentResources >= selectedObject.GetComponent<AlliedSquad>().BasicCost && Selector.Instance.PlaceableZoneToSelect
+                           && Selector.Instance.PlaceableZoneToSelect.ObjectInZone == null)
                 {
                     positionToPlace.y = (Mathf.Floor(positionToPlace.y / 4f) * 4f) + 2f;
                     positionToPlace.x = (Mathf.Floor(positionToPlace.x / 4f) * 4f) + 2f;

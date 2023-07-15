@@ -4336,6 +4336,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1399117562}
     m_Modifications:
+    - target: {fileID: 1529663150912692701, guid: 5b2cf0d8aafc96f4490cd5cae5a27951, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1529663150955917201, guid: 5b2cf0d8aafc96f4490cd5cae5a27951, type: 3}
       propertyPath: m_Name
       value: SupportFireManager
@@ -4383,6 +4387,10 @@ PrefabInstance:
     - target: {fileID: 1529663150955917202, guid: 5b2cf0d8aafc96f4490cd5cae5a27951, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529663152929701070, guid: 5b2cf0d8aafc96f4490cd5cae5a27951, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b2cf0d8aafc96f4490cd5cae5a27951, type: 3}
