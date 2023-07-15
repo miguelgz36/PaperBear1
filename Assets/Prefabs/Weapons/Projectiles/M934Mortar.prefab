@@ -105,7 +105,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 569b8cf1dbf6d734ca09a97d9ceef911, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.507
+  m_Volume: 0.219
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -431,7 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 25
   speed: 20
-  damage: 2000
+  damage: 1000
   isEnemy: 0
   explosion: {fileID: 6530446993557903272, guid: de1711147cc6e0a40aa40ed698c1d201, type: 3}
   proximityThreshold: 0.5
