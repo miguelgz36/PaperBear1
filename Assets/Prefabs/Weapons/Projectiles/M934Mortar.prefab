@@ -199,7 +199,7 @@ PrefabInstance:
     - target: {fileID: -3306180928553974726, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c4426ff3ac5460c4ca4cb79f1788f04b, type: 3}
+      objectReference: {fileID: 21300000, guid: 2f548f23546188244abbac9a18616156, type: 3}
     - target: {fileID: 573419845114353113, guid: 9f76590543e3eb143937ff7d987e26f5, type: 3}
       propertyPath: m_Name
       value: M934Mortar
