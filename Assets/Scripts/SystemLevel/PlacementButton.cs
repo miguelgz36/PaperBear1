@@ -6,29 +6,33 @@ using UnityEngine.UI;
 public class PlacementButton : MonoBehaviour
 {
     [SerializeField] GameObject unitPrefab;
-    private AlliedSquad alliedSquad;
+    private Placeable placeable;
     private Button button;
 
     private void Awake()
     {
-        alliedSquad = unitPrefab.GetComponent<AlliedSquad>();
+        placeable = unitPrefab.GetComponent<Placeable>();
         button = GetComponentInParent<Button>();
     }
  
 
     private void Update()
     {
-        if (Resources.Instance.CurrentResources < alliedSquad.BasicCost)
+        if (Resources.Instance.CurrentResources < placeable.BasicCost)
         {
             button.interactable = false;
-        } else if (Resources.Instance.CurrentResources >= alliedSquad.BasicCost )
+        } else if (Resources.Instance.CurrentResources >= placeable.BasicCost )
         {
             button.interactable = true;
         }
     }
     public void SetCurrentUnitToPlace()
     {
-        PlaceableCells.Instance.ShowPlaceableZones();
-        PlacementManager.Instance.SetUnitToPlace(unitPrefab);
+        if(placeable is AlliedSquad)
+        {
+            PlaceableCells.Instance.ShowPlaceableZones();
+        }
+        PlacementManager.Instance.SetUnitToPlaceSquad(unitPrefab);
+
     }
 }

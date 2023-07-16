@@ -49,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: percentajeVarianceFireRate
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_RootOrder
@@ -98,7 +98,7 @@ PrefabInstance:
     - target: {fileID: 8006837228641442840, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: soundFire
       value: 
-      objectReference: {fileID: 8300000, guid: f799799cf69244f48a165a589a8a5538, type: 3}
+      objectReference: {fileID: 8300000, guid: 945e8975fa510e2469266d54243c10da, type: 3}
     - target: {fileID: 8006837228641442840, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: volumeFire
       value: 1

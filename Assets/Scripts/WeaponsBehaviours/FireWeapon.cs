@@ -20,12 +20,12 @@ public class FireWeapon : MonoBehaviour
     private bool startShooting;
     private bool isShooting;
     private bool isRealoding;
-    private SoundWeapon soundWeapon;
+    private Sound soundWeapon;
     private float varianceFireRate;
 
     private void Awake()
     {
-        soundWeapon = GetComponent<SoundWeapon>();
+        soundWeapon = GetComponent<Sound>();
     }
     public void SetIsShooting(bool startShooting)
     {
@@ -69,7 +69,7 @@ public class FireWeapon : MonoBehaviour
                     rotation.z += Random.Range(-dispersion, dispersion);
                     GameObject instancie = Instantiate(bullet, firePoint.transform.position, rotation);
                     instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
-                    soundWeapon.PlaySoundFire();
+                    soundWeapon.PlayAtPoint();
                     currentAmmo--;
                     if (!unitController.IsEnemy()) Resources.Instance.ConsumeBox(ammoConsume);
                     float finalFireRate = Random.Range(fireRatePerMinute - varianceFireRate, fireRatePerMinute + varianceFireRate);

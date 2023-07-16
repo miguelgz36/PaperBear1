@@ -48,7 +48,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 1
 --- !u!114 &54203551852581527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,3 +64,4 @@ MonoBehaviour:
   explosionFx: {fileID: 8316273492138182439, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
   maxRadius: 1
   speedExplosion: 5
+  maxDamage: 100

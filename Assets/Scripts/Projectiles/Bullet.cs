@@ -5,14 +5,15 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] float lifeTime = 5;
-    [SerializeField] float speed = 100;
+    [SerializeField] protected float speed = 100;
     [SerializeField] float damage = 30;
     [SerializeField] bool isEnemy = false;
-    [SerializeField] GameObject explosion;
+    [SerializeField] protected GameObject explosion;
     
-    private Rigidbody2D rigidBody;
+    protected Rigidbody2D rigidBody;
 
     public float Damage { get => damage; }
+    public GameObject Explosion { get => explosion; }
 
     public void SetIsEnemy(bool isEnemy)
     {
@@ -23,21 +24,24 @@ public class Bullet : MonoBehaviour
     {
         return isEnemy;
     }
-    void Start()
+    private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+    }
+    protected virtual void Start()
+    {
         StartCoroutine(DestroyBullet());
     }
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         rigidBody.MovePosition(speed * Time.fixedDeltaTime * transform.up + transform.position);
     }
 
     public void ImpactBullet()
     {
-        if (explosion)
+        if (Explosion)
         {
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(Explosion, transform.position, transform.rotation);
         }
         gameObject.SetActive(false);
         Destroy(gameObject);

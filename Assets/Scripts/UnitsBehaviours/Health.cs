@@ -50,7 +50,7 @@ public class Health : MonoBehaviour
             VolumetricDamage volumetricDamage = collision.gameObject.GetComponent<VolumetricDamage>();
             if (volumetricDamage)
             {
-                DoDamage(100 / volumetricDamage.RadiusDamage.radius);
+                DoDamage(volumetricDamage.MaxDamage / volumetricDamage.RadiusDamage.radius);
             }
         }
     }
