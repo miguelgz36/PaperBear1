@@ -65,14 +65,7 @@ public class FireWeapon : MonoBehaviour
                 Health enemy = hit.collider.gameObject.GetComponent<Health>();
                 if (enemy != null && enemy.IsEnemy() != unitController.IsEnemy() && IsInRangeFire(enemy))
                 {
-                    Quaternion rotation = this.transform.rotation;
-                    rotation.z += Random.Range(-dispersion, dispersion);
-                    GameObject instancie = Instantiate(bullet, firePoint.transform.position, rotation);
-                    instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
-                    soundWeapon.PlayAtPoint();
-                    currentAmmo--;
-                    if (!unitController.IsEnemy()) Resources.Instance.ConsumeBox(ammoConsume);
-                    float finalFireRate = Random.Range(fireRatePerMinute - varianceFireRate, fireRatePerMinute + varianceFireRate);
+                    float finalFireRate = Shot();
                     yield return new WaitForSeconds(finalFireRate);
                 }
             }
@@ -80,6 +73,19 @@ public class FireWeapon : MonoBehaviour
 
         }
         isShooting = false;
+    }
+
+    private float Shot()
+    {
+        Quaternion rotation = this.transform.rotation;
+        rotation.z += Random.Range(-dispersion, dispersion);
+        GameObject instancie = Instantiate(bullet, firePoint.transform.position, rotation);
+        instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
+        soundWeapon.PlayAtPoint();
+        currentAmmo--;
+        if (!unitController.IsEnemy()) Resources.Instance.ConsumeBox(ammoConsume);
+        float finalFireRate = Random.Range(fireRatePerMinute - varianceFireRate, fireRatePerMinute + varianceFireRate);
+        return finalFireRate;
     }
 
     public bool IsInRangeFire(Health enemy)

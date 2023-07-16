@@ -1,3 +1,4 @@
+using Assets.Scripts.Misc;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -60,9 +61,7 @@ public class ArtilleryShell : Bullet
 
     private void DefineRotation()
     {
-        float angle = Mathf.Atan2(target.y - gameObject.transform.position.y,
-                          target.x - gameObject.transform.position.x)
-              * Mathf.Rad2Deg - 90;
+        float angle = RotationUtils.CalculateRotationToAimObject(gameObject.transform.position, target);
         gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 

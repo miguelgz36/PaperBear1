@@ -1,3 +1,4 @@
+using Assets.Scripts.Misc;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,9 +33,8 @@ public class Aim : MonoBehaviour
         {
             if (enemyMove != null && primaryFireWeapon.IsInRangeFire(target.GetComponent<Health>())) enemyMove.SetIsMove(false);
 
-            float angle = Mathf.Atan2(target.transform.position.y - objectToRotate.transform.position.y,
-                          target.transform.position.x - objectToRotate.transform.position.x)
-              * Mathf.Rad2Deg - 90;
+            float angle = RotationUtils.CalculateRotationToAimObject(gameObject.transform.position, target.transform.position);
+
             objectToRotate.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
     }
