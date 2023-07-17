@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1613113941512596533, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: lengthInSec
-      value: 2.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1613113941512596533, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: ColorModule.enabled
@@ -113,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1613113941512596533, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 2.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1613113941512596533, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
@@ -189,11 +189,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1613113941512596533, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime1
-      value: 12529
+      value: 2699
       objectReference: {fileID: 0}
     - target: {fileID: 1613113941512596533, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime2
-      value: 33153
+      value: 5012
       objectReference: {fileID: 0}
     - target: {fileID: 1613113941512596533, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime3
@@ -622,7 +622,7 @@ PrefabInstance:
     - target: {fileID: 2619366545569779895, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: soundFire
       value: 
-      objectReference: {fileID: 8300000, guid: b8fbb36c90cebe948ad5ba3f714c26a3, type: 3}
+      objectReference: {fileID: 8300000, guid: 24895cfec20087a488c3f3020ae2838a, type: 3}
     - target: {fileID: 5897812705957358343, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -669,7 +669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8316273492138182439, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
       propertyPath: m_Name
-      value: Explosion_Excalibur_Fx
+      value: Explosion_m934_Fx
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1a135506ac869d458bf1a5fbe26dd7e, type: 3}
