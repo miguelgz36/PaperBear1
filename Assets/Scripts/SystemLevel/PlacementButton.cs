@@ -32,7 +32,12 @@ public class PlacementButton : MonoBehaviour
         {
             PlaceableCells.Instance.ShowPlaceableZones();
         }
-        PlacementManager.Instance.SetUnitToPlaceSquad(unitPrefab);
 
+        if(placeable is DronLauncher)
+        {
+            PlaceableCells.Instance.ShowPlaceableZones();
+        }
+
+        PlacementManager.Instance.SetUnitToPlaceSquad(unitPrefab);
     }
 }
