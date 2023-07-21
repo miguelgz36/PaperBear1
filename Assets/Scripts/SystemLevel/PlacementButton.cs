@@ -32,7 +32,7 @@ public class PlacementButton : MonoBehaviour
         {
             PlaceableCells.Instance.ShowPlaceableZones();
         }
-        PlacementManager.Instance.SetUnitToPlaceSquad(unitPrefab);
+        SelectManager.Instance.SetUnitToPlaceSquad(unitPrefab);
 
     }
 }

@@ -6,9 +6,18 @@
             "id": "34db57a1-6046-45f5-9e4e-5f565e492898",
             "actions": [
                 {
-                    "name": "PlaceUnit",
+                    "name": "Select",
                     "type": "Button",
                     "id": "633f0632-cc21-4a04-9d31-842ef7725e27",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Action",
+                    "type": "Button",
+                    "id": "c095e997-cb1c-4516-bdcb-3d2092b747a1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -23,7 +32,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PlaceUnit",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "349007bf-e078-41aa-aa6b-7df4bca645e9",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

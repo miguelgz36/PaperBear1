@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Selector : Singleton<Selector>
+
+//TODO: REFACTOR TO OnMouseEnter and OnMouseExit
+public class MouseFollower : Singleton<MouseFollower>
 {
 
     private Interactable interactableToSelect;
