@@ -33,17 +33,30 @@ public class SelectManager : Singleton<SelectManager>
     }
     private void SelectionUnit()
     {
-        if(selectedObjectToPlace != null && SquadReadyToSelect == null)
+        if (SquadReadyToSelect)
         {
-            PlaceUnit();
-        } else if (SquadReadyToSelect)
-        {
+            if (squadSelected && squadReadyToSelect != squadSelected)
+            {
+                squadSelected.SetSelectionUI(false);
+            }
             squadSelected = SquadReadyToSelect;
-            Debug.Log(squadSelected.gameObject.name);
+            squadSelected.SetSelectionUI(true);
         }
+        else
+        {
+            if (selectedObjectToPlace != null && SquadReadyToSelect == null)
+            {
+                PlaceUnit();
+            }
 
-        selectedObjectToPlace = null;
-        PlaceableCells.Instance.HidePlaceableZones();
+            selectedObjectToPlace = null;
+            PlaceableCells.Instance.HidePlaceableZones();
+            if (squadSelected)
+            {
+                squadSelected.SetSelectionUI(false);
+            }
+        }
+        
     }
 
     private void PlaceUnit()

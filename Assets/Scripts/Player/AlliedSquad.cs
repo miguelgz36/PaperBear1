@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AlliedSquad : Placeable
 {
-
+    [SerializeField] GameObject selectionUI;
     private void OnMouseEnter()
     {
         SelectManager.Instance.SquadReadyToSelect = this;
@@ -12,7 +12,11 @@ public class AlliedSquad : Placeable
 
     private void OnMouseExit()
     {
-        Debug.LogError("EXUT");
         SelectManager.Instance.SquadReadyToSelect = null;
+    }
+
+    public void SetSelectionUI(bool value)
+    {
+        selectionUI.SetActive(value);
     }
 }
