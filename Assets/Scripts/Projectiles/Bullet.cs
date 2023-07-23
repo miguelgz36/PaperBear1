@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
     {
         return isEnemy;
     }
-    private void Awake()
+    protected void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
     }
