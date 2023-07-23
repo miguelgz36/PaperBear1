@@ -29,7 +29,7 @@ public class SelectManager : Singleton<SelectManager>
 
     private void Start()
     {
-        playerControls.Build.Select.started += _ => Select(); 
+        playerControls.Build.Select.started += _ => Select();
     }
     private void Select()
     {
@@ -49,6 +49,8 @@ public class SelectManager : Singleton<SelectManager>
                 PlacePlaceable();
             }
 
+
+
             selectedObjectToPlace = null;
             PlaceableCells.Instance.HidePlaceableZones();
             if (objectSelected)
@@ -56,7 +58,7 @@ public class SelectManager : Singleton<SelectManager>
                 objectSelected.SetSelectionUI(false);
             }
         }
-        
+
     }
 
     private void PlacePlaceable()
@@ -66,11 +68,18 @@ public class SelectManager : Singleton<SelectManager>
         positionToPlace.z = 0;
 
         Artillery artillery = selectedObjectToPlace.GetComponent<Artillery>();
+        DronLauncher dronLauncher = selectedObjectToPlace.GetComponent<DronLauncher>();
+        AlliedSquad alliedSquad = selectedObjectToPlace.GetComponent<AlliedSquad>();
         if (artillery)
         {
             PlaceArtillery(positionToPlace, artillery);
         }
-        else
+        if (dronLauncher && MouseFollower.Instance.PlaceableZoneToSelect)
+        {
+            SendDron(dronLauncher);
+        }
+        if (alliedSquad && Resources.Instance.CurrentResources >= alliedSquad.BasicCost && MouseFollower.Instance.PlaceableZoneToSelect != null 
+                                   && MouseFollower.Instance.PlaceableZoneToSelect.ObjectInZone == null)
         {
             PlaceUnit(positionToPlace);
         }
@@ -78,22 +87,18 @@ public class SelectManager : Singleton<SelectManager>
 
     private void PlaceUnit(Vector3 positionToPlace)
     {
-        if (Resources.Instance.CurrentResources >= selectedObjectToPlace.GetComponent<AlliedSquad>().BasicCost && MouseFollower.Instance.PlaceableZoneToSelect
-                                   && MouseFollower.Instance.PlaceableZoneToSelect.ObjectInZone == null)
-        {
-            positionToPlace.y = (Mathf.Floor(positionToPlace.y / 4f) * 4f) + 2f;
-            positionToPlace.x = (Mathf.Floor(positionToPlace.x / 4f) * 4f) + 2f;
-            GameObject instance = Instantiate(selectedObjectToPlace, positionToPlace, Quaternion.Euler(0, 0, -90));
-            Resources.Instance.CurrentResources -= selectedObjectToPlace.GetComponent<AlliedSquad>().BasicCost;
-            MouseFollower.Instance.PlaceableZoneToSelect.ObjectInZone = instance;
-        }
+        positionToPlace.y = (Mathf.Floor(positionToPlace.y / 4f) * 4f) + 2f;
+        positionToPlace.x = (Mathf.Floor(positionToPlace.x / 4f) * 4f) + 2f;
+        GameObject instance = Instantiate(selectedObjectToPlace, positionToPlace, Quaternion.Euler(0, 0, -90));
+        Resources.Instance.CurrentResources -= selectedObjectToPlace.GetComponent<AlliedSquad>().BasicCost;
+        MouseFollower.Instance.PlaceableZoneToSelect.ObjectInZone = instance;
     }
 
     private void PlaceArtillery(Vector3 positionToPlace, Artillery artillery)
     {
         if (MouseFollower.Instance.InteractableToSelect)
         {
-            GameObject artilleryInsantiate = Instantiate(selectedObjectToPlace, SupportFireManager.Instance.PositionAlliedSupportingFire.position, Quaternion.identity);
+            GameObject artilleryInsantiate = Instantiate(selectedObjectToPlace, SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position, Quaternion.identity);
             artillery = artilleryInsantiate.GetComponent<Artillery>();
             artillery.FireShells(positionToPlace);
         }
@@ -111,6 +116,11 @@ public class SelectManager : Singleton<SelectManager>
         {
             artillery.ActivedPreviewExplosion();
         }
+    }
+
+    private void SendDron(DronLauncher dronLauncher)
+    {
+        dronLauncher.DeployDron(MouseFollower.Instance.PlaceableZoneToSelect.transform.position);
     }
 
 }
