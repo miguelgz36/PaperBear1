@@ -165,6 +165,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2752731878672254536, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5309294979658352760, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: m_Name
       value: MGSquad

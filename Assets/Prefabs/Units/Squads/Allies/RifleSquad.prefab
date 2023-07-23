@@ -279,6 +279,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2418724063505455269, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752731878672254536, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
+      propertyPath: m_Size.y
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752731878672254536, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5309294979658352760, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: m_Name
       value: RifleSquad
@@ -448,6 +460,10 @@ PrefabInstance:
     - target: {fileID: 307652825454630429, guid: 93b8add33a655534cad661d1ef5dae61, type: 3}
       propertyPath: m_Name
       value: TrenchButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 307652825454630429, guid: 93b8add33a655534cad661d1ef5dae61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1313874678788304055, guid: 93b8add33a655534cad661d1ef5dae61, type: 3}
       propertyPath: m_RootOrder

@@ -29,9 +29,9 @@ public class SelectManager : Singleton<SelectManager>
 
     private void Start()
     {
-        playerControls.Build.Select.started += _ => SelectionUnit(); 
+        playerControls.Build.Select.started += _ => Select(); 
     }
-    private void SelectionUnit()
+    private void Select()
     {
         if (SquadReadyToSelect)
         {
@@ -46,7 +46,7 @@ public class SelectManager : Singleton<SelectManager>
         {
             if (selectedObjectToPlace != null && SquadReadyToSelect == null)
             {
-                PlaceUnit();
+                PlacePlaceable();
             }
 
             selectedObjectToPlace = null;
@@ -59,7 +59,7 @@ public class SelectManager : Singleton<SelectManager>
         
     }
 
-    private void PlaceUnit()
+    private void PlacePlaceable()
     {
         Vector3 inputMouse = Input.mousePosition;
         Vector3 positionToPlace = Camera.main.ScreenToWorldPoint(inputMouse);
