@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TryAssault
   m_EditorClassIdentifier: 
   squads:
-  - {fileID: 7659294987983672360, guid: 1e48cecaf720da44a96ea23fbebb26c1, type: 3}
-  - {fileID: 7659294987983672360, guid: 1e48cecaf720da44a96ea23fbebb26c1, type: 3}
-  - {fileID: 7659294987983672360, guid: 1e48cecaf720da44a96ea23fbebb26c1, type: 3}
-  - {fileID: 7659294987983672360, guid: 0949d665b7e21d6469428bccc4f785a7, type: 3}
+  - {fileID: 4838862568820168557, guid: c6cc51e1728433845aa41c1365a811a2, type: 3}
+  - {fileID: 4838862568820168557, guid: ff7fa85bc4a384840b0a48a135005b6b, type: 3}
+  - {fileID: 4838862568820168557, guid: c6cc51e1728433845aa41c1365a811a2, type: 3}
+  - {fileID: 4838862568820168557, guid: c6cc51e1728433845aa41c1365a811a2, type: 3}
   timeToSpawn: 1

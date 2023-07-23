@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentUnit: {fileID: 8934272404496599324}
-  baseHealth: 100
+  baseHealth: 200
 --- !u!50 &2718632099613564105
 Rigidbody2D:
   serializedVersion: 4

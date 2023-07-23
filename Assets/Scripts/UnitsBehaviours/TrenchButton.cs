@@ -21,12 +21,11 @@ public class TrenchButton : MonoBehaviour
         activationTime = DateTime.Now.AddSeconds(secondsBeforeAppearingForTheFirstTime);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        Physics2D.queriesHitTriggers = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (shouldActivate && !trenchButtonObject.active && DateTime.Now > activationTime)
@@ -49,7 +48,7 @@ public class TrenchButton : MonoBehaviour
         shouldActivate = false;
     }
 
-    public void onClick()
+    public void OnClick()
     {
         trench.SetActive(true);
         TrenchButtonManager.Instance.UnselectIfExists(trenchButtonObject);

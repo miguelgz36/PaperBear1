@@ -28,9 +28,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""34db57a1-6046-45f5-9e4e-5f565e492898"",
             ""actions"": [
                 {
-                    ""name"": ""PlaceUnit"",
+                    ""name"": ""Select"",
                     ""type"": ""Button"",
                     ""id"": ""633f0632-cc21-4a04-9d31-842ef7725e27"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Action"",
+                    ""type"": ""Button"",
+                    ""id"": ""c095e997-cb1c-4516-bdcb-3d2092b747a1"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -45,7 +54,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PlaceUnit"",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""349007bf-e078-41aa-aa6b-7df4bca645e9"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -56,7 +76,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
 }");
         // Build
         m_Build = asset.FindActionMap("Build", throwIfNotFound: true);
-        m_Build_PlaceUnit = m_Build.FindAction("PlaceUnit", throwIfNotFound: true);
+        m_Build_Select = m_Build.FindAction("Select", throwIfNotFound: true);
+        m_Build_Action = m_Build.FindAction("Action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -118,12 +139,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     // Build
     private readonly InputActionMap m_Build;
     private List<IBuildActions> m_BuildActionsCallbackInterfaces = new List<IBuildActions>();
-    private readonly InputAction m_Build_PlaceUnit;
+    private readonly InputAction m_Build_Select;
+    private readonly InputAction m_Build_Action;
     public struct BuildActions
     {
         private @PlayerControls m_Wrapper;
         public BuildActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @PlaceUnit => m_Wrapper.m_Build_PlaceUnit;
+        public InputAction @Select => m_Wrapper.m_Build_Select;
+        public InputAction @Action => m_Wrapper.m_Build_Action;
         public InputActionMap Get() { return m_Wrapper.m_Build; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -133,16 +156,22 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_BuildActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_BuildActionsCallbackInterfaces.Add(instance);
-            @PlaceUnit.started += instance.OnPlaceUnit;
-            @PlaceUnit.performed += instance.OnPlaceUnit;
-            @PlaceUnit.canceled += instance.OnPlaceUnit;
+            @Select.started += instance.OnSelect;
+            @Select.performed += instance.OnSelect;
+            @Select.canceled += instance.OnSelect;
+            @Action.started += instance.OnAction;
+            @Action.performed += instance.OnAction;
+            @Action.canceled += instance.OnAction;
         }
 
         private void UnregisterCallbacks(IBuildActions instance)
         {
-            @PlaceUnit.started -= instance.OnPlaceUnit;
-            @PlaceUnit.performed -= instance.OnPlaceUnit;
-            @PlaceUnit.canceled -= instance.OnPlaceUnit;
+            @Select.started -= instance.OnSelect;
+            @Select.performed -= instance.OnSelect;
+            @Select.canceled -= instance.OnSelect;
+            @Action.started -= instance.OnAction;
+            @Action.performed -= instance.OnAction;
+            @Action.canceled -= instance.OnAction;
         }
 
         public void RemoveCallbacks(IBuildActions instance)
@@ -162,6 +191,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public BuildActions @Build => new BuildActions(this);
     public interface IBuildActions
     {
-        void OnPlaceUnit(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
+        void OnAction(InputAction.CallbackContext context);
     }
 }

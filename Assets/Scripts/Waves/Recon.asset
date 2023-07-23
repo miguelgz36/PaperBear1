@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Recon
   m_EditorClassIdentifier: 
   squads:
-  - {fileID: 7659294987983672360, guid: 55e7ed84401399c4c92ae8ab2bf9e0aa, type: 3}
-  - {fileID: 7659294987983672360, guid: 55e7ed84401399c4c92ae8ab2bf9e0aa, type: 3}
-  - {fileID: 7659294987983672360, guid: 55e7ed84401399c4c92ae8ab2bf9e0aa, type: 3}
+  - {fileID: 4838862568820168557, guid: 9e54d3a13532aed4fa2b348f74355a94, type: 3}
+  - {fileID: 4838862568820168557, guid: 9e54d3a13532aed4fa2b348f74355a94, type: 3}
+  - {fileID: 4838862568820168557, guid: 9e54d3a13532aed4fa2b348f74355a94, type: 3}
   timeToSpawn: 3

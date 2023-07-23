@@ -11,29 +11,37 @@ public class Health : MonoBehaviour
     private float currentHealth;
     private bool isEnemy;
     private Structure onStructure;
+    private Cell currentCell;
 
-    public Structure OnStructure { get => onStructure; set => onStructure = value; }
+    public Structure OnStructure { set => onStructure = value; }
+    public Cell CurrentCell { set => currentCell = value; }
+
+
+
+    void Start()
+    {
+        currentHealth = baseHealth;
+        isEnemy = currentUnit.GetComponent<UnitController>().IsEnemy();
+    }
+
 
     public bool IsEnemy()
     {
         return isEnemy;
     }
-    
+
     public bool DoDamage(float baseDamage)
     {
         if (onStructure != null && onStructure.RejectProjectile()) return false;
+        if (currentCell != null && currentCell.RejectProjectile()) return false;
+
         currentHealth -= baseDamage;
         StartCoroutine(GetComponent<HitBlink>().FlashRoutine());
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             Destroy(currentUnit);
         }
         return true;
-    }
-    void Start()
-    {
-        currentHealth = baseHealth;
-        isEnemy = currentUnit.GetComponent<UnitController>().IsEnemy();
     }
 
 
