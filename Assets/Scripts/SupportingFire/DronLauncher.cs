@@ -4,19 +4,8 @@ using UnityEngine;
 
 public class DronLauncher : Placeable
 {
-    // Start is called before the first frame update
 
     [SerializeField] GameObject dron;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void DeployDron(Vector3 target)
     {
