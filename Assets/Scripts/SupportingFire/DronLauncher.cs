@@ -20,9 +20,7 @@ public class DronLauncher : Placeable
 
     public void DeployDron(Vector3 target)
     {
-        Debug.Log(SupportFireManager.Instance.PositionAlliedSupportingFire.gameObject.transform.position);
         GameObject dronInstance = Instantiate(this.dron, SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position, Quaternion.identity);
-        Debug.Log(dronInstance.transform.position);
         Dron dron = dronInstance.GetComponent<Dron>();
         dron.Deploy(target);
     }

@@ -75,7 +75,6 @@ public class Dron : MonoBehaviour
 
     private IEnumerator ReturnToSpawn()
     {
-
         yield return new WaitForSeconds(returningDelay);
         target = SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position;
         DefineRotation();
