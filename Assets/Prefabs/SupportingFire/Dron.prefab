@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2ef612e625c8c6b468de406304d46391, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 321e7994d05ca11459b52764b038eab9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,3 +120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  granades:
+  - {fileID: 8417181924097020264, guid: 622b37e1f43013c45a0cc37f2440ae88, type: 3}
+  - {fileID: 8417181924097020264, guid: 622b37e1f43013c45a0cc37f2440ae88, type: 3}
+  - {fileID: 8417181924097020264, guid: 622b37e1f43013c45a0cc37f2440ae88, type: 3}
+  maxDispersion: 1
+  throwingDelay: 0.3

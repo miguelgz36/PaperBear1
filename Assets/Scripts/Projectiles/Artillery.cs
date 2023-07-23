@@ -40,7 +40,7 @@ public class Artillery : Placeable
             yield return new WaitForSeconds(delaySplashs);
             float x = Random.Range(target.x - offset, target.x + offset);
             float y = Random.Range(target.y - offset, target.y + offset);
-            GameObject projectileInsantiate = Instantiate(projectile, SupportFireManager.Instance.PositionAlliedSupportingFire.position, Quaternion.identity);
+            GameObject projectileInsantiate = Instantiate(projectile, SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position, Quaternion.identity);
             projectileInsantiate.GetComponent<ArtilleryShell>().FireShell(new Vector3(x, y));
         }
         firing = false;

@@ -3282,6 +3282,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1529663150955917203, guid: 5b2cf0d8aafc96f4490cd5cae5a27951, type: 3}
+      propertyPath: positionAlliedSupportingFire
+      value: 
+      objectReference: {fileID: 1737787733}
     - target: {fileID: 1529663152929701070, guid: 5b2cf0d8aafc96f4490cd5cae5a27951, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27
@@ -3600,6 +3604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d7b87735595b514ba3dafc96d91ebb9, type: 3}
+--- !u!1 &1737787733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1529663150912692700, guid: 5b2cf0d8aafc96f4490cd5cae5a27951, type: 3}
+  m_PrefabInstance: {fileID: 1303644952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1750609432 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4952375742619814285, guid: 42b974c681bd86f44a1e7be711a9dec3, type: 3}

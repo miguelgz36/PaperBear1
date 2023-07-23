@@ -61,7 +61,7 @@ public class PlacementManager : Singleton<PlacementManager>
     {
         if (Selector.Instance.InteractableToSelect)
         {
-            GameObject artilleryInsantiate = Instantiate(selectedObject, SupportFireManager.Instance.PositionAlliedSupportingFire.position, Quaternion.identity);
+            GameObject artilleryInsantiate = Instantiate(selectedObject, SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position, Quaternion.identity);
             artillery = artilleryInsantiate.GetComponent<Artillery>();
             artillery.FireShells(positionToPlace);
         }
