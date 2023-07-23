@@ -6,10 +6,10 @@ public class SelectManager : Singleton<SelectManager>
 {
     private GameObject selectedObjectToPlace;
     private PlayerControls playerControls;
-    private AlliedSquad squadReadyToSelect;
-    private AlliedSquad squadSelected;
+    private Selectable objectReadyToSelect;
+    private Selectable objectSelected;
 
-    public AlliedSquad SquadReadyToSelect { get => squadReadyToSelect; set => squadReadyToSelect = value; }
+    public Selectable SquadReadyToSelect { get => objectReadyToSelect; set => objectReadyToSelect = value; }
 
     protected override void Awake()
     {
@@ -35,12 +35,12 @@ public class SelectManager : Singleton<SelectManager>
     {
         if (SquadReadyToSelect)
         {
-            if (squadSelected && squadReadyToSelect != squadSelected)
+            if (objectSelected && objectReadyToSelect != objectSelected)
             {
-                squadSelected.SetSelectionUI(false);
+                objectSelected.SetSelectionUI(false);
             }
-            squadSelected = SquadReadyToSelect;
-            squadSelected.SetSelectionUI(true);
+            objectSelected = objectReadyToSelect;
+            objectSelected.SetSelectionUI(true);
         }
         else
         {
@@ -51,9 +51,9 @@ public class SelectManager : Singleton<SelectManager>
 
             selectedObjectToPlace = null;
             PlaceableCells.Instance.HidePlaceableZones();
-            if (squadSelected)
+            if (objectSelected)
             {
-                squadSelected.SetSelectionUI(false);
+                objectSelected.SetSelectionUI(false);
             }
         }
         

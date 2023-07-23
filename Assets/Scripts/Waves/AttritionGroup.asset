@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: AttritionGroup
   m_EditorClassIdentifier: 
   squads:
-  - {fileID: 5730237899309646734, guid: deda024b3cfede54ea4d88de466123c5, type: 3}
+  - {fileID: 4838862568820168557, guid: 9e54d3a13532aed4fa2b348f74355a94, type: 3}
   - {fileID: 5730237899309646734, guid: 9bdf5b7c37b755242a4cd6eceaeb720c, type: 3}
-  - {fileID: 5730237899309646734, guid: deda024b3cfede54ea4d88de466123c5, type: 3}
+  - {fileID: 4838862568820168557, guid: 9e54d3a13532aed4fa2b348f74355a94, type: 3}
   - {fileID: 5730237899309646734, guid: 9bdf5b7c37b755242a4cd6eceaeb720c, type: 3}
-  - {fileID: 5730237899309646734, guid: deda024b3cfede54ea4d88de466123c5, type: 3}
+  - {fileID: 4838862568820168557, guid: 9e54d3a13532aed4fa2b348f74355a94, type: 3}
+  - {fileID: 4864783902304047708, guid: 33d999459924fa644953635e87d36fb7, type: 3}
   - {fileID: 5730237899309646734, guid: 9bdf5b7c37b755242a4cd6eceaeb720c, type: 3}
-  - {fileID: 5730237899309646734, guid: 9bdf5b7c37b755242a4cd6eceaeb720c, type: 3}
-  - {fileID: 5730237899309646734, guid: deda024b3cfede54ea4d88de466123c5, type: 3}
+  - {fileID: 4838862568820168557, guid: 9e54d3a13532aed4fa2b348f74355a94, type: 3}
   timeToSpawn: 10
