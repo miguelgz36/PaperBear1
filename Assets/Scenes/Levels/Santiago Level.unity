@@ -1928,7 +1928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460659908291952759, guid: 42b974c681bd86f44a1e7be711a9dec3, type: 3}
       propertyPath: m_text
-      value: Precision Artillery
+      value: Dron
       objectReference: {fileID: 0}
     - target: {fileID: 8460659908291952759, guid: 42b974c681bd86f44a1e7be711a9dec3, type: 3}
       propertyPath: m_margin.z
@@ -2210,7 +2210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &943736800
 Transform:
   m_ObjectHideFlags: 0
@@ -3285,7 +3285,7 @@ PrefabInstance:
     - target: {fileID: 1529663150955917203, guid: 5b2cf0d8aafc96f4490cd5cae5a27951, type: 3}
       propertyPath: positionAlliedSupportingFire
       value: 
-      objectReference: {fileID: 1737787733}
+      objectReference: {fileID: 1637063458}
     - target: {fileID: 1529663152929701070, guid: 5b2cf0d8aafc96f4490cd5cae5a27951, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27
@@ -3547,6 +3547,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554335883}
   m_CullTransparentMesh: 1
+--- !u!1 &1637063458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1637063459}
+  m_Layer: 0
+  m_Name: AlliedSupportFirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1637063459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637063458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.52, y: 2.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1714129588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3604,11 +3635,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d7b87735595b514ba3dafc96d91ebb9, type: 3}
---- !u!1 &1737787733 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1529663150912692700, guid: 5b2cf0d8aafc96f4490cd5cae5a27951, type: 3}
-  m_PrefabInstance: {fileID: 1303644952}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1750609432 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4952375742619814285, guid: 42b974c681bd86f44a1e7be711a9dec3, type: 3}

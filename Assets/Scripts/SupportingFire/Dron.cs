@@ -10,7 +10,10 @@ public class Dron : MonoBehaviour
     [SerializeField] List<GameObject> granades;
     [SerializeField] private float maxDispersion = 2;
     [SerializeField] float throwingDelay = 1f;
+    [SerializeField] float returningDelay = 1f;
+
     bool deployed = false;
+    bool returning = false;
     private Vector3 target;
     protected Rigidbody2D rigidBody;
     private float proximityThreshold = 0.3f;
@@ -22,17 +25,24 @@ public class Dron : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (deployed)
+        if (deployed || returning)
         {
             if (Vector3.Distance(transform.position, target) < proximityThreshold)
             {
-                deployed = false;
-                StartCoroutine(ThrowProjectiles());
+                if (returning)
+                {
+                    Destroy(gameObject);
+                }
+                if(deployed)
+                {
+                    deployed = false;
+                    StartCoroutine(ThrowProjectiles());
+                }
             }
             else
             {
                 rigidBody.MovePosition(speed * Time.fixedDeltaTime * transform.up + transform.position);
-            }
+            };
         }
     }
 
@@ -59,6 +69,17 @@ public class Dron : MonoBehaviour
             GameObject granadeInstance = Instantiate(granadePrefab, gameObject.transform.position, Quaternion.identity);
             granadeInstance.GetComponent<DronGranade>().FireShell(new Vector3(x, y));
         }
+
+        StartCoroutine(ReturnToSpawn());
+    }
+
+    private IEnumerator ReturnToSpawn()
+    {
+
+        yield return new WaitForSeconds(returningDelay);
+        target = SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position;
+        DefineRotation();
+        returning = true;
     }
 
 }
