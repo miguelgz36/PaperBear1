@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlacementButton : MonoBehaviour
 {
     [SerializeField] GameObject unitPrefab;
+    [SerializeField] Image cooldownImage;
     private Placeable placeable;
     private Button button;
     private float currentCooldown;
@@ -27,18 +28,21 @@ public class PlacementButton : MonoBehaviour
         if (!button.interactable)
         {
             currentCooldown += (Time.deltaTime);
-            Debug.Log(currentCooldown);
+            cooldownImage.fillAmount = 1 - ((1 * currentCooldown) / placeable.CoolDown);
         }   
-        if (currentCooldown < placeable.BasicCost)
+        if (currentCooldown < placeable.CoolDown)
         {
             button.interactable = false;
-        } else if (currentCooldown >= placeable.BasicCost )
+        } else if (currentCooldown >= placeable.CoolDown )
         {
             button.interactable = true;
+            Debug.Log("Inerectable");
+
         }
     }
     public void SetCurrentUnitToPlace()
     {
+        Debug.Log("SelectUnit");
         if(placeable is AlliedSquad)
         {
             PlaceableCells.Instance.ShowPlaceableZones();
@@ -54,6 +58,8 @@ public class PlacementButton : MonoBehaviour
 
     public void ResetCooldown()
     {
+        cooldownImage.fillAmount = 1f;
         currentCooldown = 0f;
+        button.interactable = false;
     }
 }

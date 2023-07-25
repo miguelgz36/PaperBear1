@@ -6,5 +6,5 @@ public class Placeable : MonoBehaviour
 {
     [SerializeField] private float cooldown;
 
-    public float BasicCost { get => cooldown; }
+    public float CoolDown { get => cooldown; }
 }

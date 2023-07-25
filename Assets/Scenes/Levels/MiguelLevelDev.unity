@@ -2059,7 +2059,7 @@ PrefabInstance:
     - target: {fileID: 4952375742619814287, guid: 42b974c681bd86f44a1e7be711a9dec3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 379db0cc875cb7648a2ad473c623d8d0, type: 3}
+      objectReference: {fileID: 21300000, guid: 91a5ce091ca44ad43b796ce1471d751b, type: 3}
     - target: {fileID: 4952375742619814290, guid: 42b974c681bd86f44a1e7be711a9dec3, type: 3}
       propertyPath: m_Name
       value: UnitToPlaceButton (1)
@@ -6288,7 +6288,7 @@ PrefabInstance:
     - target: {fileID: 4952375742619814287, guid: 42b974c681bd86f44a1e7be711a9dec3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 379db0cc875cb7648a2ad473c623d8d0, type: 3}
+      objectReference: {fileID: 21300000, guid: dd0522f55c71b8147820cefff2eb049d, type: 3}
     - target: {fileID: 4952375742619814290, guid: 42b974c681bd86f44a1e7be711a9dec3, type: 3}
       propertyPath: m_Name
       value: UnitToPlaceButton (2)
@@ -7033,7 +7033,7 @@ PrefabInstance:
     - target: {fileID: 4952375742619814287, guid: 42b974c681bd86f44a1e7be711a9dec3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 869c25e4d3c4a454ab76169a293f8716, type: 3}
+      objectReference: {fileID: 21300000, guid: 102c911b7d12b8f4ea4323fa4108a137, type: 3}
     - target: {fileID: 4952375742619814290, guid: 42b974c681bd86f44a1e7be711a9dec3, type: 3}
       propertyPath: m_Name
       value: UnitToPlaceButton (3)
@@ -7853,7 +7853,7 @@ PrefabInstance:
     - target: {fileID: 4952375742619814287, guid: 42b974c681bd86f44a1e7be711a9dec3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 869c25e4d3c4a454ab76169a293f8716, type: 3}
+      objectReference: {fileID: 21300000, guid: 73304b8d23b031c4f9ad96fc660dac59, type: 3}
     - target: {fileID: 4952375742619814290, guid: 42b974c681bd86f44a1e7be711a9dec3, type: 3}
       propertyPath: m_Name
       value: UnitToPlaceButton

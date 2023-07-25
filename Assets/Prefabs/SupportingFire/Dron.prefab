@@ -126,3 +126,4 @@ MonoBehaviour:
   - {fileID: 8417181924097020264, guid: 622b37e1f43013c45a0cc37f2440ae88, type: 3}
   maxDispersion: 1
   throwingDelay: 0.3
+  returningDelay: 1

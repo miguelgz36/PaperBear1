@@ -87,7 +87,7 @@ public class SelectManager : Singleton<SelectManager>
             SendDron(dronLauncher);
             placed = true;
         }
-        if (alliedSquad && Resources.Instance.CurrentResources >= alliedSquad.BasicCost && MouseFollower.Instance.PlaceableZoneToSelect != null
+        if (alliedSquad && Resources.Instance.CurrentResources >= alliedSquad.CoolDown && MouseFollower.Instance.PlaceableZoneToSelect != null
                                    && MouseFollower.Instance.PlaceableZoneToSelect.ObjectInZone == null)
         {
             PlaceUnit(positionToPlace);
@@ -104,7 +104,7 @@ public class SelectManager : Singleton<SelectManager>
         positionToPlace.y = (Mathf.Floor(positionToPlace.y / 4f) * 4f) + 2f;
         positionToPlace.x = (Mathf.Floor(positionToPlace.x / 4f) * 4f) + 2f;
         GameObject instance = Instantiate(selectedObjectToPlace, positionToPlace, Quaternion.Euler(0, 0, -90));
-        Resources.Instance.CurrentResources -= selectedObjectToPlace.GetComponent<AlliedSquad>().BasicCost;
+        Resources.Instance.CurrentResources -= selectedObjectToPlace.GetComponent<AlliedSquad>().CoolDown;
         MouseFollower.Instance.PlaceableZoneToSelect.ObjectInZone = instance;
     }
 
