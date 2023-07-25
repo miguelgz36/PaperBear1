@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Placeable : MonoBehaviour
 {
-    [SerializeField] private float basicCost;
+    [SerializeField] private float cooldown;
 
-    public float BasicCost { get => basicCost; }
+    public float BasicCost { get => cooldown; }
 }

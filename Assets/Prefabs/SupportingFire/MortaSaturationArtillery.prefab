@@ -16,6 +16,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5813598248330015333, guid: 8fd7290f8bb992f4988edb60dabe6837, type: 3}
+      propertyPath: cooldown
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813598248330015333, guid: 8fd7290f8bb992f4988edb60dabe6837, type: 3}
       propertyPath: projectile
       value: 
       objectReference: {fileID: 5348639075438021840, guid: 831e473c913279a42a5587cd94a29e0f, type: 3}

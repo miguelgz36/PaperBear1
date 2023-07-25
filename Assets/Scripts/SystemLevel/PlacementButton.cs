@@ -8,20 +8,31 @@ public class PlacementButton : MonoBehaviour
     [SerializeField] GameObject unitPrefab;
     private Placeable placeable;
     private Button button;
+    private float currentCooldown;
 
     private void Awake()
     {
         placeable = unitPrefab.GetComponent<Placeable>();
         button = GetComponentInParent<Button>();
     }
- 
+
+    private void Start()
+    {
+        currentCooldown = 0;
+    }
+
 
     private void Update()
     {
-        if (Resources.Instance.CurrentResources < placeable.BasicCost)
+        if (!button.interactable)
+        {
+            currentCooldown += (Time.deltaTime);
+            Debug.Log(currentCooldown);
+        }   
+        if (currentCooldown < placeable.BasicCost)
         {
             button.interactable = false;
-        } else if (Resources.Instance.CurrentResources >= placeable.BasicCost )
+        } else if (currentCooldown >= placeable.BasicCost )
         {
             button.interactable = true;
         }
@@ -38,6 +49,11 @@ public class PlacementButton : MonoBehaviour
             PlaceableCells.Instance.ShowPlaceableZones();
         }
 
-        SelectManager.Instance.SetUnitToPlaceSquad(unitPrefab);
+        SelectManager.Instance.SetUnitToPlaceSquad(unitPrefab, this);
+    }
+
+    public void ResetCooldown()
+    {
+        currentCooldown = 0f;
     }
 }

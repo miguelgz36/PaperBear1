@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 4952375742619814287}
   - component: {fileID: 4952375742619814284}
   m_Layer: 5
-  m_Name: UnitToPlaceButton
+  m_Name: PlaceableToPlaceButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 479264208966524499}
   - component: {fileID: 5489934275056024250}
   m_Layer: 5
-  m_Name: UnitToPlace
+  m_Name: PlaceableToPlace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

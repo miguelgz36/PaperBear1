@@ -8,6 +8,7 @@ public class SelectManager : Singleton<SelectManager>
     private PlayerControls playerControls;
     private Selectable objectReadyToSelect;
     private Selectable objectSelected;
+    private PlacementButton placementButton;
 
     public Selectable SquadReadyToSelect { get => objectReadyToSelect; set => objectReadyToSelect = value; }
 
@@ -52,6 +53,7 @@ public class SelectManager : Singleton<SelectManager>
 
 
             selectedObjectToPlace = null;
+            placementButton = null;
             PlaceableCells.Instance.HidePlaceableZones();
             if (objectSelected)
             {
@@ -70,18 +72,30 @@ public class SelectManager : Singleton<SelectManager>
         Artillery artillery = selectedObjectToPlace.GetComponent<Artillery>();
         DronLauncher dronLauncher = selectedObjectToPlace.GetComponent<DronLauncher>();
         AlliedSquad alliedSquad = selectedObjectToPlace.GetComponent<AlliedSquad>();
-        if (artillery)
+        bool placed = false;
+        if (artillery && MouseFollower.Instance.InteractableToSelect)
         {
-            PlaceArtillery(positionToPlace, artillery);
+            PlaceArtillery(positionToPlace);
+            placed = true;
+        }
+        else if (artillery)
+        {
+            artillery.DeactivedPreviewExplosion();
         }
         if (dronLauncher && MouseFollower.Instance.PlaceableZoneToSelect)
         {
             SendDron(dronLauncher);
+            placed = true;
         }
-        if (alliedSquad && Resources.Instance.CurrentResources >= alliedSquad.BasicCost && MouseFollower.Instance.PlaceableZoneToSelect != null 
+        if (alliedSquad && Resources.Instance.CurrentResources >= alliedSquad.BasicCost && MouseFollower.Instance.PlaceableZoneToSelect != null
                                    && MouseFollower.Instance.PlaceableZoneToSelect.ObjectInZone == null)
         {
             PlaceUnit(positionToPlace);
+            placed = true;
+        }
+        if (placed && placementButton)
+        {
+            placementButton.ResetCooldown();
         }
     }
 
@@ -94,23 +108,17 @@ public class SelectManager : Singleton<SelectManager>
         MouseFollower.Instance.PlaceableZoneToSelect.ObjectInZone = instance;
     }
 
-    private void PlaceArtillery(Vector3 positionToPlace, Artillery artillery)
+    private void PlaceArtillery(Vector3 positionToPlace)
     {
-        if (MouseFollower.Instance.InteractableToSelect)
-        {
-            GameObject artilleryInsantiate = Instantiate(selectedObjectToPlace, SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position, Quaternion.identity);
-            artillery = artilleryInsantiate.GetComponent<Artillery>();
-            artillery.FireShells(positionToPlace);
-        }
-        else
-        {
-            artillery.DeactivedPreviewExplosion();
-        }
+        GameObject artilleryInsantiate = Instantiate(selectedObjectToPlace, SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position, Quaternion.identity);
+        Artillery artillery = artilleryInsantiate.GetComponent<Artillery>();
+        artillery.FireShells(positionToPlace);
     }
 
-    public void SetUnitToPlaceSquad(GameObject selected)
+    public void SetUnitToPlaceSquad(GameObject selected, PlacementButton placementButton)
     {
         selectedObjectToPlace = selected;
+        this.placementButton = placementButton;
         Artillery artillery = selected.GetComponent<Artillery>();
         if (artillery)
         {
