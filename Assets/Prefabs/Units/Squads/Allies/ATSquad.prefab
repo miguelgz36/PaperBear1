@@ -241,7 +241,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1807478350246293265, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: cooldown
-      value: 30
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -1807478350246293265, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
+      propertyPath: capPopulation
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 143470836758033938, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: m_RootOrder

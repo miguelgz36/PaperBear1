@@ -78,4 +78,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 341eff4c7f3003f448072822648c6e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicCost: 0
+  cooldown: 0
+  capPopulation: 0

@@ -5,9 +5,12 @@ using UnityEngine;
 public class Squad : MonoBehaviour
 {
     List<GameObject> units;
+    AlliedSquad placeable;
+
     private void Awake()
     {
         units = new List<GameObject>();
+        placeable = GetComponent<AlliedSquad>();
         foreach (UnitController unit in GetComponentsInChildren<UnitController>()) {
             units.Add(unit.gameObject);
         }
@@ -15,8 +18,9 @@ public class Squad : MonoBehaviour
 
     private void Update()
     {
-        if(units.Count == 0)
+        if (units.Count == 0)
         {
+            if(placeable) placeable.ReducePopulation();
             Destroy(gameObject);
         }
     }

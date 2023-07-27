@@ -8,7 +8,8 @@ public class SelectManager : Singleton<SelectManager>
     private PlayerControls playerControls;
     private Selectable objectReadyToSelect;
     private Selectable objectSelected;
-    private PlacementButton placementButton;
+    private PlacementPlaceable placementButton;
+    private GameObject lastSpawned;
 
     public Selectable SquadReadyToSelect { get => objectReadyToSelect; set => objectReadyToSelect = value; }
 
@@ -87,15 +88,15 @@ public class SelectManager : Singleton<SelectManager>
             SendDron(dronLauncher);
             placed = true;
         }
-        if (alliedSquad && Resources.Instance.CurrentResources >= alliedSquad.CoolDown && MouseFollower.Instance.PlaceableZoneToSelect != null
-                                   && MouseFollower.Instance.PlaceableZoneToSelect.ObjectInZone == null)
+        if (alliedSquad && MouseFollower.Instance.PlaceableZoneToSelect != null
+                                   && MouseFollower.Instance.PlaceableZoneToSelect.ObjectInZone == null && placementButton.CapValid())
         {
             PlaceUnit(positionToPlace);
             placed = true;
         }
         if (placed && placementButton)
         {
-            placementButton.ResetCooldown();
+            placementButton.ResetCooldown(lastSpawned);
         }
     }
 
@@ -103,9 +104,8 @@ public class SelectManager : Singleton<SelectManager>
     {
         positionToPlace.y = (Mathf.Floor(positionToPlace.y / 4f) * 4f) + 2f;
         positionToPlace.x = (Mathf.Floor(positionToPlace.x / 4f) * 4f) + 2f;
-        GameObject instance = Instantiate(selectedObjectToPlace, positionToPlace, Quaternion.Euler(0, 0, -90));
-        Resources.Instance.CurrentResources -= selectedObjectToPlace.GetComponent<AlliedSquad>().CoolDown;
-        MouseFollower.Instance.PlaceableZoneToSelect.ObjectInZone = instance;
+        lastSpawned = Instantiate(selectedObjectToPlace, positionToPlace, Quaternion.Euler(0, 0, -90));
+        MouseFollower.Instance.PlaceableZoneToSelect.ObjectInZone = lastSpawned;
     }
 
     private void PlaceArtillery(Vector3 positionToPlace)
@@ -115,7 +115,7 @@ public class SelectManager : Singleton<SelectManager>
         artillery.FireShells(positionToPlace);
     }
 
-    public void SetUnitToPlaceSquad(GameObject selected, PlacementButton placementButton)
+    public void SetUnitToPlaceSquad(GameObject selected, PlacementPlaceable placementButton)
     {
         selectedObjectToPlace = selected;
         this.placementButton = placementButton;
