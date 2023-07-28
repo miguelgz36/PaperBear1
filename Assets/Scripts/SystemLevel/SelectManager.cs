@@ -94,7 +94,7 @@ public class SelectManager : Singleton<SelectManager>
             PlaceUnit(positionToPlace);
             placed = true;
         }
-        if (placed && placementButton)
+        if (placed && placementButton && lastSpawned)
         {
             placementButton.ResetCooldown(lastSpawned);
         }
