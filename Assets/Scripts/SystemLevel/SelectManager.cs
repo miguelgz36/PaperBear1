@@ -31,7 +31,7 @@ public class SelectManager : Singleton<SelectManager>
 
     private void Start()
     {
-        playerControls.Build.Select.started += _ => Select();
+        playerControls.Mouse.Select.started += _ => Select();
     }
     private void Select()
     {

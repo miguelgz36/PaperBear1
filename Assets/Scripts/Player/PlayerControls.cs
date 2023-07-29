@@ -24,7 +24,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ""name"": ""Player controls"",
     ""maps"": [
         {
-            ""name"": ""Build"",
+            ""name"": ""Mouse"",
             ""id"": ""34db57a1-6046-45f5-9e4e-5f565e492898"",
             ""actions"": [
                 {
@@ -44,6 +44,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Zoom"",
+                    ""type"": ""Value"",
+                    ""id"": ""1f828eec-8212-47e7-a012-9564e907f431"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -68,16 +77,39 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68d342be-a0d7-4c60-bd46-f8764de354be"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f643b52-a5d0-4b25-95c7-f5c73fa7de77"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // Build
-        m_Build = asset.FindActionMap("Build", throwIfNotFound: true);
-        m_Build_Select = m_Build.FindAction("Select", throwIfNotFound: true);
-        m_Build_Action = m_Build.FindAction("Action", throwIfNotFound: true);
+        // Mouse
+        m_Mouse = asset.FindActionMap("Mouse", throwIfNotFound: true);
+        m_Mouse_Select = m_Mouse.FindAction("Select", throwIfNotFound: true);
+        m_Mouse_Action = m_Mouse.FindAction("Action", throwIfNotFound: true);
+        m_Mouse_Zoom = m_Mouse.FindAction("Zoom", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -136,35 +168,40 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Build
-    private readonly InputActionMap m_Build;
-    private List<IBuildActions> m_BuildActionsCallbackInterfaces = new List<IBuildActions>();
-    private readonly InputAction m_Build_Select;
-    private readonly InputAction m_Build_Action;
-    public struct BuildActions
+    // Mouse
+    private readonly InputActionMap m_Mouse;
+    private List<IMouseActions> m_MouseActionsCallbackInterfaces = new List<IMouseActions>();
+    private readonly InputAction m_Mouse_Select;
+    private readonly InputAction m_Mouse_Action;
+    private readonly InputAction m_Mouse_Zoom;
+    public struct MouseActions
     {
         private @PlayerControls m_Wrapper;
-        public BuildActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Select => m_Wrapper.m_Build_Select;
-        public InputAction @Action => m_Wrapper.m_Build_Action;
-        public InputActionMap Get() { return m_Wrapper.m_Build; }
+        public MouseActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Select => m_Wrapper.m_Mouse_Select;
+        public InputAction @Action => m_Wrapper.m_Mouse_Action;
+        public InputAction @Zoom => m_Wrapper.m_Mouse_Zoom;
+        public InputActionMap Get() { return m_Wrapper.m_Mouse; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(BuildActions set) { return set.Get(); }
-        public void AddCallbacks(IBuildActions instance)
+        public static implicit operator InputActionMap(MouseActions set) { return set.Get(); }
+        public void AddCallbacks(IMouseActions instance)
         {
-            if (instance == null || m_Wrapper.m_BuildActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_BuildActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_MouseActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MouseActionsCallbackInterfaces.Add(instance);
             @Select.started += instance.OnSelect;
             @Select.performed += instance.OnSelect;
             @Select.canceled += instance.OnSelect;
             @Action.started += instance.OnAction;
             @Action.performed += instance.OnAction;
             @Action.canceled += instance.OnAction;
+            @Zoom.started += instance.OnZoom;
+            @Zoom.performed += instance.OnZoom;
+            @Zoom.canceled += instance.OnZoom;
         }
 
-        private void UnregisterCallbacks(IBuildActions instance)
+        private void UnregisterCallbacks(IMouseActions instance)
         {
             @Select.started -= instance.OnSelect;
             @Select.performed -= instance.OnSelect;
@@ -172,26 +209,30 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Action.started -= instance.OnAction;
             @Action.performed -= instance.OnAction;
             @Action.canceled -= instance.OnAction;
+            @Zoom.started -= instance.OnZoom;
+            @Zoom.performed -= instance.OnZoom;
+            @Zoom.canceled -= instance.OnZoom;
         }
 
-        public void RemoveCallbacks(IBuildActions instance)
+        public void RemoveCallbacks(IMouseActions instance)
         {
-            if (m_Wrapper.m_BuildActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_MouseActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IBuildActions instance)
+        public void SetCallbacks(IMouseActions instance)
         {
-            foreach (var item in m_Wrapper.m_BuildActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_MouseActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_BuildActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_MouseActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public BuildActions @Build => new BuildActions(this);
-    public interface IBuildActions
+    public MouseActions @Mouse => new MouseActions(this);
+    public interface IMouseActions
     {
         void OnSelect(InputAction.CallbackContext context);
         void OnAction(InputAction.CallbackContext context);
+        void OnZoom(InputAction.CallbackContext context);
     }
 }
