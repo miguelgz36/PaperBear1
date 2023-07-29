@@ -69,6 +69,7 @@ public class SelectManager : Singleton<SelectManager>
         Vector3 inputMouse = Input.mousePosition;
         Vector3 positionToPlace = Camera.main.ScreenToWorldPoint(inputMouse);
         positionToPlace.z = 0;
+        PlaceableZone placeableZone = MouseFollower.Instance.PlaceableZoneToSelect;
 
         Artillery artillery = selectedObjectToPlace.GetComponent<Artillery>();
         DronLauncher dronLauncher = selectedObjectToPlace.GetComponent<DronLauncher>();
@@ -88,8 +89,8 @@ public class SelectManager : Singleton<SelectManager>
             SendDron(dronLauncher);
             placed = true;
         }
-        if (alliedSquad && MouseFollower.Instance.PlaceableZoneToSelect != null
-                                   && MouseFollower.Instance.PlaceableZoneToSelect.ObjectInZone == null && placementButton.CapValid())
+        if (alliedSquad && placeableZone != null
+                                   && placeableZone.ObjectInZone == null && placementButton.CapValid())
         {
             PlaceUnit(positionToPlace);
             placed = true;
