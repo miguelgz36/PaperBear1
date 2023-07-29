@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
+    [SerializeField] private float maxZoomIn = 10f;
+    [SerializeField] private float maxZoomOut = 20f;
+
     private PlayerControls playerControls;
     private CinemachineVirtualCamera camera;
 
@@ -34,6 +37,10 @@ public class CameraZoom : MonoBehaviour
     {
         float value = playerControls.Mouse.Zoom.ReadValue<float>();
         int direction = Math.Sign(value);
-        camera.m_Lens.OrthographicSize += direction; 
+        float currentSize = camera.m_Lens.OrthographicSize;
+        if (direction == 1 && currentSize >= maxZoomOut) return;
+        if (direction == -1 && currentSize <= maxZoomIn) return;
+
+        camera.m_Lens.OrthographicSize = currentSize + direction; 
     }
 }
