@@ -287,6 +287,6 @@ MonoBehaviour:
   isEnemy: 0
   explosion: {fileID: 6530446993557903272, guid: 7e114f5149cfdbd45be963f307ff310b, type: 3}
   proximityThreshold: 0.01
-  delayFire: 0
+  delayFire: 0.1
   soundFire: {fileID: 1870996904884328655}
   soundIncoming: {fileID: 667321504907602118}
