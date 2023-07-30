@@ -11,7 +11,6 @@ public class FireWeapon : MonoBehaviour
     [SerializeField] float fireRatePerMinute = 1;
     [SerializeField] float ammoPerCharger = 12;
     [SerializeField] float reloadedRate = 10;
-    [SerializeField] float ammoConsume = 1;
     [SerializeField] float dispersion = .1f;
     [SerializeField] float percentajeVarianceFireRate = 0.2f;
     [SerializeField] float rangeFire = 10f;
@@ -56,7 +55,7 @@ public class FireWeapon : MonoBehaviour
 
     IEnumerator PullTheTrigger()
     {
-        while (currentAmmo > 0 && (unitController.IsEnemy() || !Resources.Instance.IsOutOfResources()) && startShooting)
+        while (currentAmmo > 0 && startShooting)
         {
             isShooting = true;
             RaycastHit2D hit = RayCastToTarget();
@@ -83,7 +82,6 @@ public class FireWeapon : MonoBehaviour
         instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
         soundWeapon.PlayAtPoint();
         currentAmmo--;
-        if (!unitController.IsEnemy()) Resources.Instance.ConsumeBox(ammoConsume);
         float finalFireRate = Random.Range(fireRatePerMinute - varianceFireRate, fireRatePerMinute + varianceFireRate);
         return finalFireRate;
     }

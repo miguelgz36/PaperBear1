@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832cf74c843987b4ba1a8e5f5cacff70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicCost: 0
+  cooldown: 100
+  capPopulation: 0
   projectile: {fileID: 5348639075438021840, guid: 2cfab693c03faeb4eb223c227b908b44, type: 3}
   amount: 1
   delaySplashs: 0
+  maxDispersion: 0

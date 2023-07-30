@@ -9,7 +9,6 @@ public class UnitController : MonoBehaviour
 
     private Squad squad;
 
-
     private void Awake()
     {
         squad = GetComponentInParent<Squad>();
