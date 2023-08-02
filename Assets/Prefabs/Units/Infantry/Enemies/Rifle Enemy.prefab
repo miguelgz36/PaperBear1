@@ -18,7 +18,7 @@ PrefabInstance:
     - target: {fileID: 267453742970581912, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: objectToRotate
       value: 
-      objectReference: {fileID: 7471695162061592184}
+      objectReference: {fileID: 2434932554769741894}
     - target: {fileID: 3738756307646533153, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
       value: 10
@@ -42,6 +42,14 @@ PrefabInstance:
     - target: {fileID: 4447528540238914672, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: isEnemy
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795574498034801328, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795574498034801328, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5996279622273365688, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_FlipX
@@ -129,6 +137,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+--- !u!1 &2434932554769741894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4433437603108382498, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+  m_PrefabInstance: {fileID: 2039042403527548772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2446837679966255892 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4447528540238914672, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}

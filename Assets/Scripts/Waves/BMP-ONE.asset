@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BMP-ONE
   m_EditorClassIdentifier: 
   squads:
-  - {fileID: 8183264583220480802, guid: 00115063b2984b848b978dace1dfb803, type: 3}
+  - {fileID: 4838862568820168557, guid: 36e86f2e01e18c74b8e9305049289b59, type: 3}
   timeToSpawn: 1
