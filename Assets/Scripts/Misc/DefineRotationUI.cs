@@ -7,7 +7,7 @@ public class DefineRotationUI : MonoBehaviour
     [SerializeField] UnitController unitController;
 
 
-    void LateUpdate()
+    void Update()
     {
         if (transform.rotation.eulerAngles.z >= -90 && transform.rotation.eulerAngles.z < 90)
         {

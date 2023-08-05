@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1015858654398878}
   - component: {fileID: 7778076649381481614}
   - component: {fileID: 7027795025243582311}
-  - component: {fileID: 648030022021459712}
   - component: {fileID: 4410793287624863667}
   - component: {fileID: 5470682722456604972}
   m_Layer: 0
@@ -100,18 +99,6 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
---- !u!114 &648030022021459712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6094708379059401859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f850d23e261dc2a48ab07c3836dffa7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4410793287624863667
 MonoBehaviour:
   m_ObjectHideFlags: 0

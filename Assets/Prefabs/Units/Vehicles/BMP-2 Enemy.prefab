@@ -122,6 +122,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5425539718036692495, guid: 9e244519883fd454aa7c9659b1fffed8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425539718036692495, guid: 9e244519883fd454aa7c9659b1fffed8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7081954856874935672, guid: 9e244519883fd454aa7c9659b1fffed8, type: 3}
       propertyPath: m_Name
       value: BMP-2 Enemy
@@ -200,6 +208,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8247053862640557497, guid: 9e244519883fd454aa7c9659b1fffed8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769058697503830458, guid: 9e244519883fd454aa7c9659b1fffed8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769058697503830458, guid: 9e244519883fd454aa7c9659b1fffed8, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9108768916533981210, guid: 9e244519883fd454aa7c9659b1fffed8, type: 3}
@@ -303,6 +319,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 240292411283446058, guid: e36c5d11c27fea44b86c7610ddcac856, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089700266585399495, guid: e36c5d11c27fea44b86c7610ddcac856, type: 3}
+      propertyPath: primaryWeapon
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1089700266585399495, guid: e36c5d11c27fea44b86c7610ddcac856, type: 3}
