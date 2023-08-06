@@ -14,6 +14,7 @@ public class FireWeapon : MonoBehaviour
     [SerializeField] float dispersion = .1f;
     [SerializeField] float percentajeVarianceFireRate = 0.2f;
     [SerializeField] float rangeFire = 10f;
+    [SerializeField] bool primaryWeapon = true;
 
     private float currentAmmo;
     private bool startShooting;
@@ -21,6 +22,7 @@ public class FireWeapon : MonoBehaviour
     private bool isRealoding;
     private Sound soundWeapon;
     private float varianceFireRate;
+    private float initialReloadedTime;
 
     private void Awake()
     {
@@ -43,7 +45,22 @@ public class FireWeapon : MonoBehaviour
     {
         if (currentAmmo == 0 && !isRealoding)
         {
-           StartCoroutine(ReloadWeapon());
+            isRealoding = true;
+            initialReloadedTime = Time.unscaledTime;
+        }
+        else if (isRealoding)
+        {
+            float currentTime = Time.unscaledTime - initialReloadedTime;
+            if (currentTime < reloadedRate && primaryWeapon)
+            {
+                unitController.SliderAmmo.value = currentTime / reloadedRate;
+            } 
+            else
+            {
+                unitController.SliderAmmo.value = 1;
+                currentAmmo = ammoPerCharger;
+                isRealoding = false;
+            }
         }
         else if (startShooting && !isRealoding && !isShooting)
         {
@@ -82,6 +99,7 @@ public class FireWeapon : MonoBehaviour
         instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
         soundWeapon.PlayAtPoint();
         currentAmmo--;
+        if (primaryWeapon) unitController.SliderAmmo.value = currentAmmo / ammoPerCharger;
         float finalFireRate = Random.Range(fireRatePerMinute - varianceFireRate, fireRatePerMinute + varianceFireRate);
         return finalFireRate;
     }
@@ -96,16 +114,6 @@ public class FireWeapon : MonoBehaviour
         return Physics2D.Raycast(aimPointVehicle ? aimPointVehicle.transform.position : firePoint.transform.position,
             aimPointVehicle ? aimPointVehicle.transform.up : firePoint.transform.up,
             100, LayerMask.GetMask("Units"));
-    }
-
-    IEnumerator ReloadWeapon()
-    {
-        unitController.StartReloading();
-        isRealoding = true;
-        yield return new WaitForSeconds(reloadedRate);
-        currentAmmo = ammoPerCharger;
-        isRealoding = false;
-        unitController.StopReloading();
     }
 
 }

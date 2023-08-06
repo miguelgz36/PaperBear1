@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
 
     [SerializeField] private GameObject currentUnit;
     [SerializeField] private float baseHealth = 100;
+    [SerializeField] private Slider sliderHealth;
 
     private float currentHealth;
     private bool isEnemy;
@@ -36,6 +38,7 @@ public class Health : MonoBehaviour
         if (currentCell != null && currentCell.RejectProjectile()) return false;
 
         currentHealth -= baseDamage;
+        sliderHealth.value = currentHealth / baseHealth;
         StartCoroutine(GetComponent<HitBlink>().FlashRoutine());
         if (currentHealth <= 0)
         {
