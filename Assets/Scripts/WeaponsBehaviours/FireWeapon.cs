@@ -14,7 +14,10 @@ public class FireWeapon : MonoBehaviour
     [SerializeField] float dispersion = .1f;
     [SerializeField] float percentajeVarianceFireRate = 0.2f;
     [SerializeField] float rangeFire = 10f;
+    [SerializeField] int burstAmount = 5;
+    [SerializeField] float fireRateBurst = 1f;
     [SerializeField] bool primaryWeapon = true;
+    [SerializeField] bool burst = false;
 
     private float currentAmmo;
     private bool startShooting;
@@ -81,12 +84,37 @@ public class FireWeapon : MonoBehaviour
                 Health enemy = hit.collider.gameObject.GetComponent<Health>();
                 if (enemy != null && enemy.IsEnemy() != unitController.IsEnemy() && IsInRangeFire(enemy))
                 {
-                    float finalFireRate = Shot();
-                    yield return new WaitForSeconds(finalFireRate);
+                    if (burst)
+                    {
+                        int burstCount = 0;
+                        soundWeapon.PlayAtPoint();
+                        while (burstCount < burstAmount)
+                        {
+                            float finalFireRate = Shot();
+                            yield return new WaitForSeconds(finalFireRate);
+                            burstCount++;
+                        }
+                    }
+                    else
+                    {
+                        float finalFireRate = Shot();
+                        yield return new WaitForSeconds(finalFireRate);
+                    }
+
+                }
+                else
+                {
+                    yield return new WaitForSeconds(1f);
                 }
             }
-            yield return new WaitForSeconds(0.01f);
-
+            else
+            {
+                yield return new WaitForSeconds(1f);
+            }
+            if (burst)
+            {
+                yield return new WaitForSeconds(fireRateBurst);
+            }
         }
         isShooting = false;
     }
@@ -97,7 +125,7 @@ public class FireWeapon : MonoBehaviour
         rotation.z += Random.Range(-dispersion, dispersion);
         GameObject instancie = Instantiate(bullet, firePoint.transform.position, rotation);
         instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
-        soundWeapon.PlayAtPoint();
+        if(!burst) soundWeapon.PlayAtPoint();
         currentAmmo--;
         if (primaryWeapon) unitController.SliderAmmo.value = currentAmmo / ammoPerCharger;
         float finalFireRate = Random.Range(fireRatePerMinute - varianceFireRate, fireRatePerMinute + varianceFireRate);
