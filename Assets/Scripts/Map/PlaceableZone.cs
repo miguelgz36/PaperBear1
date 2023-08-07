@@ -45,5 +45,10 @@ public class PlaceableZone : MonoBehaviour
         {
             spriteRenderer.sprite = startSprite;
         }
+
+        if (collision.GetComponent<SquadCellDetector>())
+        {
+            this.objectInZone = null;
+        }
     }
 }
