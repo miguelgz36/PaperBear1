@@ -5,14 +5,8 @@ using UnityEngine;
 
 public class MovementButton : MonoBehaviour
 {
-    [SerializeField] GameObject squadObject;
 
-    private Squad squad = null;
-
-    void Awake()
-    {
-        this.squad = squadObject.GetComponent<Squad>();
-    }
+    [SerializeField]  private Squad squad;
 
     public void onClick()
     {

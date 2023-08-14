@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrenchButton
       objectReference: {fileID: 0}
+    - target: {fileID: 4038611898099804429, guid: cedfb6f134928db46aa08408d803e8b9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7710699843316158644, guid: cedfb6f134928db46aa08408d803e8b9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -128,6 +132,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6406340246466112130, guid: 4ecda2ee7e1ed384ebe8401b45db121c, type: 3}
+      propertyPath: squad
+      value: 
+      objectReference: {fileID: 6920144326237638775}
     - target: {fileID: 6406340246466112130, guid: 4ecda2ee7e1ed384ebe8401b45db121c, type: 3}
       propertyPath: squadObject
       value: 

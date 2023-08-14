@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class BuildStructure : MonoBehaviour
+public class BuildStructureButton : MonoBehaviour
 {
     [SerializeField] private GameObject trenchPrefab;
 
@@ -11,12 +11,7 @@ public class BuildStructure : MonoBehaviour
 
     [SerializeField] private SquadCellDetector cellDetector;
 
-    private void Start()
-    {
-        Physics2D.queriesHitTriggers = true;
-    }
-
-    public void OnClick()
+    public void onClick()
     {
         Dictionary<CommandParamEnum, object> args = new Dictionary<CommandParamEnum, object>();
 

@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 81322628252197457, guid: ccb0f5f20c9381b44b69c2e854d2cb57, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9147151945420375822}
+    - target: {fileID: 81322628252197457, guid: ccb0f5f20c9381b44b69c2e854d2cb57, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: onClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 81322628252197457, guid: ccb0f5f20c9381b44b69c2e854d2cb57, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BuildStructureButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 449262113267436077, guid: ccb0f5f20c9381b44b69c2e854d2cb57, type: 3}
       propertyPath: m_text
       value: Trench
@@ -78,7 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd8e97d08e3c3549838237e039670af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trenchButtonObject: {fileID: 0}
   trenchPrefab: {fileID: 0}
+  squad: {fileID: 0}
   cellDetector: {fileID: 0}
-  secondsBeforeAppearingForTheFirstTime: 0
