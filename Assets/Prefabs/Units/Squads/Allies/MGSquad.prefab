@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6573739329344426530}
     m_Modifications:
+    - target: {fileID: 4944666623392674670, guid: 0eb12c213b812604c8070b6b5f0bc6ac, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944666623392674670, guid: 0eb12c213b812604c8070b6b5f0bc6ac, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6130888642403876705, guid: 0eb12c213b812604c8070b6b5f0bc6ac, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -55,6 +63,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mg Allied
       objectReference: {fileID: 0}
+    - target: {fileID: 9006832533616710351, guid: 0eb12c213b812604c8070b6b5f0bc6ac, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006832533616710351, guid: 0eb12c213b812604c8070b6b5f0bc6ac, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eb12c213b812604c8070b6b5f0bc6ac, type: 3}
 --- !u!1001 &3463233698981614816
@@ -64,6 +80,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6573739329344426530}
     m_Modifications:
+    - target: {fileID: 4944666623392674670, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944666623392674670, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6130888642403876705, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -111,6 +135,14 @@ PrefabInstance:
     - target: {fileID: 6299514836813529443, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
       propertyPath: m_Name
       value: Rilfe Allied
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006832533616710351, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006832533616710351, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
@@ -174,12 +206,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2752731878672254536, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
+      propertyPath: m_Size.y
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752731878672254536, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5309294979658352760, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: m_Name
       value: MGSquad
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302937508533596567, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
@@ -195,6 +235,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6573739329344426530}
     m_Modifications:
+    - target: {fileID: 4944666623392674670, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944666623392674670, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6130888642403876705, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -243,6 +291,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rilfe Allied (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9006832533616710351, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006832533616710351, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
 --- !u!1001 &7636882339301963770
@@ -252,6 +308,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6573739329344426530}
     m_Modifications:
+    - target: {fileID: 4944666623392674670, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944666623392674670, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6130888642403876705, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -300,6 +364,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rilfe Allied (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9006832533616710351, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006832533616710351, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
 --- !u!1001 &9205572095063854520
@@ -309,6 +381,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6573739329344426530}
     m_Modifications:
+    - target: {fileID: 4944666623392674670, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944666623392674670, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6130888642403876705, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -356,6 +436,14 @@ PrefabInstance:
     - target: {fileID: 6299514836813529443, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
       propertyPath: m_Name
       value: Rilfe Allied (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006832533616710351, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006832533616710351, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}

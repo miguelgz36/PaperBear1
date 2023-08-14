@@ -79,6 +79,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 845729743098853778, guid: 9e244519883fd454aa7c9659b1fffed8, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 845729743098853778, guid: 9e244519883fd454aa7c9659b1fffed8, type: 3}
       propertyPath: m_TagString
       value: Allied Tank
       objectReference: {fileID: 0}
