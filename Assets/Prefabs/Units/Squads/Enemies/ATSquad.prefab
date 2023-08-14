@@ -53,7 +53,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5309294979658352760, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
       propertyPath: m_Name
-      value: MGSquad 1
+      value: ATSquad
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302937508533596567, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920144326237638775, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920144326237638775, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
+      propertyPath: movementSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}

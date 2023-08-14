@@ -16,6 +16,10 @@ PrefabInstance:
       value: PKT-BMP2
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: burst
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: bullet
       value: 
       objectReference: {fileID: 5270870499025655409, guid: 600a8b307fa814a4a9d8a23b6b6a714a, type: 3}
@@ -36,8 +40,16 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: burstAmount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: reloadedRate
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: fireRateBurst
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: ammoPerCharger
@@ -45,11 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: fireRatePerMinute
-      value: 0.15
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: percentajeVarianceFireRate
-      value: 0.6
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_RootOrder
@@ -98,7 +110,7 @@ PrefabInstance:
     - target: {fileID: 8006837228641442840, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: soundFire
       value: 
-      objectReference: {fileID: 8300000, guid: 945e8975fa510e2469266d54243c10da, type: 3}
+      objectReference: {fileID: 8300000, guid: 84dc3478f546f454fbb7088465843145, type: 3}
     - target: {fileID: 8006837228641442840, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: volumeFire
       value: 1
