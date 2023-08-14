@@ -9,12 +9,10 @@ public class MovementButton : MonoBehaviour
 
     private Squad squad = null;
 
-
     void Awake()
     {
         this.squad = squadObject.GetComponent<Squad>();
     }
-
 
     public void onClick()
     {
@@ -23,6 +21,4 @@ public class MovementButton : MonoBehaviour
         args.Add(CommandParamEnum.SQUAD, this.squad);
         this.squad.ExecuteAction<MoveToNextCell>(args);
     }
-
-
 }

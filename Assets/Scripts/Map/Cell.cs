@@ -10,9 +10,16 @@ public class Cell : MonoBehaviour
     [SerializeField] float speed = 1f;
     private Squad squadInCell = null;
     private Squad futureSquadInCell = null;
+    private Structure structure;
 
     public Squad SquadInCell { get => squadInCell; set => squadInCell = value; }
     public Squad FutureSquadInCell { get => futureSquadInCell; set => futureSquadInCell = value; }
+    public Structure Structure { get => structure; set => structure = value; }
+
+    public bool hasStructure()
+    {
+        return structure != null;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
