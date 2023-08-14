@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 372858183881813573}
   - component: {fileID: 2240747131757080316}
   - component: {fileID: 1392633684350486940}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VisionField
   m_TagString: Allied
   m_Icon: {fileID: 0}

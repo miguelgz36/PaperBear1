@@ -63,10 +63,13 @@ public class Aim : MonoBehaviour
         do
         {
             yield return new WaitForSeconds(0.5f);
-            primaryFireWeapon.SetIsShooting(true);
-            if (secondaryWeapon) secondaryFireWeapon.SetIsShooting(true);
+            if(target != null)
+            {
+                primaryFireWeapon.SetIsShooting(true);
+                if (secondaryWeapon) secondaryFireWeapon.SetIsShooting(true);
+            }         
         }
-        while (weapon.active || secondaryWeapon.active);
+        while (!weapon.active || (secondaryWeapon != null && !secondaryWeapon.active));
     }
 
     private bool IsFromTheOpposingTeam(GameObject gameObject)

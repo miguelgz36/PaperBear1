@@ -17,7 +17,7 @@ public class MoveToNextCell: MonoBehaviour, Action
     {
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (isMoving)
         {
@@ -27,7 +27,7 @@ public class MoveToNextCell: MonoBehaviour, Action
             }
             else
             {
-                this.squad.gameObject.transform.position += this.squad.MovementSpeed * Time.deltaTime * this.squad.gameObject.transform.up;
+                this.squad.gameObject.transform.position += this.squad.MovementSpeed * Time.fixedDeltaTime * this.squad.gameObject.transform.up;
             }
         }
     }
