@@ -39,7 +39,7 @@ public class Aim : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    public void AimTarget(Collider2D collision)
     {
         LockTarget(collision);
     }
@@ -87,7 +87,7 @@ public class Aim : MonoBehaviour
         return target == null;
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void UnAimTarget(Collider2D collision)
     {
         if(target != null && target == collision.gameObject)
         {

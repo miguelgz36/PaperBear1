@@ -128,6 +128,10 @@ PrefabInstance:
       propertyPath: cellDetectorObject
       value: 
       objectReference: {fileID: 1362642260364163198}
+    - target: {fileID: 5632746180051444523, guid: 04052709f7c3b7b4b9bfd296ed4e77aa, type: 3}
+      propertyPath: m_TagString
+      value: Allied
+      objectReference: {fileID: 0}
     - target: {fileID: 7125605026142009492, guid: 04052709f7c3b7b4b9bfd296ed4e77aa, type: 3}
       propertyPath: m_IsActive
       value: 0
