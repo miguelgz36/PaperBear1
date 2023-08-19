@@ -1794,6 +1794,7 @@ MonoBehaviour:
   - {fileID: 4838862568820168557, guid: ff7fa85bc4a384840b0a48a135005b6b, type: 3}
   - {fileID: 4838862568820168557, guid: 36e86f2e01e18c74b8e9305049289b59, type: 3}
   - {fileID: 4838862568820168557, guid: c6cc51e1728433845aa41c1365a811a2, type: 3}
+  DelayInstructions: 5
 --- !u!4 &552592298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7170075018097907564, guid: e78b625b687d9dc4789d7053e2b3a2a6, type: 3}
