@@ -19,7 +19,7 @@ public class Squad : MonoBehaviour
         units = new List<GameObject>();
         placeable = GetComponent<AlliedSquad>();
         InitUnits();
-        CommandUtils.InitSquadActions<Action>(gameObject, AppDomain.CurrentDomain.GetAssemblies());
+        CommandUtils.InitSquadActions<IAction>(gameObject, AppDomain.CurrentDomain.GetAssemblies());
     }
 
     private void InitUnits()
@@ -52,18 +52,19 @@ public class Squad : MonoBehaviour
         }
     }
 
-    public T AddActionComponent<T>() where T : Component, Action
+    public T AddActionComponent<T>() where T : Component, IAction
     {
         return gameObject.AddComponent<T>();
     }
 
-    public void ExecuteAction<T>(Dictionary<CommandParamEnum, object> args) where T: Component, Action
+    public bool ExecuteAction<T>(Dictionary<CommandParamEnum, object> args) where T: Component, IAction
     {
-        Action action = gameObject.GetComponent<Action>();
+        IAction action = gameObject.GetComponent<IAction>();
         if (action != null)
         {
-            action.Execute(args);
+            return action.Execute(args);
         }
+        return false;
     }
 
     public void AimTarget(Collider2D collider2D)

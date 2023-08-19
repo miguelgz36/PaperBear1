@@ -14,16 +14,20 @@ public class Health : MonoBehaviour
     private bool isEnemy;
     private Structure onStructure;
     private Cell currentCell;
+    private UnitController unitController;
 
     public Structure OnStructure { set => onStructure = value; }
     public Cell CurrentCell { set => currentCell = value; }
 
-
+    private void Awake()
+    {
+        unitController = currentUnit.GetComponent<UnitController>();
+    }
 
     void Start()
     {
         currentHealth = baseHealth;
-        isEnemy = currentUnit.GetComponent<UnitController>().IsEnemy();
+        isEnemy = unitController.IsEnemy();
     }
 
 
@@ -42,6 +46,7 @@ public class Health : MonoBehaviour
         StartCoroutine(GetComponent<HitBlink>().FlashRoutine());
         if (currentHealth <= 0 && currentUnit)
         {
+            unitController.RemoveUnitFromSquad();
             Destroy(currentUnit);
         }
         return true;

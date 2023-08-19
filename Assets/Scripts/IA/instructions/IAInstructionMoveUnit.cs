@@ -10,6 +10,22 @@ public class IAInstructionMoveUnit : IAInstruction
     }
     public override bool Execute()
     {
-        throw new System.NotImplementedException();
+        int countSquads = ia.SquadsSpawned.Count;
+        if (countSquads == 0)
+        {
+            return false;
+        }
+        int indexUnitToMove = Random.Range(0, countSquads);
+        Squad squadToMove = ia.SquadsSpawned[indexUnitToMove];
+
+        if(squadToMove == null)
+        {
+            ia.SquadsSpawned.RemoveAt(indexUnitToMove);
+            return false;
+        }
+        Dictionary<CommandParamEnum, object> args = new();
+        args.Add(CommandParamEnum.SQUAD, squadToMove);
+
+        return squadToMove.ExecuteAction<MoveToNextCell>(args);
     }
 }

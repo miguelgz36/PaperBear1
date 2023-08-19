@@ -28,6 +28,7 @@ public class IAInstructionSpawnUnit : IAInstruction
 
         Squad squadInstance = ia.InstantiateSquad(unitToSpawnIndex, spawnPointIndex);
         ia.SpawnPoints[spawnPointIndex].SquadInZone = squadInstance;
+        ia.SquadsSpawned.Add(squadInstance);
         return true;
     }
 }

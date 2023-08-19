@@ -24,7 +24,7 @@ public class UnitController : MonoBehaviour
         return isEnemy;
     }
 
-    public void OnDestroy()
+    public void RemoveUnitFromSquad()
     {
         if (squad)
         {

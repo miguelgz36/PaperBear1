@@ -6,43 +6,24 @@ public class IA : MonoBehaviour
 {
     [SerializeField] List<IASpawnCell> spawnPoints;
     [SerializeField] List<GameObject> squadsToSpawn;
-    [SerializeField] float DelayInstructions = 5f;
+    [SerializeField] float DelayInstructions = 1f;
 
     private List<IAInstruction> instructions;
+    private List<Squad> squadsSpawned;
 
     public List<IASpawnCell> SpawnPoints { get => spawnPoints; set => spawnPoints = value; }
     public List<GameObject> SquadsToSpawn { get => squadsToSpawn; set => squadsToSpawn = value; }
+    public List<Squad> SquadsSpawned { get => squadsSpawned; set => squadsSpawned = value; }
 
     public void Start()
     {
         instructions = new List<IAInstruction>
         {
-            new IAInstructionSpawnUnit(this)
+            new IAInstructionSpawnUnit(this),
+            new IAInstructionMoveUnit(this),
         };
+        squadsSpawned = new List<Squad>();
         StartCoroutine(StartIA());
-    }
-
-
-    private void SpawnUnit()
-    {
-        int triesSpawn = 0;
-        int spawnPointIndex = Random.Range(0, SpawnPoints.Count);
-        while (triesSpawn < SpawnPoints.Count && SpawnPoints[spawnPointIndex].SquadInZone != null)
-        {
-            spawnPointIndex++;
-            triesSpawn++;
-            if(spawnPointIndex >= SpawnPoints.Count)
-            {
-                spawnPointIndex = 0;
-            }
-        }
-
-        if (triesSpawn == SpawnPoints.Count) return;
-         
-        int unitToSpawnIndex = Random.Range(0, SquadsToSpawn.Count);
-
-        Squad squadInstance = Instantiate(SquadsToSpawn[unitToSpawnIndex], SpawnPoints[spawnPointIndex].transform).GetComponent<Squad>();
-        SpawnPoints[spawnPointIndex].SquadInZone = squadInstance;
     }
 
     public Squad InstantiateSquad(int unitToSpawnIndex, int spawnPointIndex)
@@ -51,24 +32,18 @@ public class IA : MonoBehaviour
     }
     private IEnumerator StartIA()
     {
-        int indexInstruction = 0;
         do
         {
             yield return new WaitForSeconds(DelayInstructions);
-            bool resultInstruction = instructions[indexInstruction].Execute();
-            if (resultInstruction)
+            for (int i = 0; i < instructions.Count; i++)
             {
-                indexInstruction = 0;
-            } 
-            else
-            {
-                indexInstruction++;
+                bool resultInstruction = instructions[i].Execute();
+                if (resultInstruction)
+                {
+                    break;
+                }
             }
-            if (indexInstruction == instructions.Count)
-            {
-                indexInstruction = 0;
-            }
-        } 
+        }
         while (!LevelStateManager.Instance.IsFinishedGame);
     }
 
