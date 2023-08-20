@@ -3,12 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementButton : MonoBehaviour
+public class MovementButton : ActionButton
 {
-
-    [SerializeField]  private Squad squad;
-
-    public void onClick()
+    public override void execute()
     {
         Dictionary<CommandParamEnum, object> args = new Dictionary<CommandParamEnum, object>();
 

@@ -6,6 +6,9 @@ public class Structure : MonoBehaviour
 {
 
     [SerializeField] int coverage = 50;
+    [SerializeField] private float secondsToBuild = 0f;
+
+    public float SecondsToBuild { get => secondsToBuild; set => secondsToBuild = value; }
 
     public bool RejectProjectile()
     {

@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class BuildStructureButton : MonoBehaviour
+public class BuildStructureButton : ActionButton
 {
     [SerializeField] private GameObject trenchPrefab;
 
-    [SerializeField] private Squad squad;
-
     [SerializeField] private SquadCellDetector cellDetector;
 
-    public void onClick()
+    public override void execute()
     {
         Dictionary<CommandParamEnum, object> args = new Dictionary<CommandParamEnum, object>();
 
@@ -19,5 +17,6 @@ public class BuildStructureButton : MonoBehaviour
         args.Add(CommandParamEnum.STRUCTURE_PREFAB, trenchPrefab);
 
         this.squad.ExecuteAction<Build>(args);
+
     }
 }

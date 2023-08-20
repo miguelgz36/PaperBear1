@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Misc;
 
-public class MoveToNextCell: MonoBehaviour, Action
+public class MoveToNextCell: MovementButton, Action
 {
     private Squad squad = null;
 
@@ -24,6 +24,7 @@ public class MoveToNextCell: MonoBehaviour, Action
             if (Vector3.Distance(squad.gameObject.transform.position, target) < proximityThreshold)
             {
                 isMoving = false;
+                this.squad.IsBusy = false;
             }
             else
             {
@@ -39,6 +40,7 @@ public class MoveToNextCell: MonoBehaviour, Action
         Cell nextCell = CellUtils.GetNextCell(currentCell, currentCell.SquadInCell.gameObject.transform.up);
         if (nextCell != null && nextCell.IsAvailable())
         {
+            this.squad.IsBusy = true;
             nextCell.FutureSquadInCell = this.squad;
             this.target = nextCell.gameObject.transform.position;
 

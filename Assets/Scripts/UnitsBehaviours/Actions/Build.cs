@@ -10,13 +10,24 @@ public class Build : MonoBehaviour, Action
     {
         this.squad = (Squad)args.GetValueOrDefault(CommandParamEnum.SQUAD);
         GameObject structurePrefab = (GameObject)args.GetValueOrDefault(CommandParamEnum.STRUCTURE_PREFAB);
-
         Cell cellToPlaceTrench = this.squad.GetComponentInChildren<SquadCellDetector>().CurrentCell;
 
         if (cellToPlaceTrench != null && !cellToPlaceTrench.hasStructure())
         {
-            GameObject trench = Instantiate(structurePrefab, cellToPlaceTrench.gameObject.transform.position, Quaternion.identity);
-            cellToPlaceTrench.Structure = trench.GetComponent<Structure>();
+            this.squad.IsBusy = true;
+            StartCoroutine(BuildStructure(cellToPlaceTrench, structurePrefab));
         }
+    }
+
+    private IEnumerator BuildStructure(Cell cellToPlaceTrench, GameObject structurePrefab)
+    {
+        GameObject trench = Instantiate(structurePrefab, cellToPlaceTrench.gameObject.transform.position, Quaternion.identity);
+        trench.SetActive(false);
+        float timeToBuild = trench.GetComponent<Structure>().SecondsToBuild;
+        yield return new WaitForSeconds(timeToBuild);
+
+        trench.SetActive(true);
+        cellToPlaceTrench.Structure = trench.GetComponent<Structure>();
+        this.squad.IsBusy = false;
     }
 }
