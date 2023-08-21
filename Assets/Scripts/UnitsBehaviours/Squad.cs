@@ -81,4 +81,19 @@ public class Squad : MonoBehaviour
             unit.GetComponent<UnitController>().UnAimTarget(collider2D);
         }
     }
+
+    public void AimTarget(Collider2D collider2D)
+    {
+        foreach (GameObject unit in units)
+        {
+            unit.GetComponent<UnitController>().AimTarget(collider2D);
+        }
+    }
+    public void UnAimTarget(Collider2D collider2D)
+    {
+        foreach (GameObject unit in units)
+        {
+            unit.GetComponent<UnitController>().UnAimTarget(collider2D);
+        }
+    }
 }   
