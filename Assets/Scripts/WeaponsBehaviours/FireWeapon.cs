@@ -54,13 +54,13 @@ public class FireWeapon : MonoBehaviour
         else if (isRealoding)
         {
             float currentTime = Time.unscaledTime - initialReloadedTime;
-            if (currentTime < reloadedRate && primaryWeapon)
+            if (currentTime < reloadedRate)
             {
-                unitController.SliderAmmo.value = currentTime / reloadedRate;
+                if(primaryWeapon) unitController.SliderAmmo.value = currentTime / reloadedRate;
             } 
             else
             {
-                unitController.SliderAmmo.value = 1;
+                if (primaryWeapon) unitController.SliderAmmo.value = 1;
                 currentAmmo = ammoPerCharger;
                 isRealoding = false;
             }

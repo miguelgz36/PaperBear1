@@ -101,6 +101,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Allied
       objectReference: {fileID: 0}
+    - target: {fileID: 4447528540238914672, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: aim
+      value: 
+      objectReference: {fileID: 3500827816434424174}
     - target: {fileID: 5787365826635467393, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_Enabled
       value: 0
