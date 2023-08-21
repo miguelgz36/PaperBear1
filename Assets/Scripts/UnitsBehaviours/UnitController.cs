@@ -26,10 +26,7 @@ public class UnitController : MonoBehaviour
 
     public void RemoveUnitFromSquad()
     {
-        if (squad)
-        {
-            squad.RemoveUnit(gameObject);
-        }
+        squad.RemoveUnit(gameObject);
     }
 
     public void AimTarget(Collider2D collider2D)

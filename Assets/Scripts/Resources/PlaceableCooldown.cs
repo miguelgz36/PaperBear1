@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SquadCooldown
+public class PlaceableCooldown
 {
     private readonly Placeable placeable;
     private float currentTime;
@@ -8,12 +8,15 @@ public class SquadCooldown
     private bool isInfiniteCap;
     private string textButton;
 
+
     public string TextButton { get => textButton; set => textButton = value; }
     public bool IsInfiniteCap { get => isInfiniteCap; set => isInfiniteCap = value; }
     public float CurrentPopulation { get => currentPopulation; set => currentPopulation = value; }
     public float CurrentTime { get => currentTime; set => currentTime = value; }
 
-    public SquadCooldown(Placeable placeable)
+    public Placeable Placeable => placeable;
+
+    public PlaceableCooldown(Placeable placeable)
     {
         this.placeable = placeable;
     }
@@ -41,6 +44,10 @@ public class SquadCooldown
         }
     }
 
+    public bool IsValidToSpawn()
+    {
+        return currentTime >= placeable.CoolDown && (currentPopulation < placeable.MaxCapPopulation || isInfiniteCap);
+    }
     public void ResetCooldown()
     {
         currentPopulation++;

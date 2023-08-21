@@ -44,7 +44,7 @@ public class Health : MonoBehaviour
         currentHealth -= baseDamage;
         sliderHealth.value = currentHealth / baseHealth;
         StartCoroutine(GetComponent<HitBlink>().FlashRoutine());
-        if (currentHealth <= 0 && currentUnit)
+        if (currentHealth <= 0)
         {
             unitController.RemoveUnitFromSquad();
             Destroy(currentUnit);

@@ -10,7 +10,7 @@ public class PlacementPlaceable : MonoBehaviour
     [SerializeField] Image cooldownImage;
     [SerializeField] TMPro.TextMeshProUGUI capText;
 
-    private SquadCooldown squadCooldown;
+    private PlaceableCooldown squadCooldown;
     private Placeable placeable;
     private Button button;
 
@@ -18,7 +18,7 @@ public class PlacementPlaceable : MonoBehaviour
     {
         placeable = unitPrefab.GetComponent<Placeable>();
         button = GetComponentInParent<Button>();
-        squadCooldown = new SquadCooldown(placeable);
+        squadCooldown = new PlaceableCooldown(placeable);
     }
 
     private void Start()
@@ -59,15 +59,10 @@ public class PlacementPlaceable : MonoBehaviour
     public void ResetCooldown(GameObject unitSpawned)
     {
         Placeable placeable = unitSpawned.GetComponent<Placeable>();
-        placeable.OriginButton = this;
+        placeable.PlaceableCooldown = squadCooldown;
         cooldownImage.fillAmount = 1f;
         button.interactable = false;
         squadCooldown.ResetCooldown();
-    }
-
-    public void DecreasePopulation()
-    {
-        squadCooldown.DecreasePopulation();
     }
 
     public bool CapValid()

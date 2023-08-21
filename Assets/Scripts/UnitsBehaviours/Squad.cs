@@ -8,7 +8,7 @@ using System.Linq;
 public class Squad : MonoBehaviour
 {
     List<GameObject> units;
-    AlliedSquad placeable;
+    Placeable placeable;
     [SerializeField] float movementSpeed = 1;
 
     public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
@@ -17,7 +17,7 @@ public class Squad : MonoBehaviour
     private void Awake()
     {
         units = new List<GameObject>();
-        placeable = GetComponent<AlliedSquad>();
+        placeable = GetComponent<Placeable>();
         InitUnits();
         CommandUtils.InitSquadActions<IAction>(gameObject, AppDomain.CurrentDomain.GetAssemblies());
     }
@@ -34,7 +34,7 @@ public class Squad : MonoBehaviour
     {
         if (units.Count == 0)
         {
-            if(placeable) placeable.ReducePopulation();
+            placeable.ReducePopulation();
             Destroy(gameObject);
         }
     }

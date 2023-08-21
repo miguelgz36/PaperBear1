@@ -19,7 +19,6 @@ namespace Assets.Scripts.Misc
                 if (possibleNextCell && nextCell == null && possibleNextCell != currentCell)
                 {
                     nextCell = possibleNextCell;
-                    Debug.Log(ray[index].collider.gameObject);
                 }
                 index++;
             }
