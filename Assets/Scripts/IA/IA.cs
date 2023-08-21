@@ -6,7 +6,7 @@ public class IA : MonoBehaviour
 {
     [SerializeField] List<IASpawnCell> spawnPoints;
     [SerializeField] List<GameObject> squadsToSpawn;
-    [SerializeField] float DelayInstructions = 1f;
+    [SerializeField] float delayInstructions = 1f;
 
     private List<IAInstruction> instructions;
     private List<Squad> squadsSpawned;
@@ -34,7 +34,7 @@ public class IA : MonoBehaviour
     {
         do
         {
-            yield return new WaitForSeconds(DelayInstructions);
+            yield return new WaitForSeconds(delayInstructions);
             for (int i = 0; i < instructions.Count; i++)
             {
                 bool resultInstruction = instructions[i].Execute();
