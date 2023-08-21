@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FireWeapon : MonoBehaviour
@@ -26,14 +25,16 @@ public class FireWeapon : MonoBehaviour
     private Sound soundWeapon;
     private float varianceFireRate;
     private float initialReloadedTime;
+    private Health target;
 
     private void Awake()
     {
         soundWeapon = GetComponent<Sound>();
     }
-    public void SetIsShooting(bool startShooting)
+    public void SetIsShooting(bool startShooting, Health target)
     {
         this.startShooting = startShooting;
+        this.target = target;
     }
 
     private void Start()
@@ -56,8 +57,8 @@ public class FireWeapon : MonoBehaviour
             float currentTime = Time.unscaledTime - initialReloadedTime;
             if (currentTime < reloadedRate)
             {
-                if(primaryWeapon) unitController.SliderAmmo.value = currentTime / reloadedRate;
-            } 
+                if (primaryWeapon) unitController.SliderAmmo.value = currentTime / reloadedRate;
+            }
             else
             {
                 if (primaryWeapon) unitController.SliderAmmo.value = 1;
@@ -67,50 +68,42 @@ public class FireWeapon : MonoBehaviour
         }
         else if (startShooting && !isRealoding && !isShooting)
         {
-           StartCoroutine(PullTheTrigger());
+            StartCoroutine(PullTheTrigger());
         }
     }
 
- 
+
 
     IEnumerator PullTheTrigger()
     {
         while (currentAmmo > 0 && startShooting)
         {
             isShooting = true;
-            RaycastHit2D hit = RayCastToTarget();
-            if (hit.collider != null)
+            if (target != null && target.IsEnemy() != unitController.IsEnemy() && IsInRangeFire(target))
             {
-                Health enemy = hit.collider.gameObject.GetComponent<Health>();
-                if (enemy != null && enemy.IsEnemy() != unitController.IsEnemy() && IsInRangeFire(enemy))
+                if (burst)
                 {
-                    if (burst)
-                    {
-                        int burstCount = 0;
-                        soundWeapon.PlayAtPoint();
-                        while (burstCount < burstAmount)
-                        {
-                            float finalFireRate = Shot();
-                            yield return new WaitForSeconds(finalFireRate);
-                            burstCount++;
-                        }
-                    }
-                    else
+                    int burstCount = 0;
+                    soundWeapon.PlayAtPoint();
+                    while (burstCount < burstAmount)
                     {
                         float finalFireRate = Shot();
                         yield return new WaitForSeconds(finalFireRate);
+                        burstCount++;
                     }
-
                 }
                 else
                 {
-                    yield return new WaitForSeconds(1f);
+                    float finalFireRate = Shot();
+                    yield return new WaitForSeconds(finalFireRate);
                 }
+
             }
             else
             {
                 yield return new WaitForSeconds(1f);
             }
+
             if (burst)
             {
                 yield return new WaitForSeconds(fireRateBurst);
@@ -125,7 +118,7 @@ public class FireWeapon : MonoBehaviour
         rotation.z += Random.Range(-dispersion, dispersion);
         GameObject instancie = Instantiate(bullet, firePoint.transform.position, rotation);
         instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
-        if(!burst) soundWeapon.PlayAtPoint();
+        if (!burst) soundWeapon.PlayAtPoint();
         currentAmmo--;
         if (primaryWeapon) unitController.SliderAmmo.value = currentAmmo / ammoPerCharger;
         float finalFireRate = Random.Range(fireRatePerMinute - varianceFireRate, fireRatePerMinute + varianceFireRate);
@@ -135,13 +128,6 @@ public class FireWeapon : MonoBehaviour
     public bool IsInRangeFire(Health enemy)
     {
         return Vector2.Distance(transform.position, enemy.transform.position) < rangeFire;
-    }
-
-    private RaycastHit2D RayCastToTarget()
-    {
-        return Physics2D.Raycast(aimPointVehicle ? aimPointVehicle.transform.position : firePoint.transform.position,
-            aimPointVehicle ? aimPointVehicle.transform.up : firePoint.transform.up,
-            100, LayerMask.GetMask("Units"));
     }
 
 }

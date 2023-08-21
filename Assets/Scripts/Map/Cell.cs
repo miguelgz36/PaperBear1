@@ -20,7 +20,6 @@ public class Cell : MonoBehaviour
 
         if (squadCellDectector)
         {
-            Debug.Log("squad in cell");
             this.SquadInCell = squadCellDectector.GetComponentInParent<Squad>();
             this.futureSquadInCell = null;
         }

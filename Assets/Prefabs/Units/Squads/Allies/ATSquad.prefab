@@ -305,11 +305,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1807478350246293265, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: cooldown
-      value: 20
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -1807478350246293265, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: capPopulation
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 143470836758033938, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: m_RootOrder
@@ -354,6 +354,10 @@ PrefabInstance:
     - target: {fileID: 143470836758033938, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249326064216150504, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2752731878672254536, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: m_Size.y
