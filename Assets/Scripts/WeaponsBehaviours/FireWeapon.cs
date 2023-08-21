@@ -79,7 +79,7 @@ public class FireWeapon : MonoBehaviour
         while (currentAmmo > 0 && startShooting)
         {
             isShooting = true;
-            if (target != null && target.IsEnemy() != unitController.IsEnemy() && IsInRangeFire(target))
+            if (target != null && target.IsEnemy() != unitController.IsEnemy() && IsInRangeFire())
             {
                 if (burst)
                 {
@@ -97,13 +97,11 @@ public class FireWeapon : MonoBehaviour
                     float finalFireRate = Shot();
                     yield return new WaitForSeconds(finalFireRate);
                 }
-
             }
             else
             {
                 yield return new WaitForSeconds(1f);
             }
-
             if (burst)
             {
                 yield return new WaitForSeconds(fireRateBurst);
@@ -125,9 +123,9 @@ public class FireWeapon : MonoBehaviour
         return finalFireRate;
     }
 
-    public bool IsInRangeFire(Health enemy)
+    public bool IsInRangeFire()
     {
-        return Vector2.Distance(transform.position, enemy.transform.position) < rangeFire;
+        return Vector2.Distance(transform.position, target.transform.position) < rangeFire;
     }
 
 }
