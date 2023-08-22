@@ -38,9 +38,13 @@ public class Health : MonoBehaviour
 
     public bool DoDamage(float baseDamage)
     {
-        if (onStructure != null && onStructure.RejectProjectile()) return false;
-        if (currentCell != null && currentCell.RejectProjectile()) return false;
+        if (onStructure != null ) baseDamage = onStructure.ReduceDamage(baseDamage);
+        if (currentCell != null ) baseDamage = currentCell.ReduceDamage(baseDamage);
 
+        if(baseDamage <= 0)
+        {
+            baseDamage = 1f;
+        }
         currentHealth -= baseDamage;
         sliderHealth.value = currentHealth / baseHealth;
         StartCoroutine(GetComponent<HitBlink>().FlashRoutine());

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -6666596123700596666}
   - component: {fileID: 7296288463272765049}
   - component: {fileID: 7662544671831626159}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Squad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2421245586898025397}
   - component: {fileID: 5475070483326106509}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpriteSelection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 6648723308946764249}
   - component: {fileID: 6320470359833368907}
   - component: {fileID: 3254391862134151090}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: VisionField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 5553297097821571598}
   - component: {fileID: 7056919687126366992}
   - component: {fileID: 1064061292457578009}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CellDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3826636073807927181}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SelectionUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}

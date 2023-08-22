@@ -828,7 +828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentUnit: {fileID: 7081954856874935672}
-  baseHealth: 10000
+  baseHealth: 5000
   sliderHealth: {fileID: 1408568024609029995}
 --- !u!61 &7093551544306570534
 BoxCollider2D:

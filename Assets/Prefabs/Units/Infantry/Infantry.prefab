@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentUnit: {fileID: 8934272404496599324}
-  baseHealth: 1000
+  baseHealth: 200
   sliderHealth: {fileID: 7066785873334988387}
 --- !u!50 &2718632099613564105
 Rigidbody2D:

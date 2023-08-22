@@ -79,7 +79,7 @@ public class FireWeapon : MonoBehaviour
         while (currentAmmo > 0 && startShooting)
         {
             isShooting = true;
-            if (target != null && target.IsEnemy() != unitController.IsEnemy() && IsInRangeFire())
+            if (target != null && target.IsEnemy() != unitController.IsEnemy() && IsInRangeFire(target))
             {
                 if (burst)
                 {
@@ -123,7 +123,7 @@ public class FireWeapon : MonoBehaviour
         return finalFireRate;
     }
 
-    public bool IsInRangeFire()
+    public bool IsInRangeFire(Health target)
     {
         return Vector2.Distance(transform.position, target.transform.position) < rangeFire;
     }

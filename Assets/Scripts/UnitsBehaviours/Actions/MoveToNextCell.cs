@@ -36,6 +36,7 @@ public class MoveToNextCell: MonoBehaviour, IAction
     {
         this.squad = (Squad) args.GetValueOrDefault(CommandParamEnum.SQUAD);
         Cell currentCell = this.squad.GetComponentInChildren<SquadCellDetector>().CurrentCell;
+        if (!currentCell) return false;
         Cell nextCell = CellUtils.GetNextCell(currentCell, currentCell.SquadInCell.gameObject.transform.up);
         if (nextCell != null && nextCell.IsAvailable() && !isMoving)
         {

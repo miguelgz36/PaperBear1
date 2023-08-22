@@ -7,7 +7,7 @@ using System.Linq;
 
 public class Squad : MonoBehaviour
 {
-    List<GameObject> units;
+    List<UnitController> units;
     Placeable placeable;
     [SerializeField] float movementSpeed = 1;
 
@@ -16,7 +16,7 @@ public class Squad : MonoBehaviour
 
     private void Awake()
     {
-        units = new List<GameObject>();
+        units = new List<UnitController>();
         placeable = GetComponent<Placeable>();
         InitUnits();
         CommandUtils.InitSquadActions<IAction>(gameObject, AppDomain.CurrentDomain.GetAssemblies());
@@ -26,7 +26,7 @@ public class Squad : MonoBehaviour
     {
         foreach (UnitController unit in GetComponentsInChildren<UnitController>())
         {
-            units.Add(unit.gameObject);
+            units.Add(unit);
         }
     }
 
@@ -39,14 +39,14 @@ public class Squad : MonoBehaviour
         }
     }
 
-    public void RemoveUnit(GameObject gameObject)
+    public void RemoveUnit(UnitController gameObject)
     {
         units.Remove(gameObject);
     }
 
     public void SetCell(Cell cell)
     {
-        foreach (GameObject unit in units)
+        foreach (UnitController unit in units)
         {
             unit.GetComponentInChildren<Health>().CurrentCell = cell;
         }
@@ -69,16 +69,16 @@ public class Squad : MonoBehaviour
 
     public void AimTarget(Collider2D collider2D)
     {
-        foreach (GameObject unit in units)
+        foreach (UnitController unit in units)
         {
-            unit.GetComponent<UnitController>().AimTarget(collider2D);
+            unit.AimTarget(collider2D);
         }
     }
     public void UnAimTarget(Collider2D collider2D)
     {
-        foreach (GameObject unit in units)
+        foreach (UnitController unit in units)
         {
-            unit.GetComponent<UnitController>().UnAimTarget(collider2D);
+            unit.UnAimTarget(collider2D);
         }
     }
 

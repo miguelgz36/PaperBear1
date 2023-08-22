@@ -5,11 +5,11 @@ using UnityEngine;
 public class Structure : MonoBehaviour
 {
 
-    [SerializeField] int coverage = 50;
+    [SerializeField] float coverage = 0.5f;
 
-    public bool RejectProjectile()
+    public float ReduceDamage(float damage)
     {
-        return Random.Range(0, 100) <= coverage;
+        return damage - (damage * coverage);
     }
 
 
