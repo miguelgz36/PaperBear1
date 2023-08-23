@@ -5,8 +5,8 @@ using UnityEngine;
 public class SupportFireManager : Singleton<SupportFireManager>
 {
     [SerializeField] GameObject positionAlliedSupportingFire;
-    [SerializeField] Transform positionEnemySupportingFire;
+    [SerializeField] GameObject positionEnemySupportingFire;
 
     public GameObject PositionAlliedSupportingFire { get => positionAlliedSupportingFire; }
-    public Transform PositionEnemySupportingFire { get => positionEnemySupportingFire; }
+    public GameObject PositionEnemySupportingFire { get => positionEnemySupportingFire; }
 }

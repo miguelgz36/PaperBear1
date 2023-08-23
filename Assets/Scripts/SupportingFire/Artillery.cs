@@ -27,20 +27,20 @@ public class Artillery : Placeable
         if (!firing) Destroy(this.gameObject);
     }
 
-    public virtual void FireShells(Vector3 target)
+    public virtual void FireShells(Vector3 target, Vector3 origin)
     {
-        StartCoroutine(StartFiring(target, maxDispersion));
+        StartCoroutine(StartFiring(target, maxDispersion, origin));
         DeactivedPreviewExplosion();
     }
 
-    public IEnumerator StartFiring(Vector3 target, float offset)
+    public IEnumerator StartFiring(Vector3 target, float offset, Vector3 origin)
     {
         for (int i = 0; i < amount; i++)
         {
             yield return new WaitForSeconds(delaySplashs);
             float x = Random.Range(target.x - offset, target.x + offset);
             float y = Random.Range(target.y - offset, target.y + offset);
-            GameObject projectileInsantiate = Instantiate(projectile, SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position, Quaternion.identity);
+            GameObject projectileInsantiate = Instantiate(projectile, origin, Quaternion.identity);
             projectileInsantiate.GetComponent<ArtilleryShell>().FireShell(new Vector3(x, y));
         }
         firing = false;

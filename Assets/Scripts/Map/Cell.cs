@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,6 +41,11 @@ public class Cell : MonoBehaviour
                 this.futureSquadInCell = null;
             }
         }
+    }
+
+    public bool Contains<T>()
+    {
+        return squadInCell != null && squadInCell.GetComponent<T>() != null;
     }
 
     public float ReduceDamage(float damage)

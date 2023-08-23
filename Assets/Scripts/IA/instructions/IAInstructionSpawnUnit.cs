@@ -25,18 +25,18 @@ public class IAInstructionSpawnUnit : IAInstruction
         if (triesSpawn == ia.SpawnPoints.Count) return false;
 
         triesSpawn = 0;
-        int unitToSpawnIndex = Random.Range(0, ia.PlaceableCooldowns.Count);
-        while (triesSpawn < ia.PlaceableCooldowns.Count && !ia.PlaceableCooldowns[unitToSpawnIndex].IsValidToSpawn())
+        int unitToSpawnIndex = Random.Range(0, ia.SquadCooldowns.Count);
+        while (triesSpawn < ia.SquadCooldowns.Count && !ia.SquadCooldowns[unitToSpawnIndex].IsValidToSpawn())
         {
             unitToSpawnIndex++;
             triesSpawn++;
-            if (unitToSpawnIndex >= ia.PlaceableCooldowns.Count)
+            if (unitToSpawnIndex >= ia.SquadCooldowns.Count)
             {
                 unitToSpawnIndex = 0;
             }
         }
 
-        if (triesSpawn == ia.PlaceableCooldowns.Count) return false;
+        if (triesSpawn == ia.SquadCooldowns.Count) return false;
 
         Squad squadInstance = ia.InstantiateSquad(unitToSpawnIndex, spawnPointIndex);
         ia.SpawnPoints[spawnPointIndex].SquadInZone = squadInstance;

@@ -837,6 +837,7 @@ GameObject:
   - component: {fileID: 514633658}
   - component: {fileID: 514633660}
   - component: {fileID: 514633659}
+  - component: {fileID: 514633661}
   m_Layer: 0
   m_Name: BaseCell
   m_TagString: Untagged
@@ -2034,6 +2035,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &514633661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514633657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43bf84eb684252a499fe824faf564b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 15
+  height: 7
 --- !u!1 &535870028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2094,10 +2109,14 @@ MonoBehaviour:
   - {fileID: 743813284}
   - {fileID: 803633767}
   squadsToSpawn:
-  - {fileID: 4838862568820168557, guid: 9e54d3a13532aed4fa2b348f74355a94, type: 3}
-  - {fileID: 4838862568820168557, guid: ff7fa85bc4a384840b0a48a135005b6b, type: 3}
-  - {fileID: 4838862568820168557, guid: 36e86f2e01e18c74b8e9305049289b59, type: 3}
-  - {fileID: 4838862568820168557, guid: c6cc51e1728433845aa41c1365a811a2, type: 3}
+  - {fileID: 5892469404454397848, guid: c6cc51e1728433845aa41c1365a811a2, type: 3}
+  - {fileID: 1948399501730889029, guid: 36e86f2e01e18c74b8e9305049289b59, type: 3}
+  - {fileID: 1343251166303646543, guid: ff7fa85bc4a384840b0a48a135005b6b, type: 3}
+  - {fileID: 3763095209883313538, guid: 9e54d3a13532aed4fa2b348f74355a94, type: 3}
+  supportingFireToSpawn:
+  - {fileID: 5127169890896148103, guid: 605bb15a4729bd740bdf99218e2b8eb7, type: 3}
+  - {fileID: 1018833821643511593, guid: 8cbfa21435713ba4381199def0b3d0aa, type: 3}
+  - {fileID: 54544394813325, guid: 7e0450d8a95c6994eae2119ebaad32f9, type: 3}
   delayInstructions: 0.5
 --- !u!4 &552592298 stripped
 Transform:

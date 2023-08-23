@@ -15,6 +15,7 @@ public class Dron : MonoBehaviour
     bool deployed = false;
     bool returning = false;
     private Vector3 target;
+    private Vector3 origin;
     protected Rigidbody2D rigidBody;
     private float proximityThreshold = 0.3f;
 
@@ -46,9 +47,10 @@ public class Dron : MonoBehaviour
         }
     }
 
-    public void Deploy(Vector3 target)
+    public void Deploy(Vector3 target, Vector3 origin)
     {
         this.target = target;
+        this.origin = origin;
         DefineRotation();
         this.deployed = true;
     }
@@ -76,7 +78,7 @@ public class Dron : MonoBehaviour
     private IEnumerator ReturnToSpawn()
     {
         yield return new WaitForSeconds(returningDelay);
-        target = SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position;
+        target = origin;
         DefineRotation();
         returning = true;
     }
