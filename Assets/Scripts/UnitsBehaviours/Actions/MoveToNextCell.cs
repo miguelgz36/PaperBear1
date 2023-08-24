@@ -24,6 +24,7 @@ public class MoveToNextCell: MonoBehaviour, IAction
             if (Vector3.Distance(squad.gameObject.transform.position, target) < proximityThreshold)
             {
                 isMoving = false;
+                this.squad.IsBusy = false;
             }
             else
             {
@@ -40,6 +41,7 @@ public class MoveToNextCell: MonoBehaviour, IAction
         Cell nextCell = CellUtils.GetNextCell(currentCell, currentCell.SquadInCell.gameObject.transform.up);
         if (nextCell != null && nextCell.IsAvailable() && !isMoving)
         {
+            this.squad.IsBusy = true;
             nextCell.FutureSquadInCell = this.squad;
             this.target = nextCell.gameObject.transform.position;
 

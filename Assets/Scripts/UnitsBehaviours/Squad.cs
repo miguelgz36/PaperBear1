@@ -10,8 +10,10 @@ public class Squad : MonoBehaviour
     List<UnitController> units;
     Placeable placeable;
     [SerializeField] float movementSpeed = 1;
+    private Boolean isBusy = false;
 
     public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
+    public bool IsBusy { get => isBusy; set => isBusy = value; }
 
 
     private void Awake()

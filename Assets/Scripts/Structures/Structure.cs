@@ -6,6 +6,9 @@ public class Structure : MonoBehaviour
 {
 
     [SerializeField] float coverage = 0.5f;
+    [SerializeField] private float secondsToBuild = 0f;
+
+    public float SecondsToBuild { get => secondsToBuild; set => secondsToBuild = value; }
 
     public float ReduceDamage(float damage)
     {

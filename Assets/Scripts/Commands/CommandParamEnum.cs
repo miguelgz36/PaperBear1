@@ -4,5 +4,7 @@ using UnityEngine;
 
 public enum CommandParamEnum
 {
-    SQUAD
+    SQUAD,
+    STRUCTURE_PREFAB,
+    SLIDER
 }
