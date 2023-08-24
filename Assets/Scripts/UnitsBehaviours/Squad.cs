@@ -15,6 +15,7 @@ public class Squad : MonoBehaviour
     public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
     public bool IsBusy { get => isBusy; set => isBusy = value; }
 
+
     private void Awake()
     {
         units = new List<GameObject>();
@@ -64,6 +65,21 @@ public class Squad : MonoBehaviour
         if (action != null)
         {
             action.Execute(args);
+        }
+    }
+
+    public void AimTarget(Collider2D collider2D)
+    {
+        foreach (GameObject unit in units)
+        {
+            unit.GetComponent<UnitController>().AimTarget(collider2D);
+        }
+    }
+    public void UnAimTarget(Collider2D collider2D)
+    {
+        foreach (GameObject unit in units)
+        {
+            unit.GetComponent<UnitController>().UnAimTarget(collider2D);
         }
     }
 }   
