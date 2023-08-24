@@ -9,53 +9,37 @@ public class PlacementPlaceable : MonoBehaviour
     [SerializeField] GameObject unitPrefab;
     [SerializeField] Image cooldownImage;
     [SerializeField] TMPro.TextMeshProUGUI capText;
+
+    private PlaceableCooldown squadCooldown;
     private Placeable placeable;
     private Button button;
-    private float currentCooldown;
-    private int currentPopulation;
-    private bool isInfiniteCap;
 
     private void Awake()
     {
         placeable = unitPrefab.GetComponent<Placeable>();
         button = GetComponentInParent<Button>();
+        squadCooldown = new PlaceableCooldown(placeable);
     }
 
     private void Start()
     {
-        currentCooldown = 0;
-        currentPopulation = 0;
-        isInfiniteCap = placeable.MaxCapPopulation == 0;
-        if (!isInfiniteCap)
-        {
-            SetTextCap();
-        }
+        squadCooldown.Start();
     }
 
-    private void SetTextCap()
-    {
-        capText.text = currentPopulation + "/" + placeable.MaxCapPopulation.ToString();
-    }
 
     private void Update()
     {
-        if (!button.interactable)
-        {
-            currentCooldown += (Time.deltaTime);
-            cooldownImage.fillAmount = 1 - ((1 * currentCooldown) / placeable.CoolDown);
-        }   
-        if (currentCooldown < placeable.CoolDown || (currentPopulation >= placeable.MaxCapPopulation && !isInfiniteCap))
+        squadCooldown.Update();
+        cooldownImage.fillAmount = 1 - ((1 * squadCooldown.CurrentTime) / placeable.CoolDown);
+        if (squadCooldown.CurrentTime < placeable.CoolDown || (squadCooldown.CurrentPopulation >= placeable.MaxCapPopulation && !squadCooldown.IsInfiniteCap))
         {
             button.interactable = false;
         } 
-        else if (currentCooldown >= placeable.CoolDown)
+        else if (squadCooldown.CurrentTime >= placeable.CoolDown)
         {
             button.interactable = true;
         }
-        if (!isInfiniteCap)
-        {
-            SetTextCap();
-        }
+        capText.text = squadCooldown.TextButton;
     }
     public void SetCurrentUnitToPlace()
     {
@@ -75,20 +59,14 @@ public class PlacementPlaceable : MonoBehaviour
     public void ResetCooldown(GameObject unitSpawned)
     {
         Placeable placeable = unitSpawned.GetComponent<Placeable>();
-        placeable.OriginButton = this;
-        currentPopulation++;
+        placeable.PlaceableCooldown = squadCooldown;
         cooldownImage.fillAmount = 1f;
-        currentCooldown = 0f;
         button.interactable = false;
+        squadCooldown.ResetCooldown();
     }
 
-    public void DecreasePopulation()
+    public bool CapValid()
     {
-        currentPopulation--;
-    }
-
-    internal bool CapValid()
-    {
-        return currentPopulation < placeable.MaxCapPopulation || isInfiniteCap;
+        return squadCooldown.CapValid();
     }
 }

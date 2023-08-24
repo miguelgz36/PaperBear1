@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Misc;
 
-public class MoveToNextCell: MonoBehaviour, Action
+public class MoveToNextCell: MonoBehaviour, IAction
 {
     private Squad squad = null;
 
@@ -33,18 +33,21 @@ public class MoveToNextCell: MonoBehaviour, Action
         }
     }
 
-    public void Execute(Dictionary<CommandParamEnum, object> args)
+    public bool Execute(Dictionary<CommandParamEnum, object> args)
     {
         this.squad = (Squad) args.GetValueOrDefault(CommandParamEnum.SQUAD);
         Cell currentCell = this.squad.GetComponentInChildren<SquadCellDetector>().CurrentCell;
+        if (!currentCell) return false;
         Cell nextCell = CellUtils.GetNextCell(currentCell, currentCell.SquadInCell.gameObject.transform.up);
-        if (nextCell != null && nextCell.IsAvailable())
+        if (nextCell != null && nextCell.IsAvailable() && !isMoving)
         {
             this.squad.IsBusy = true;
             nextCell.FutureSquadInCell = this.squad;
             this.target = nextCell.gameObject.transform.position;
 
             isMoving = true;
+            return true;
         }
+        return false;
     }
 }

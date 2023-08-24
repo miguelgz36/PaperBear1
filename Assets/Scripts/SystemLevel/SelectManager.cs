@@ -113,7 +113,7 @@ public class SelectManager : Singleton<SelectManager>
     {
         GameObject artilleryInsantiate = Instantiate(selectedObjectToPlace, SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position, Quaternion.identity);
         Artillery artillery = artilleryInsantiate.GetComponent<Artillery>();
-        artillery.FireShells(positionToPlace);
+        artillery.FireShells(positionToPlace, SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position);
     }
 
     public void SetUnitToPlaceSquad(GameObject selected, PlacementPlaceable placementButton)
@@ -129,7 +129,7 @@ public class SelectManager : Singleton<SelectManager>
 
     private void SendDron(DronLauncher dronLauncher)
     {
-        dronLauncher.DeployDron(MouseFollower.Instance.PlaceableZoneToSelect.transform.position);
+        dronLauncher.DeployDron(MouseFollower.Instance.PlaceableZoneToSelect.transform.position, SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position);
     }
 
 }

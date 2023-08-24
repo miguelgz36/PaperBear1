@@ -14,16 +14,20 @@ public class Health : MonoBehaviour
     private bool isEnemy;
     private Structure onStructure;
     private Cell currentCell;
+    private UnitController unitController;
 
     public Structure OnStructure { set => onStructure = value; }
     public Cell CurrentCell { set => currentCell = value; }
 
-
+    private void Awake()
+    {
+        unitController = currentUnit.GetComponent<UnitController>();
+    }
 
     void Start()
     {
         currentHealth = baseHealth;
-        isEnemy = currentUnit.GetComponent<UnitController>().IsEnemy();
+        isEnemy = unitController.IsEnemy();
     }
 
 
@@ -34,14 +38,19 @@ public class Health : MonoBehaviour
 
     public bool DoDamage(float baseDamage)
     {
-        if (onStructure != null && onStructure.RejectProjectile()) return false;
-        if (currentCell != null && currentCell.RejectProjectile()) return false;
+        if (onStructure != null ) baseDamage = onStructure.ReduceDamage(baseDamage);
+        if (currentCell != null ) baseDamage = currentCell.ReduceDamage(baseDamage);
 
+        if(baseDamage <= 0)
+        {
+            baseDamage = 1f;
+        }
         currentHealth -= baseDamage;
         sliderHealth.value = currentHealth / baseHealth;
         StartCoroutine(GetComponent<HitBlink>().FlashRoutine());
         if (currentHealth <= 0)
         {
+            unitController.RemoveUnitFromSquad();
             Destroy(currentUnit);
         }
         return true;

@@ -7,8 +7,8 @@ using System.Linq;
 
 public class Squad : MonoBehaviour
 {
-    List<GameObject> units;
-    AlliedSquad placeable;
+    List<UnitController> units;
+    Placeable placeable;
     [SerializeField] float movementSpeed = 1;
     private Boolean isBusy = false;
 
@@ -18,17 +18,17 @@ public class Squad : MonoBehaviour
 
     private void Awake()
     {
-        units = new List<GameObject>();
-        placeable = GetComponent<AlliedSquad>();
+        units = new List<UnitController>();
+        placeable = GetComponent<Placeable>();
         InitUnits();
-        CommandUtils.InitSquadActions<Action>(gameObject, AppDomain.CurrentDomain.GetAssemblies());
+        CommandUtils.InitSquadActions<IAction>(gameObject, AppDomain.CurrentDomain.GetAssemblies());
     }
 
     private void InitUnits()
     {
         foreach (UnitController unit in GetComponentsInChildren<UnitController>())
         {
-            units.Add(unit.gameObject);
+            units.Add(unit);
         }
     }
 
@@ -36,50 +36,52 @@ public class Squad : MonoBehaviour
     {
         if (units.Count == 0)
         {
-            if(placeable) placeable.ReducePopulation();
+            placeable.ReducePopulation();
             Destroy(gameObject);
         }
     }
 
-    public void RemoveUnit(GameObject gameObject)
+    public void RemoveUnit(UnitController gameObject)
     {
         units.Remove(gameObject);
     }
 
     public void SetCell(Cell cell)
     {
-        foreach (GameObject unit in units)
+        foreach (UnitController unit in units)
         {
             unit.GetComponentInChildren<Health>().CurrentCell = cell;
         }
     }
 
-    public T AddActionComponent<T>() where T : Component, Action
+    public T AddActionComponent<T>() where T : Component, IAction
     {
         return gameObject.AddComponent<T>();
     }
 
-    public void ExecuteAction<T>(Dictionary<CommandParamEnum, object> args) where T: Component, Action
+    public bool ExecuteAction<T>(Dictionary<CommandParamEnum, object> args) where T: Component, IAction
     {
-        Action action = gameObject.GetComponent<T>();
+        IAction action = gameObject.GetComponent<T>();
         if (action != null)
         {
-            action.Execute(args);
+            return action.Execute(args);
         }
+        return false;
     }
 
     public void AimTarget(Collider2D collider2D)
     {
-        foreach (GameObject unit in units)
+        foreach (UnitController unit in units)
         {
-            unit.GetComponent<UnitController>().AimTarget(collider2D);
+            unit.AimTarget(collider2D);
         }
     }
     public void UnAimTarget(Collider2D collider2D)
     {
-        foreach (GameObject unit in units)
+        foreach (UnitController unit in units)
         {
-            unit.GetComponent<UnitController>().UnAimTarget(collider2D);
+            unit.UnAimTarget(collider2D);
         }
     }
+
 }   

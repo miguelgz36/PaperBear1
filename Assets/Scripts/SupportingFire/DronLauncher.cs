@@ -7,10 +7,10 @@ public class DronLauncher : Placeable
 
     [SerializeField] GameObject dron;
 
-    public void DeployDron(Vector3 target)
+    public void DeployDron(Vector3 target, Vector3 origin)
     {
-        GameObject dronInstance = Instantiate(this.dron, SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position, Quaternion.identity);
+        GameObject dronInstance = Instantiate(this.dron, origin, Quaternion.identity);
         Dron dron = dronInstance.GetComponent<Dron>();
-        dron.Deploy(target);
+        dron.Deploy(target, origin);
     }
 }

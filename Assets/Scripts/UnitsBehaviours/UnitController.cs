@@ -24,12 +24,9 @@ public class UnitController : MonoBehaviour
         return isEnemy;
     }
 
-    public void OnDestroy()
+    public void RemoveUnitFromSquad()
     {
-        if (squad)
-        {
-            squad.RemoveUnit(gameObject);
-        }
+        squad.RemoveUnit(this);
     }
 
     public void AimTarget(Collider2D collider2D)

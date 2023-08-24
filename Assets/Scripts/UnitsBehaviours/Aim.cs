@@ -54,19 +54,19 @@ public class Aim : MonoBehaviour
         {
             target = collision.gameObject;
             SelectWeapon(collision);
-            StartCoroutine(Shoot());
+            StartCoroutine(Shoot(health));
         }
     }
 
-    private IEnumerator Shoot()
+    private IEnumerator Shoot(Health target)
     {
         do
         {
             yield return new WaitForSeconds(0.5f);
             if(target != null)
             {
-                primaryFireWeapon.SetIsShooting(true);
-                if (secondaryWeapon) secondaryFireWeapon.SetIsShooting(true);
+                primaryFireWeapon.SetIsShooting(true, target);
+                if (secondaryWeapon) secondaryFireWeapon.SetIsShooting(true, target);
             }         
         }
         while (!weapon.active || (secondaryWeapon != null && !secondaryWeapon.active));
@@ -93,8 +93,8 @@ public class Aim : MonoBehaviour
         {
             target = null;
             objectToRotate.transform.rotation = startedRotation;
-            primaryFireWeapon.SetIsShooting(false);
-            if (secondaryWeapon) secondaryFireWeapon.SetIsShooting(false);
+            primaryFireWeapon.SetIsShooting(false, null);
+            if (secondaryWeapon) secondaryFireWeapon.SetIsShooting(false, null);
             if (enemyMove != null) enemyMove.SetIsMove(true);
         }
     }

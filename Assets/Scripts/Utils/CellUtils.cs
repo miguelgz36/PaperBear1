@@ -9,7 +9,7 @@ namespace Assets.Scripts.Misc
         {
             Cell nextCell = null;
 
-            RaycastHit2D[] ray = Physics2D.RaycastAll(currentCell.gameObject.transform.position, direction, LayerMask.GetMask("Map"));
+            RaycastHit2D[] ray = Physics2D.RaycastAll(currentCell.gameObject.transform.position, direction, LayerMask.GetMask("Cell"));
 
             int index = 0;
 
@@ -19,7 +19,6 @@ namespace Assets.Scripts.Misc
                 if (possibleNextCell && nextCell == null && possibleNextCell != currentCell)
                 {
                     nextCell = possibleNextCell;
-                    Debug.Log(ray[index].collider.gameObject);
                 }
                 index++;
             }

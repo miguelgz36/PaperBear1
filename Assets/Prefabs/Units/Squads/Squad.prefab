@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -6666596123700596666}
   - component: {fileID: 7296288463272765049}
   - component: {fileID: 7662544671831626159}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Squad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a104bcfed0f0a1428153699fc830006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
+  movementSpeed: 1
 --- !u!65 &7296288463272765049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2421245586898025397}
   - component: {fileID: 5475070483326106509}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpriteSelection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,8 +170,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6648723308946764249}
   - component: {fileID: 6320470359833368907}
-  - component: {fileID: 4135064017419794448}
-  m_Layer: 10
+  - component: {fileID: 3254391862134151090}
+  m_Layer: 8
   m_Name: VisionField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20, y: 68}
   m_EdgeRadius: 0
---- !u!114 &4135064017419794448
+--- !u!114 &3254391862134151090
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5632746180051444523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6792343d09ef8f489c9b8421652e770, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c5bc7fa929c9344496c24a38afda820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   squad: {fileID: -6666596123700596666}
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 5553297097821571598}
   - component: {fileID: 7056919687126366992}
   - component: {fileID: 1064061292457578009}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CellDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3826636073807927181}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SelectionUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
