@@ -10,8 +10,10 @@ public class Squad : MonoBehaviour
     List<GameObject> units;
     AlliedSquad placeable;
     [SerializeField] float movementSpeed = 1;
+    private Boolean isBusy = false;
 
     public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
+    public bool IsBusy { get => isBusy; set => isBusy = value; }
 
 
     private void Awake()
@@ -59,7 +61,7 @@ public class Squad : MonoBehaviour
 
     public void ExecuteAction<T>(Dictionary<CommandParamEnum, object> args) where T: Component, Action
     {
-        Action action = gameObject.GetComponent<Action>();
+        Action action = gameObject.GetComponent<T>();
         if (action != null)
         {
             action.Execute(args);
