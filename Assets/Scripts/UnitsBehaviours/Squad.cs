@@ -61,7 +61,7 @@ public class Squad : MonoBehaviour
 
     public bool ExecuteAction<T>(Dictionary<CommandParamEnum, object> args) where T: Component, IAction
     {
-        IAction action = gameObject.GetComponent<IAction>();
+        IAction action = gameObject.GetComponent<T>();
         if (action != null)
         {
             return action.Execute(args);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Build : MonoBehaviour, Action
+public class Build : MonoBehaviour, IAction
 {
     private Squad squad = null;
 
@@ -38,7 +38,7 @@ public class Build : MonoBehaviour, Action
         
     }
 
-    public void Execute(Dictionary<CommandParamEnum, object> args)
+    public bool Execute(Dictionary<CommandParamEnum, object> args)
     {
         this.squad = (Squad)args.GetValueOrDefault(CommandParamEnum.SQUAD);
         this.structurePrefab = (GameObject)args.GetValueOrDefault(CommandParamEnum.STRUCTURE_PREFAB);
@@ -51,7 +51,9 @@ public class Build : MonoBehaviour, Action
             this.squad.IsBusy = true;
             this.initialBuildingTime = Time.unscaledTime;
             this.isBuilding = true;
+            return true;
         }
+        return false;
     }
 
     private void BuildStructure()
@@ -60,4 +62,5 @@ public class Build : MonoBehaviour, Action
         cellToPlaceTrench.Structure = trench.GetComponent<Structure>();
         this.squad.IsBusy = false;
     }
+
 }

@@ -124,5 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d60dbdc31e43043912b7e144739481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coverage: 50
-  secondsToBuild: 2
+  coverage: 0.5
+  secondsToBuild: 5

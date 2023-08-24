@@ -2385,7 +2385,7 @@ GameObject:
   - component: {fileID: 1102370122}
   - component: {fileID: 1102370124}
   - component: {fileID: 1102370123}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LoseSector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
