@@ -12,8 +12,6 @@ public class Squad : MonoBehaviour
     [SerializeField] float movementSpeed = 1;
     private Boolean isBusy = false;
 
-
-
     public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
     public bool IsBusy { get => isBusy; set => isBusy = value; }
 

@@ -79,6 +79,10 @@ PrefabInstance:
       propertyPath: trenchPrefab
       value: 
       objectReference: {fileID: 4568929820215283404, guid: 4165e014ce0785f45ad2c43bbdb3bd01, type: 3}
+    - target: {fileID: 9147151945420375822, guid: cedfb6f134928db46aa08408d803e8b9, type: 3}
+      propertyPath: structurePrefab
+      value: 
+      objectReference: {fileID: 4568929820215283404, guid: 4165e014ce0785f45ad2c43bbdb3bd01, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cedfb6f134928db46aa08408d803e8b9, type: 3}
 --- !u!1001 &4333773598154735524

@@ -375,40 +375,12 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7713828823053004081, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
---- !u!1 &1398736327537388616 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5309294979658352760, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
-  m_PrefabInstance: {fileID: 6541241926434284592}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4257944877298127308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1398736327537388616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd8e97d08e3c3549838237e039670af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trenchButtonObject: {fileID: 0}
-  trenchPrefab: {fileID: 4568929820215283404, guid: 4165e014ce0785f45ad2c43bbdb3bd01, type: 3}
-  cellDetector: {fileID: 1689221803176397336}
-  secondsBeforeAppearingForTheFirstTime: 1
---- !u!114 &1689221803176397336 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5599798047349239336, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
-  m_PrefabInstance: {fileID: 6541241926434284592}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e28ec0f2f43e27a4fb53689f3323b641, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6573739329344426530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 143470836758033938, guid: 8efbab8707123194b90cf1589ae51963, type: 3}

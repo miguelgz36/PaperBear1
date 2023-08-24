@@ -11,17 +11,10 @@ public abstract class ActionButton : MonoBehaviour
 
     private void Update()
     {
-        if (this.squad.IsBusy) 
-        {
-            button.interactable = false;
-        }
-        else
-        {
-            button.interactable = true;
-        }
+        button.interactable = !this.squad.IsBusy;
     }
 
-    public void onClick()
+    public void OnClick()
     {
         if (!this.squad.IsBusy)
         {

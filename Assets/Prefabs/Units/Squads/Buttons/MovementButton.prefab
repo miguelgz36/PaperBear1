@@ -13,11 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 6406340246466112130}
     - target: {fileID: 81322628252197457, guid: ccb0f5f20c9381b44b69c2e854d2cb57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: onClick
+      value: OnClick
       objectReference: {fileID: 0}
     - target: {fileID: 81322628252197457, guid: ccb0f5f20c9381b44b69c2e854d2cb57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MovementButton, Assembly-CSharp
+      value: ActionButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 449262113267436077, guid: ccb0f5f20c9381b44b69c2e854d2cb57, type: 3}
       propertyPath: m_text

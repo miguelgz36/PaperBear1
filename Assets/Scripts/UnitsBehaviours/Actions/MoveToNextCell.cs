@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Misc;
 
-public class MoveToNextCell: MovementButton, Action
+public class MoveToNextCell: MonoBehaviour, Action
 {
     private Squad squad = null;
 
