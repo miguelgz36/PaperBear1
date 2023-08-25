@@ -12,12 +12,33 @@ public class Cell : MonoBehaviour
     private Squad squadInCell = null;
     private Squad futureSquadInCell = null;
     private Structure structure;
+    private Map map;
+
+    private int x;
+    private int y;
 
     public Squad SquadInCell { get => squadInCell; set => squadInCell = value; }
     public Squad FutureSquadInCell { get => futureSquadInCell; set => futureSquadInCell = value; }
     public Structure Structure { get => structure; set => structure = value; }
+    public int X { get => x; }
+    public int Y { get => y; }
 
-    public bool hasStructure()
+    public void Init(int x, int y, Map map)
+    {
+        this.x = x;
+        this.y = y;
+        this.map = map;
+    }
+
+    public Cell GetNextCell(int direction)
+    {
+        int xNextCell = this.x + direction;
+        if (xNextCell < 0 || xNextCell == map.Width) return null;
+
+        return map.MatrixCell[xNextCell][y];
+    }
+
+    public bool HasStructure()
     {
         return structure != null;
     }

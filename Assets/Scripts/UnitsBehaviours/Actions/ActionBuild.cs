@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Build : MonoBehaviour, IAction
+public class ActionBuild : MonoBehaviour, IAction
 {
     private Squad squad = null;
 
@@ -46,7 +46,7 @@ public class Build : MonoBehaviour, IAction
         this.buildingSlider = (Slider)args.GetValueOrDefault(CommandParamEnum.SLIDER);
         this.timeToBuildInSeconds = this.structurePrefab.GetComponent<Structure>().SecondsToBuild;
 
-        if (cellToPlaceTrench != null && !cellToPlaceTrench.hasStructure())
+        if (cellToPlaceTrench != null && !cellToPlaceTrench.HasStructure())
         {
             this.squad.IsBusy = true;
             this.initialBuildingTime = Time.unscaledTime;

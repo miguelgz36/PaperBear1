@@ -20,7 +20,7 @@ public class BuildStructureButton : ActionButton
         args.Add(CommandParamEnum.STRUCTURE_PREFAB, structurePrefab);
         args.Add(CommandParamEnum.SLIDER, this.buildingSlider);
 
-        this.squad.ExecuteAction<Build>(args);
+        this.squad.ExecuteAction<ActionBuild>(args);
 
     }
 }
