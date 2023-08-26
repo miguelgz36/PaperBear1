@@ -50,7 +50,7 @@ public class Health : MonoBehaviour
         StartCoroutine(GetComponent<HitBlink>().FlashRoutine());
         if (currentHealth <= 0)
         {
-            unitController.RemoveUnitFromSquad();
+            unitController.gameObject.SetActive(false);
             Destroy(currentUnit);
         }
         return true;

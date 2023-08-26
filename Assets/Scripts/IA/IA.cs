@@ -15,6 +15,7 @@ public class IA : MonoBehaviour
     private List<PlaceableCooldown> supportingFireCooldowns;
     private List<Squad> squadsSpawned;
     private Map map;
+    private float lastTimeUpdateIA;
 
     public List<IASpawnCell> SpawnPoints { get => spawnPoints; }
     public List<PlaceableCooldown> SquadCooldowns { get => squadCooldowns; }
@@ -38,7 +39,7 @@ public class IA : MonoBehaviour
         squadCooldowns = CreateCooldowns(squadsToSpawn);
         supportingFireCooldowns = CreateCooldowns(supportingFireToSpawn);
         squadsSpawned = new List<Squad>();
-        StartCoroutine(StartIA());
+        lastTimeUpdateIA = Time.unscaledTime;
     }
 
     private List<PlaceableCooldown> CreateCooldowns(List<Placeable> listToSpawn)
@@ -57,14 +58,33 @@ public class IA : MonoBehaviour
 
     private void Update()
     {
-        foreach (PlaceableCooldown placeableCooldown in squadCooldowns)
+        if (!LevelStateManager.Instance.IsFinishedGame)
         {
-            placeableCooldown.Update();
+            foreach (PlaceableCooldown placeableCooldown in squadCooldowns)
+            {
+                placeableCooldown.Update();
+            }
+            foreach (PlaceableCooldown placeableCooldown in supportingFireCooldowns)
+            {
+                placeableCooldown.Update();
+            }
+
+            float currentTime = Time.unscaledTime;
+
+            if (currentTime - lastTimeUpdateIA >= delayInstructions)
+            {
+                for (int i = 0; i < instructions.Count; i++)
+                {
+                    bool resultInstruction = instructions[i].Execute();
+                    if (resultInstruction)
+                    {
+                        break;
+                    }
+                }
+                lastTimeUpdateIA = currentTime;
+            }
         }
-        foreach (PlaceableCooldown placeableCooldown in supportingFireCooldowns)
-        {
-            placeableCooldown.Update();
-        }
+        
     }
 
     public Squad InstantiateSquad(int unitToSpawnIndex, int spawnPointIndex)
@@ -92,22 +112,6 @@ public class IA : MonoBehaviour
         supportingFireCooldowns[supportingFireToPlaceIndex].ResetCooldown();
     }
 
-    private IEnumerator StartIA()
-    {
-        do
-        {
-            yield return new WaitForSeconds(delayInstructions);
-            for (int i = 0; i < instructions.Count; i++)
-            {
-                bool resultInstruction = instructions[i].Execute();
-                if (resultInstruction)
-                {
-                    break;
-                }
-            }
-        }
-        while (!LevelStateManager.Instance.IsFinishedGame);
-    }
 
 
 }

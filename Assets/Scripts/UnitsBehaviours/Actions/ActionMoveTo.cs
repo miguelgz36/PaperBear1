@@ -9,10 +9,8 @@ public class ActionMoveTo : MonoBehaviour, IAction
     private Squad squad;
     private Cell cellToMove;
     private Cell nextCell;
-    private Cell currentCell;
     private bool isMoving = false;
-    private Vector3 target;
-    private float proximityThreshold = 0.1f;
+    private readonly float proximityThreshold = 0.1f;
 
     private void FixedUpdate()
     {
@@ -21,25 +19,37 @@ public class ActionMoveTo : MonoBehaviour, IAction
             if (Vector3.Distance(squad.gameObject.transform.position, cellToMove.gameObject.transform.position) < proximityThreshold)
             {
                 isMoving = false;
-                this.squad.IsBusy = false;
+                squad.IsBusy = false;
+                cellToMove = null;
+                nextCell = null;
             }
-            else if (Vector3.Distance(squad.gameObject.transform.position, target) < proximityThreshold)
+            else if (Vector3.Distance(squad.gameObject.transform.position, nextCell.gameObject.transform.position) < proximityThreshold)
             {
+                Cell currentCell = squad.GetComponentInChildren<SquadCellDetector>().CurrentCell;
                 nextCell = currentCell.GetNextCell((int)squad.gameObject.transform.up.normalized.x);
-                if (nextCell == null && !nextCell.IsAvailable())
+                if(nextCell != null && nextCell.IsAvailable(squad))
                 {
-                    isMoving = false;
-                    squad.IsBusy = false;
+                    currentCell.FutureSquadInCell = null;
+                    nextCell.FutureSquadInCell = this.squad;
                 }
                 else
                 {
-                    nextCell.FutureSquadInCell = this.squad;
-                    this.target = nextCell.gameObject.transform.position;
+                    isMoving = false;
+                    squad.IsBusy = false;
+                    cellToMove = null;
+                    nextCell = null;
                 }
+            }
+            else if(nextCell.IsAvailable(squad))
+            {
+                this.squad.gameObject.transform.position += this.squad.MovementSpeed * Time.fixedDeltaTime * this.squad.gameObject.transform.up;
             }
             else
             {
-                this.squad.gameObject.transform.position += this.squad.MovementSpeed * Time.fixedDeltaTime * this.squad.gameObject.transform.up;
+                isMoving = false;
+                squad.IsBusy = false;
+                cellToMove = null;
+                nextCell = null;
             }
         }
     }
@@ -48,13 +58,12 @@ public class ActionMoveTo : MonoBehaviour, IAction
     public bool Execute(Dictionary<CommandParamEnum, object> args)
     {
         squad = (Squad)args.GetValueOrDefault(CommandParamEnum.SQUAD);
-        currentCell = squad.GetComponentInChildren<SquadCellDetector>().CurrentCell;
+        Cell currentCell = squad.GetComponentInChildren<SquadCellDetector>().CurrentCell;
         cellToMove = (Cell)args.GetValueOrDefault(CommandParamEnum.CELL_TO_MOVE);
         nextCell = currentCell.GetNextCell((int)squad.gameObject.transform.up.normalized.x);
-        if (currentCell == cellToMove || isMoving || nextCell == null || !nextCell.IsAvailable()) return false;
+        if (currentCell == cellToMove || squad.IsBusy || isMoving || nextCell == null || !nextCell.IsAvailable(squad)) return false;
         squad.IsBusy = true;
         isMoving = true;
-        target = nextCell.gameObject.transform.position;
 
         return true;
     }

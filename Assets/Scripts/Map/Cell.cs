@@ -29,6 +29,11 @@ public class Cell : MonoBehaviour
         this.y = y;
         this.map = map;
     }
+  
+    public bool SquadIsInSameRow(Squad squad)
+    {
+        return squad.GetComponentInChildren<SquadCellDetector>().CurrentCell.y == y;
+    }
 
     public Cell GetNextCell(int direction)
     {
@@ -43,16 +48,18 @@ public class Cell : MonoBehaviour
         return structure != null;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         SquadCellDetector squadCellDectector = collision.GetComponent<SquadCellDetector>();
 
         if (squadCellDectector)
         {
             Squad squad = squadCellDectector.GetComponentInParent<Squad>();
-            this.SquadInCell = squad;
-            squad.SetCell(this);
-            this.futureSquadInCell = null;
+            if(squad != squadInCell)
+            {
+                this.SquadInCell = squad;
+                squad.SetCell(this);
+            }       
         }
     }
 
@@ -66,7 +73,6 @@ public class Cell : MonoBehaviour
             if (this.squadInCell == squad)
             {
                 this.squadInCell = null;
-                this.futureSquadInCell = null;
             }
         }
     }
@@ -81,8 +87,9 @@ public class Cell : MonoBehaviour
         return damage - (damage * coverage);
     }
 
-    public bool IsAvailable()
+    public bool IsAvailable(Squad squad)
     {
+        if (squadInCell == squad || futureSquadInCell == squad) return true;
         return squadInCell == null && futureSquadInCell == null;
     }
 }

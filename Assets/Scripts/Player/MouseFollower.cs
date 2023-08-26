@@ -9,10 +9,11 @@ public class MouseFollower : Singleton<MouseFollower>
 
     private Interactable interactableToSelect;
     private PlaceableZone placableToSelect;
+    private Cell mouseInCell;
 
     public Interactable InteractableToSelect { get => interactableToSelect; }
     public PlaceableZone PlaceableZoneToSelect { get => placableToSelect; }
-
+    public Cell MouseInCell { get => mouseInCell; }
 
     void Update()
     {
@@ -24,7 +25,7 @@ public class MouseFollower : Singleton<MouseFollower>
         transform.position = mousePosition;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         Interactable interactable = collision.GetComponent<Interactable>();
         if (interactable)
@@ -35,6 +36,11 @@ public class MouseFollower : Singleton<MouseFollower>
         if (placeableZone)
         {
             placableToSelect = placeableZone;
+        }
+        Cell cell = collision.GetComponent<Cell>();
+        if (cell)
+        {
+            mouseInCell = cell;
         }
     }
 
@@ -49,6 +55,11 @@ public class MouseFollower : Singleton<MouseFollower>
         if (placeableZone && placeableZone == placableToSelect)
         {
             placableToSelect = null;
+        }
+        Cell cell = collision.GetComponent<Cell>();
+        if (cell)
+        {
+            mouseInCell = null;
         }
     }
 }

@@ -11,6 +11,7 @@ public class Squad : MonoBehaviour
     Placeable placeable;
     [SerializeField] float movementSpeed = 1;
     private Boolean isBusy = false;
+    private int unitsCount;
 
     public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
     public bool IsBusy { get => isBusy; set => isBusy = value; }
@@ -30,11 +31,12 @@ public class Squad : MonoBehaviour
         {
             units.Add(unit);
         }
+        unitsCount = units.Count;
     }
 
     private void Update()
     {
-        if (units.Count == 0)
+        if (unitsCount <= 0)
         {
             placeable.ReducePopulation();
             Destroy(gameObject);
@@ -44,6 +46,7 @@ public class Squad : MonoBehaviour
     public void RemoveUnit(UnitController gameObject)
     {
         units.Remove(gameObject);
+        unitsCount--;
     }
 
     public void SetCell(Cell cell)

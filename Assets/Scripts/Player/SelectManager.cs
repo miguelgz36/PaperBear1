@@ -12,6 +12,7 @@ public class SelectManager : Singleton<SelectManager>
     private GameObject lastSpawned;
 
     public Selectable SquadReadyToSelect { get => objectReadyToSelect; set => objectReadyToSelect = value; }
+    public Selectable ObjectSelected { get => objectSelected; set => objectSelected = value; }
 
     protected override void Awake()
     {

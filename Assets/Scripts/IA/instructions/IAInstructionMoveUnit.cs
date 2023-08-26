@@ -25,7 +25,7 @@ public class IAInstructionMoveUnit : IAInstruction
         }
 
         Cell cellToMove = squadToMove.GetComponentInChildren<SquadCellDetector>().CurrentCell.GetNextCell(-1);
-        if (cellToMove == null) return false;
+        if (cellToMove == null || !cellToMove.IsAvailable(squadToMove)) return false;
 
         Dictionary<CommandParamEnum, object> args = new();
         args.Add(CommandParamEnum.SQUAD, squadToMove);
