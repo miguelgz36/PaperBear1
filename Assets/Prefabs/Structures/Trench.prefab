@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1896788078563235362}
   - component: {fileID: 4740643456723374792}
   - component: {fileID: 1722069110857808415}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trench
   m_TagString: Structures
   m_Icon: {fileID: 0}

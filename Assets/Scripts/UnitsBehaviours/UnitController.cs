@@ -9,24 +9,11 @@ public class UnitController : MonoBehaviour
     [SerializeField] private Slider sliderAmmo;
     [SerializeField] private Aim aim;
 
-    private Squad squad;
-
     public Slider SliderAmmo { get => sliderAmmo; set => sliderAmmo = value; }
 
-    private void Awake()
-    {
-        squad = GetComponentInParent<Squad>();
-    }
-
-   
     public bool IsEnemy()
     {
         return isEnemy;
-    }
-
-    public void RemoveUnitFromSquad()
-    {
-        squad.RemoveUnit(this);
     }
 
     public void AimTarget(Collider2D collider2D)

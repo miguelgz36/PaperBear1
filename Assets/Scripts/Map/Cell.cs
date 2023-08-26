@@ -73,6 +73,7 @@ public class Cell : MonoBehaviour
             if (this.squadInCell == squad)
             {
                 this.squadInCell = null;
+                this.FutureSquadInCell = null;
             }
         }
     }

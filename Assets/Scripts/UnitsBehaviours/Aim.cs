@@ -47,7 +47,7 @@ public class Aim : MonoBehaviour
     protected void LockTarget(Collider2D collision)
     {
         Health health = collision.GetComponent<Health>();
-        if (IsFromTheOpposingTeam(collision.gameObject) 
+        if (collision.gameObject && IsFromTheOpposingTeam(collision.gameObject) 
             && ShouldBeNewTarget(gameObject.gameObject) 
             && !collision.gameObject.CompareTag(objectToRotate.tag) 
             && health)
@@ -74,6 +74,7 @@ public class Aim : MonoBehaviour
 
     private bool IsFromTheOpposingTeam(GameObject gameObject)
     {
+        if (objectToRotate == null || gameObject == null) return false;
         return gameObject.tag.Contains("Enemy") && objectToRotate.tag.Contains("Allied")
                 || gameObject.tag.Contains("Allied") && objectToRotate.tag.Contains("Enemy");
     }

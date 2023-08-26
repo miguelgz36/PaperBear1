@@ -60,9 +60,9 @@ public class PlacementPlaceable : MonoBehaviour
     {
         Placeable placeable = unitSpawned.GetComponent<Placeable>();
         placeable.PlaceableCooldown = squadCooldown;
+        placeable.PlaceableCooldown.ResetCooldown();
         cooldownImage.fillAmount = 1f;
         button.interactable = false;
-        squadCooldown.ResetCooldown();
     }
 
     public bool CapValid()

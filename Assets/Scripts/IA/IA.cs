@@ -92,7 +92,7 @@ public class IA : MonoBehaviour
         GameObject unitSpawned = Instantiate(squadCooldowns[unitToSpawnIndex].Placeable.gameObject, SpawnPoints[spawnPointIndex].transform);
         Placeable placeable = unitSpawned.GetComponent<Placeable>();
         placeable.PlaceableCooldown = squadCooldowns[unitToSpawnIndex];
-        squadCooldowns[unitToSpawnIndex].ResetCooldown();
+        placeable.PlaceableCooldown.ResetCooldown();
         return unitSpawned.GetComponent<Squad>();
     }
 
@@ -109,7 +109,9 @@ public class IA : MonoBehaviour
         {
             dronLauncher.DeployDron(positionToPlace, SupportFireManager.Instance.PositionEnemySupportingFire.transform.position);
         }
-        supportingFireCooldowns[supportingFireToPlaceIndex].ResetCooldown();
+        Placeable placeable = artilleryInsantiate.GetComponent<Placeable>();
+        placeable.PlaceableCooldown = supportingFireCooldowns[supportingFireToPlaceIndex];
+        placeable.PlaceableCooldown.ResetCooldown();
     }
 
 
