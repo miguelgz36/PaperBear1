@@ -9,9 +9,10 @@ public class Squad : MonoBehaviour
     Placeable placeable;
     [SerializeField] float movementSpeed = 1;
     private Boolean isBusy = false;
+    private Boolean isMoving = false;
     public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
     public bool IsBusy { get => isBusy; set => isBusy = value; }
-
+    public bool IsMoving { get => isMoving; set => isMoving = value; }
 
     private void Awake()
     {

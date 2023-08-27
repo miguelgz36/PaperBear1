@@ -9,7 +9,15 @@ public class UnitController : MonoBehaviour
     [SerializeField] private Slider sliderAmmo;
     [SerializeField] private Aim aim;
 
+    private Squad squad;
+
     public Slider SliderAmmo { get => sliderAmmo; set => sliderAmmo = value; }
+    public Squad Squad { get => squad; }
+
+    private void Awake()
+    {
+        squad = GetComponentInParent<Squad>();
+    }
 
     public bool IsEnemy()
     {

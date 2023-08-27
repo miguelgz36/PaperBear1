@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: dispersion
-      value: 0.04
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: ammoConsume

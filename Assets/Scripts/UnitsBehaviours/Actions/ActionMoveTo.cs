@@ -18,10 +18,7 @@ public class ActionMoveTo : MonoBehaviour, IAction
         {
             if (Vector3.Distance(squad.gameObject.transform.position, cellToMove.gameObject.transform.position) < proximityThreshold)
             {
-                isMoving = false;
-                squad.IsBusy = false;
-                cellToMove = null;
-                nextCell = null;
+                StopActionToMove();
             }
             else if (Vector3.Distance(squad.gameObject.transform.position, nextCell.gameObject.transform.position) < proximityThreshold)
             {
@@ -34,10 +31,7 @@ public class ActionMoveTo : MonoBehaviour, IAction
                 }
                 else
                 {
-                    isMoving = false;
-                    squad.IsBusy = false;
-                    cellToMove = null;
-                    nextCell = null;
+                    StopActionToMove();
                 }
             }
             else if(nextCell.IsAvailable(squad))
@@ -46,14 +40,19 @@ public class ActionMoveTo : MonoBehaviour, IAction
             }
             else
             {
-                isMoving = false;
-                squad.IsBusy = false;
-                cellToMove = null;
-                nextCell = null;
+                StopActionToMove();
             }
         }
     }
 
+    private void StopActionToMove()
+    {
+        isMoving = false;
+        squad.IsBusy = false;
+        squad.IsMoving = false;
+        cellToMove = null;
+        nextCell = null;
+    }
 
     public bool Execute(Dictionary<CommandParamEnum, object> args)
     {
@@ -64,6 +63,7 @@ public class ActionMoveTo : MonoBehaviour, IAction
         if (currentCell == cellToMove || squad.IsBusy || isMoving || nextCell == null || !nextCell.IsAvailable(squad)) return false;
         squad.IsBusy = true;
         isMoving = true;
+        squad.IsMoving = true;
 
         return true;
     }

@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     private Structure onStructure;
     private Cell currentCell;
     private UnitController unitController;
+    private Squad squad;
 
     public Structure OnStructure { set => onStructure = value; }
     public Cell CurrentCell { set => currentCell = value; }
@@ -22,6 +23,7 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         unitController = currentUnit.GetComponent<UnitController>();
+        squad = unitController.Squad;
     }
 
     void Start()
@@ -39,6 +41,7 @@ public class Health : MonoBehaviour
     public void DoDamage(float baseDamage)
     {
         if (currentHealth <= 0) return;
+        if (squad.IsMoving && !unitController.gameObject.tag.Contains("Tank")) baseDamage *= 2;
         if (onStructure != null ) baseDamage = onStructure.ReduceDamage(baseDamage);
         if (currentCell != null ) baseDamage = currentCell.ReduceDamage(baseDamage);
 
