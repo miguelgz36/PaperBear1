@@ -39,9 +39,10 @@ public class OrderManager : Singleton<OrderManager>
     private void ExecuteMoveTo()
     {
         Squad squad = SelectManager.Instance.ObjectSelected.GetComponent<Squad>();
+        Cell currentSquadCell = squad.GetComponentInChildren<SquadCellDetector>().CurrentCell;
         Cell targetCell = MouseFollower.Instance.MouseInCell;
 
-        if (!squad.IsBusy && targetCell.SquadIsInSameRow(squad))
+        if (!squad.IsBusy && targetCell.SquadIsInSameRow(squad) && targetCell.X > currentSquadCell.X)
         {
             Dictionary<CommandParamEnum, object> args = new();
             args.Add(CommandParamEnum.SQUAD, squad);
