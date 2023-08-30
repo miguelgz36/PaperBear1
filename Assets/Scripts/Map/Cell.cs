@@ -22,6 +22,7 @@ public class Cell : MonoBehaviour
     public Structure Structure { get => structure; set => structure = value; }
     public int X { get => x; }
     public int Y { get => y; }
+    public float Speed { get => speed; }
 
     public void Init(int x, int y, Map map)
     {

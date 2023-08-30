@@ -16,13 +16,13 @@ public class ActionMoveTo : MonoBehaviour, IAction
     {
         if (isMoving)
         {
+            Cell currentCell = squad.GetComponentInChildren<SquadCellDetector>().CurrentCell;
             if (Vector3.Distance(squad.gameObject.transform.position, cellToMove.gameObject.transform.position) < proximityThreshold)
             {
                 StopActionToMove();
             }
             else if (Vector3.Distance(squad.gameObject.transform.position, nextCell.gameObject.transform.position) < proximityThreshold)
             {
-                Cell currentCell = squad.GetComponentInChildren<SquadCellDetector>().CurrentCell;
                 nextCell = currentCell.GetNextCell((int)squad.gameObject.transform.up.normalized.x);
                 if(nextCell != null && nextCell.IsAvailable(squad))
                 {
@@ -36,7 +36,7 @@ public class ActionMoveTo : MonoBehaviour, IAction
             }
             else if(nextCell.IsAvailable(squad))
             {
-                this.squad.gameObject.transform.position += this.squad.MovementSpeed * Time.fixedDeltaTime * this.squad.gameObject.transform.up;
+                this.squad.gameObject.transform.position += (this.squad.MovementSpeed * currentCell.Speed) * Time.fixedDeltaTime * this.squad.gameObject.transform.up;
             }
             else
             {

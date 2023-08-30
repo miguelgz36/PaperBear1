@@ -85,4 +85,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverage: 0
-  speed: 0.9
+  speed: 1
