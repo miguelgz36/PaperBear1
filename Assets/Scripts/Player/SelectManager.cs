@@ -82,9 +82,9 @@ public class SelectManager : Singleton<SelectManager>
         {
             artillery.DeactivedPreviewExplosion();
         }
-        if (dronLauncher && MouseFollower.Instance.PlaceableZoneToSelect)
+        if (dronLauncher && MouseFollower.Instance.InteractableToSelect)
         {
-            SendDron(dronLauncher);
+            SendDron(positionToPlace);
         }
         if (alliedSquad && placeableZone != null
                                    && placeableZone.ObjectInZone == null && placementButton.CapValid())
@@ -122,9 +122,11 @@ public class SelectManager : Singleton<SelectManager>
         }
     }
 
-    private void SendDron(DronLauncher dronLauncher)
+    private void SendDron(Vector3 positionToPlace)
     {
-        dronLauncher.DeployDron(MouseFollower.Instance.PlaceableZoneToSelect.transform.position, SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position);
+        GameObject dronInstantiate = Instantiate(selectedObjectToPlace, SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position, Quaternion.identity);
+        dronInstantiate.GetComponent<DronLauncher>().DeployDron(positionToPlace, SupportFireManager.Instance.PositionAlliedSupportingFire.transform.position);
+        placementButton.ResetCooldown(dronInstantiate);
     }
 
 }

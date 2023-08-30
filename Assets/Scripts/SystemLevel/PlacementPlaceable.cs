@@ -48,11 +48,6 @@ public class PlacementPlaceable : MonoBehaviour
             PlaceableCells.Instance.ShowPlaceableZones();
         }
 
-        if(placeable is DronLauncher)
-        {
-            PlaceableCells.Instance.ShowPlaceableZones();
-        }
-
         SelectManager.Instance.SetUnitToPlaceSquad(unitPrefab, this);
     }
 
