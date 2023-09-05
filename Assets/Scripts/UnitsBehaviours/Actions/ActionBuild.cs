@@ -15,7 +15,7 @@ public class ActionBuild : MonoBehaviour, IAction
 
     private float timeToBuildInSeconds;
 
-    private Slider buildingSlider;
+    private Image imageCoolDown;
 
     private float initialBuildingTime;
 
@@ -26,11 +26,11 @@ public class ActionBuild : MonoBehaviour, IAction
             float currentTime = Time.unscaledTime - this.initialBuildingTime;
             if (currentTime < timeToBuildInSeconds)
             {
-                this.buildingSlider.value = 1 - currentTime / timeToBuildInSeconds;
+                this.imageCoolDown.fillAmount = 1 - currentTime / timeToBuildInSeconds;
             }
             else
             {
-                this.buildingSlider.value = 0;
+                this.imageCoolDown.fillAmount = 0;
                 this.BuildStructure();
                 isBuilding = false;
             }
@@ -43,7 +43,7 @@ public class ActionBuild : MonoBehaviour, IAction
         this.squad = (Squad)args.GetValueOrDefault(CommandParamEnum.SQUAD);
         this.structurePrefab = (GameObject)args.GetValueOrDefault(CommandParamEnum.STRUCTURE_PREFAB);
         this.cellToPlaceTrench = this.squad.GetComponentInChildren<SquadCellDetector>().CurrentCell;
-        this.buildingSlider = (Slider)args.GetValueOrDefault(CommandParamEnum.SLIDER);
+        this.imageCoolDown = (Image)args.GetValueOrDefault(CommandParamEnum.IMAGE_COOLDOWN);
         this.timeToBuildInSeconds = this.structurePrefab.GetComponent<Structure>().SecondsToBuild;
 
         if (cellToPlaceTrench != null && !cellToPlaceTrench.HasStructure())

@@ -8,19 +8,17 @@ public class BuildStructureButton : ActionButton
 {
     [SerializeField] private GameObject structurePrefab;
 
-    [SerializeField] private SquadCellDetector cellDetector;
-
-    [SerializeField] private Slider buildingSlider;
+    [SerializeField] private Image imageCooldown;
 
     public override void execute()
     {
         Dictionary<CommandParamEnum, object> args = new Dictionary<CommandParamEnum, object>();
 
-        args.Add(CommandParamEnum.SQUAD, this.squad);
+        args.Add(CommandParamEnum.SQUAD, this.currentSquad);
         args.Add(CommandParamEnum.STRUCTURE_PREFAB, structurePrefab);
-        args.Add(CommandParamEnum.SLIDER, this.buildingSlider);
+        args.Add(CommandParamEnum.IMAGE_COOLDOWN, this.imageCooldown);
 
-        this.squad.ExecuteAction<ActionBuild>(args);
+        this.currentSquad.ExecuteAction<ActionBuild>(args);
 
     }
 }

@@ -56,10 +56,6 @@ public class SelectManager : Singleton<SelectManager>
             selectedObjectToPlace = null;
             placementButton = null;
             PlaceableCells.Instance.HidePlaceableZones();
-            if (objectSelected)
-            {
-                objectSelected.SetSelectionUI(false);
-            }
         }
 
     }

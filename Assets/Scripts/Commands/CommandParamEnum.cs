@@ -6,6 +6,6 @@ public enum CommandParamEnum
 {
     SQUAD,
     STRUCTURE_PREFAB,
-    SLIDER,
+    IMAGE_COOLDOWN,
     CELL_TO_MOVE
 }
