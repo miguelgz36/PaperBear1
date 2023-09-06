@@ -30,9 +30,8 @@ public class ActionBuild : MonoBehaviour, IAction
             }
             else
             {
-                this.imageCoolDown.fillAmount = 0;
                 this.BuildStructure();
-                isBuilding = false;
+                Stop();
             }
         }
         
@@ -63,4 +62,13 @@ public class ActionBuild : MonoBehaviour, IAction
         this.squad.IsBusy = false;
     }
 
+    public void Stop()
+    {
+        if (isBuilding)
+        {
+            isBuilding = false;
+            this.imageCoolDown.fillAmount = 0;
+            squad.IsBusy = false;
+        }
+    }
 }

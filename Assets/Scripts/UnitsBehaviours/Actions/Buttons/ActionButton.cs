@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public abstract class ActionButton : MonoBehaviour
 {
 
-    private Button button;
+    protected Button button;
     protected Squad currentSquad;
 
     private void Awake()
@@ -21,7 +21,7 @@ public abstract class ActionButton : MonoBehaviour
             if (alliedSquad)
             {
                 currentSquad = SelectManager.Instance.ObjectSelected.GetComponent<Squad>();
-                button.interactable = !currentSquad.IsBusy;
+                button.interactable = ButtonIsAvailableToClick();
             }
             else
             {
@@ -36,9 +36,19 @@ public abstract class ActionButton : MonoBehaviour
         }
     }
 
+    protected virtual bool ButtonIsAvailableToClick()
+    {
+        return !currentSquad.IsBusy;
+    }
+
+    protected virtual bool SquadIsAvailableToExecuteOrders()
+    {
+        return currentSquad != null && !this.currentSquad.IsBusy;
+    }
+
     public void OnClick()
     {
-        if (currentSquad != null && !this.currentSquad.IsBusy)
+        if (SquadIsAvailableToExecuteOrders())
         {
             this.execute();
         }

@@ -17,12 +17,13 @@ public class ActionMoveTo : MonoBehaviour, IAction
         if (isMoving)
         {
             Cell currentCell = squad.GetComponentInChildren<SquadCellDetector>().CurrentCell;
-            if (Vector3.Distance(squad.gameObject.transform.position, cellToMove.gameObject.transform.position) < proximityThreshold)
+            if (cellToMove != null && Vector3.Distance(squad.gameObject.transform.position, cellToMove.gameObject.transform.position) < proximityThreshold)
             {
-                StopActionToMove();
+                StopMoving();
             }
             else if (Vector3.Distance(squad.gameObject.transform.position, nextCell.gameObject.transform.position) < proximityThreshold)
             {
+                if (cellToMove == null) StopMoving();
                 nextCell = currentCell.GetNextCell((int)squad.gameObject.transform.up.normalized.x);
                 if(nextCell != null && nextCell.IsAvailable(squad))
                 {
@@ -31,7 +32,7 @@ public class ActionMoveTo : MonoBehaviour, IAction
                 }
                 else
                 {
-                    StopActionToMove();
+                    StopMoving();
                 }
             }
             else if(nextCell.IsAvailable(squad))
@@ -40,18 +41,18 @@ public class ActionMoveTo : MonoBehaviour, IAction
             }
             else
             {
-                StopActionToMove();
+                StopMoving();
             }
         }
     }
 
-    private void StopActionToMove()
+    public void StopMoving()
     {
         isMoving = false;
         squad.IsBusy = false;
         squad.IsMoving = false;
-        cellToMove = null;
         nextCell = null;
+        cellToMove = null;
     }
 
     public bool Execute(Dictionary<CommandParamEnum, object> args)
@@ -66,5 +67,14 @@ public class ActionMoveTo : MonoBehaviour, IAction
         squad.IsMoving = true;
 
         return true;
+    }
+
+    public void Stop()
+    {
+        if(squad && squad.IsMoving)
+        {
+            cellToMove = null;
+        }
+        
     }
 }
