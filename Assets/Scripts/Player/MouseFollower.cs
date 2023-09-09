@@ -25,7 +25,18 @@ public class MouseFollower : Singleton<MouseFollower>
         transform.position = mousePosition;
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        MouseTrigger(collision);
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
+    {
+        MouseTrigger(collision);
+    }
+
+    private void MouseTrigger(Collider2D collision)
     {
         Interactable interactable = collision.GetComponent<Interactable>();
         if (interactable)
@@ -41,6 +52,7 @@ public class MouseFollower : Singleton<MouseFollower>
         if (cell)
         {
             mouseInCell = cell;
+            cell.MouseEnter();
         }
     }
 
@@ -60,6 +72,7 @@ public class MouseFollower : Singleton<MouseFollower>
         if (cell)
         {
             mouseInCell = null;
+            cell.MouseExit();
         }
     }
 }

@@ -69,7 +69,7 @@ public class Aim : MonoBehaviour
                 if (secondaryWeapon) secondaryFireWeapon.SetIsShooting(true, target);
             }         
         }
-        while (!weapon.active || (secondaryWeapon != null && !secondaryWeapon.active));
+        while (!weapon.activeSelf || (secondaryWeapon != null && !secondaryWeapon.activeSelf));
     }
 
     private bool IsFromTheOpposingTeam(GameObject gameObject)

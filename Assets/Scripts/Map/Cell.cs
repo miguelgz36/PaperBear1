@@ -13,6 +13,7 @@ public class Cell : MonoBehaviour
     private Squad futureSquadInCell = null;
     private Structure structure;
     private Map map;
+    private SpriteRenderer spriteRenderPosibleSelectable;
 
     private int x;
     private int y;
@@ -30,10 +31,24 @@ public class Cell : MonoBehaviour
         this.y = y;
         this.map = map;
     }
-  
+
+    private void Awake()
+    {
+        spriteRenderPosibleSelectable = GetComponentInChildren<SpriteRenderer>(true);
+    }
     public bool SquadIsInSameRow(Squad squad)
     {
         return squad.GetComponentInChildren<SquadCellDetector>().CurrentCell.y == y;
+    }
+
+    public void MouseEnter()
+    {
+        spriteRenderPosibleSelectable.gameObject.SetActive(true);
+    }
+
+    public void MouseExit()
+    {
+        spriteRenderPosibleSelectable.gameObject.SetActive(false);
     }
 
     public Cell GetNextCell(int direction)
@@ -49,18 +64,28 @@ public class Cell : MonoBehaviour
         return structure != null;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        CellTrigger(collision);
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
+    {
+        CellTrigger(collision);
+    }
+
+    private void CellTrigger(Collider2D collision)
     {
         SquadCellDetector squadCellDectector = collision.GetComponent<SquadCellDetector>();
 
         if (squadCellDectector)
         {
             Squad squad = squadCellDectector.GetComponentInParent<Squad>();
-            if(squad != squadInCell)
+            if (squad != squadInCell)
             {
                 this.SquadInCell = squad;
                 squad.SetCell(this);
-            }       
+            }
         }
     }
 

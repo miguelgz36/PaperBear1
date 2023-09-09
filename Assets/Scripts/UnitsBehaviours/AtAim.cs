@@ -24,7 +24,7 @@ public class AtAim: Aim
 
     private void SelectRpg()
     {
-        if (base.weapon.active || !base.secondaryWeapon.active)
+        if (base.weapon.activeSelf || !base.secondaryWeapon.activeSelf)
         {
             base.weapon.SetActive(false);
             base.secondaryWeapon.SetActive(true);
@@ -33,7 +33,7 @@ public class AtAim: Aim
 
     private void SelectPrimaryWeapon()
     {
-        if (!base.weapon.active || base.secondaryWeapon.active)
+        if (!base.weapon.activeSelf || base.secondaryWeapon.activeSelf)
         {
             base.weapon.SetActive(true);
             base.secondaryWeapon.SetActive(false);
