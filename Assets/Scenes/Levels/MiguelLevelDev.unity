@@ -4951,6 +4951,7 @@ MonoBehaviour:
   - {x: 7, y: 1}
   - {x: 7, y: 3}
   - {x: 7, y: 5}
+  prefabCapturePoint: {fileID: 1271697096683226258, guid: fb528f8badce843418352ad659be6b7a, type: 3}
 --- !u!1 &1959121908
 GameObject:
   m_ObjectHideFlags: 0
