@@ -87,4 +87,8 @@ public class Squad : MonoBehaviour
         }
     }
 
+    internal bool IsEnemy()
+    {
+        return gameObject.GetComponent<EnemySquad>() != null;
+    }
 }   

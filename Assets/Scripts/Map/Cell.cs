@@ -14,6 +14,7 @@ public class Cell : MonoBehaviour
     private Structure structure;
     private Map map;
     private SpriteRenderer spriteRenderPosibleSelectable;
+    private CapturePoint capturePoint;
 
     private int x;
     private int y;
@@ -24,6 +25,7 @@ public class Cell : MonoBehaviour
     public int X { get => x; }
     public int Y { get => y; }
     public float Speed { get => speed; }
+    public CapturePoint CapturePoint { get => capturePoint; set => capturePoint = value; }
 
     public void Init(int x, int y, Map map)
     {
@@ -36,6 +38,7 @@ public class Cell : MonoBehaviour
     {
         spriteRenderPosibleSelectable = GetComponentInChildren<SpriteRenderer>(true);
     }
+
     public bool SquadIsInSameRow(Squad squad)
     {
         return squad.GetComponentInChildren<SquadCellDetector>().CurrentCell.y == y;
@@ -84,7 +87,8 @@ public class Cell : MonoBehaviour
             if (squad != squadInCell)
             {
                 this.SquadInCell = squad;
-                squad.SetCell(this);
+                squad.SetCell(this);              
+                if (capturePoint) capturePoint.SetState(squad.IsEnemy() ? CapturePointStateEnum.ENEMY : CapturePointStateEnum.ALLIED);
             }
         }
     }

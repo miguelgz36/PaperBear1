@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] 
-    private List<Vector2> cellsObjective;
+    [SerializeField] List<Vector2> cellsObjective;
+    [SerializeField] GameObject prefabCapturePoint;
     
-    List<Cell> objectives;
-    Map map;
+    private List<Cell> objectives;
+    private Map map;
 
     private void Start()
     {
@@ -18,8 +18,10 @@ public class GameOver : MonoBehaviour
         {
             int x = ((int)vector2.x);
             int y = ((int)vector2.y);
-            objectives.Add(map.MatrixCell[x][y]);
-            map.MatrixCell[x][y].MouseEnter();
+            Cell cell = map.MatrixCell[x][y];
+            GameObject capturePoint = Instantiate(prefabCapturePoint, cell.gameObject.transform);
+            cell.CapturePoint = capturePoint.GetComponent<CapturePoint>();
+            objectives.Add(cell);
         }
     }
 
@@ -29,22 +31,17 @@ public class GameOver : MonoBehaviour
         int numberOfAlliedsInObjective = 0;
  
         foreach (Cell cell in objectives)
-        {
-            Squad squad = cell.SquadInCell;
-            if(squad != null)
+        {      
+            CapturePoint capturePoint = cell.gameObject.GetComponentInChildren<CapturePoint>();
+            if (capturePoint.State.Equals(CapturePointStateEnum.ALLIED))
             {
-                if (squad.gameObject.GetComponent<AlliedSquad>() != null)
-                {
-                    numberOfAlliedsInObjective++;
-                }
-                else if (squad.gameObject.GetComponent<EnemySquad>() != null)
-                {
-                    numberOfEnemiesInObjective++;
-                }
-            } 
+                numberOfAlliedsInObjective++;
+            }
+            else if (capturePoint.State.Equals(CapturePointStateEnum.ENEMY))
+            {
+                numberOfEnemiesInObjective++;
+            }
         }
-        Debug.Log("number of enemies in objective" + numberOfEnemiesInObjective);
-        Debug.Log("number of allied in objective" + numberOfAlliedsInObjective);
         if (numberOfAlliedsInObjective == objectives.Count)
         {
             LevelStateManager.Instance.Win();
