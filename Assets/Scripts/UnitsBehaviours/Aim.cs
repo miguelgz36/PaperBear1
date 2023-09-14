@@ -53,7 +53,6 @@ public class Aim : MonoBehaviour
             && health)
         {
             target = collision.gameObject;
-            SelectWeapon(collision);
             StartCoroutine(Shoot(health));
         }
     }
@@ -79,9 +78,6 @@ public class Aim : MonoBehaviour
                 || gameObject.tag.Contains("Allied") && objectToRotate.tag.Contains("Enemy");
     }
 
-    protected virtual void SelectWeapon(Collider2D collision)
-    {
-    }
 
     protected virtual bool ShouldBeNewTarget(GameObject newTarget)
     {
