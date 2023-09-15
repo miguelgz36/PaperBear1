@@ -55,6 +55,7 @@ public class FireWeapon : MonoBehaviour
         }
         else if (isRealoding)
         {
+            if(!unitController.SliderAmmo.gameObject.activeSelf) unitController.SliderAmmo.gameObject.SetActive(true);
             float currentTime = Time.unscaledTime - initialReloadedTime;
             if (currentTime < reloadedRate)
             {
