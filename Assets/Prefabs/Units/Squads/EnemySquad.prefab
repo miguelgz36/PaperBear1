@@ -67,6 +67,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6882713298956157213, guid: 04052709f7c3b7b4b9bfd296ed4e77aa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882713298956157213, guid: 04052709f7c3b7b4b9bfd296ed4e77aa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7662544671831626159, guid: 04052709f7c3b7b4b9bfd296ed4e77aa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 04052709f7c3b7b4b9bfd296ed4e77aa, type: 3}
