@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 869c25e4d3c4a454ab76169a293f8716, type: 3}
+  m_Sprite: {fileID: -1632317134, guid: c00ad3d03bc9c544b846de55b977d48e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f09537437edc84fbaafa9dcfe9ddd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alliedColor: {r: 0.31440717, g: 0.254539, b: 0.8301887, a: 0.70980394}
-  enemyColor: {r: 0.7735849, g: 0.24448201, b: 0.24448201, a: 0.8509804}
-  neutralColor: {r: 1, g: 1, b: 1, a: 0.24705882}
+  alliedSprite: {fileID: -954322619, guid: c00ad3d03bc9c544b846de55b977d48e, type: 3}
+  enemySprite: {fileID: 1064218425, guid: c00ad3d03bc9c544b846de55b977d48e, type: 3}
+  neutralSprite: {fileID: -1632317134, guid: c00ad3d03bc9c544b846de55b977d48e, type: 3}

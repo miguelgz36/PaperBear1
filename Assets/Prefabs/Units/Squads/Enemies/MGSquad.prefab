@@ -57,19 +57,23 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 6294a04497d2efa4891b00bd4d941afb, type: 3}
     - target: {fileID: 2086991796728209708, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2249326064216150504, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2662223918281465995, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6294a04497d2efa4891b00bd4d941afb, type: 3}
     - target: {fileID: 5309294979658352760, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
       propertyPath: m_Name
       value: MGSquad
       objectReference: {fileID: 0}
     - target: {fileID: 6302937508533596567, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
