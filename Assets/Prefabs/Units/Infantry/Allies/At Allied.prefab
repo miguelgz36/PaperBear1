@@ -23,6 +23,26 @@ PrefabInstance:
       propertyPath: aim
       value: 
       objectReference: {fileID: 1304089577720068908}
+    - target: {fileID: 4629113216375734953, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629113216375734953, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629113216375734953, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.11796141
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629113216375734953, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629113216375734953, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5787365826635467393, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -57,15 +77,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996279622273365688, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_Color.g
-      value: 0.74652016
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5996279622273365688, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_Color.r
-      value: 0.4009434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5996279622273365688, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_DrawMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996279622273365688, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7498011983414197009, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -82,6 +106,10 @@ PrefabInstance:
     - target: {fileID: 7527488207122888416, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_TagString
       value: Allied
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495770347656910998, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8756682713332659998, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_RootOrder

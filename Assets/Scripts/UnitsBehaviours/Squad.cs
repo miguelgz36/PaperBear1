@@ -91,4 +91,12 @@ public class Squad : MonoBehaviour
     {
         return gameObject.GetComponent<EnemySquad>() != null;
     }
+
+    internal void SetSelectionUI(bool value)
+    {
+        foreach (UnitController unit in units)
+        {
+            unit.SetSelectionUI(value);
+        }
+    }
 }   
