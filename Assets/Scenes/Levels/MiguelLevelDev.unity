@@ -2523,7 +2523,7 @@ MonoBehaviour:
   supportingFireToSpawn:
   - {fileID: 5127169890896148103, guid: 605bb15a4729bd740bdf99218e2b8eb7, type: 3}
   - {fileID: 1018833821643511593, guid: 8cbfa21435713ba4381199def0b3d0aa, type: 3}
-  - {fileID: 54544394813325, guid: 7e0450d8a95c6994eae2119ebaad32f9, type: 3}
+  - {fileID: 285416848085165896, guid: 06f1f6a29f047694fbd67b5bc12cb9f7, type: 3}
   delayInstructions: 1
 --- !u!4 &552592298 stripped
 Transform:
