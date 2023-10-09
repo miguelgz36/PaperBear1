@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/IA/IASpawnCell.cs.meta
 guid: 76c999109971c3f4c9b8955e1e56e293
+========
+guid: 96baa3aa1a616c04191e6d57bebf58f2
+>>>>>>>> develop:Assets/Scripts/IA/IAEnemySquad.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

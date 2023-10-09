@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Map/CapturePoint.prefab.meta
 guid: fb528f8badce843418352ad659be6b7a
+========
+guid: e78b625b687d9dc4789d7053e2b3a2a6
+>>>>>>>> develop:Assets/Prefabs/IA/IASpawnZone.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
