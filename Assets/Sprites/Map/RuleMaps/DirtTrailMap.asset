@@ -12,20 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: DirtTrailMap
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 21300000, guid: 9c878640e2496c346b3e6dad450b8826, type: 3}
+  m_DefaultSprite: {fileID: 191854469, guid: 05e8b86696e1bea439962141b60f8bf2, type: 3}
   m_DefaultGameObject: {fileID: 6486934031460014604, guid: d30492df9e5986d409d4e939e1d3996a, type: 3}
   m_DefaultColliderType: 0
   m_TilingRules:
   - m_Id: 0
     m_Sprites:
-    - {fileID: 21300000, guid: 9c878640e2496c346b3e6dad450b8826, type: 3}
+    - {fileID: 191854469, guid: 05e8b86696e1bea439962141b60f8bf2, type: 3}
+    - {fileID: -226145561, guid: 05e8b86696e1bea439962141b60f8bf2, type: 3}
+    - {fileID: 251472642, guid: 05e8b86696e1bea439962141b60f8bf2, type: 3}
+    - {fileID: -594693689, guid: 05e8b86696e1bea439962141b60f8bf2, type: 3}
+    - {fileID: -1649102544, guid: 05e8b86696e1bea439962141b60f8bf2, type: 3}
     m_GameObject: {fileID: 6486934031460014604, guid: d30492df9e5986d409d4e939e1d3996a, type: 3}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
     m_PerlinScale: 0.5
-    m_Output: 0
+    m_Output: 1
     m_ColliderType: 1
-    m_RandomTransform: 0
+    m_RandomTransform: 4
     m_Neighbors: 
     m_NeighborPositions:
     - {x: -1, y: 1, z: 0}

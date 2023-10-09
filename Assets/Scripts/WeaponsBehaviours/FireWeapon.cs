@@ -50,10 +50,12 @@ public class FireWeapon : MonoBehaviour
         if (currentAmmo == 0 && !isRealoding)
         {
             isRealoding = true;
+            unitController.SliderAmmo.gameObject.SetActive(true);
             initialReloadedTime = Time.unscaledTime;
         }
         else if (isRealoding)
         {
+            if(!unitController.SliderAmmo.gameObject.activeSelf) unitController.SliderAmmo.gameObject.SetActive(true);
             float currentTime = Time.unscaledTime - initialReloadedTime;
             if (currentTime < reloadedRate)
             {
@@ -64,6 +66,7 @@ public class FireWeapon : MonoBehaviour
                 if (primaryWeapon) unitController.SliderAmmo.value = 1;
                 currentAmmo = ammoPerCharger;
                 isRealoding = false;
+                unitController.SliderAmmo.gameObject.SetActive(false);
             }
         }
         else if (startShooting && !isRealoding && !isShooting)

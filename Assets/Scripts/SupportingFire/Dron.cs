@@ -11,6 +11,7 @@ public class Dron : MonoBehaviour
     [SerializeField] private float maxDispersion = 2;
     [SerializeField] float throwingDelay = 1f;
     [SerializeField] float returningDelay = 1f;
+    [SerializeField] GameObject shadow;
 
     bool deployed = false;
     bool returning = false;
@@ -81,6 +82,7 @@ public class Dron : MonoBehaviour
         target = origin;
         DefineRotation();
         returning = true;
+        shadow.transform.localPosition = new Vector2(shadow.transform.localPosition.x * -1, shadow.transform.localPosition.y * -1);
     }
 
 }

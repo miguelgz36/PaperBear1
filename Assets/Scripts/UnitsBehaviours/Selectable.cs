@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Selectable : MonoBehaviour
 {
-    [SerializeField] GameObject selectionUI;
+    Squad squad;
+
+    private void Awake()
+    {
+        squad = GetComponent<Squad>();
+    }
     private void OnMouseEnter()
     {
         SelectManager.Instance.SquadReadyToSelect = this;
@@ -17,6 +22,6 @@ public class Selectable : MonoBehaviour
 
     public void SetSelectionUI(bool value)
     {
-        selectionUI.SetActive(value);
+        squad.SetSelectionUI(value);
     }
 }

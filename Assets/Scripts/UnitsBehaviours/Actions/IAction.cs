@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface IAction
 {
-   bool Execute(Dictionary<CommandParamEnum, object> args);
+    bool Execute(Dictionary<CommandParamEnum, object> args);
+
+    void Stop();
 }

@@ -136,17 +136,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1736306326385094281, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 94fcfdb4e6a60604794e0b7dca55f314, type: 3}
+    - target: {fileID: 2662223918281465995, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 94fcfdb4e6a60604794e0b7dca55f314, type: 3}
     - target: {fileID: 5309294979658352760, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
       propertyPath: m_Name
       value: MECSquad
       objectReference: {fileID: 0}
     - target: {fileID: 6302937508533596567, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6920144326237638775, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}
       propertyPath: movementSpeed
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03695fefec90eb448b79cf3fc9515ac3, type: 3}

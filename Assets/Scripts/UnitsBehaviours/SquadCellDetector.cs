@@ -15,7 +15,7 @@ public class SquadCellDetector : MonoBehaviour
     {
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         Cell cell = collision.gameObject.GetComponent<Cell>();
         if (cell)

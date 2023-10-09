@@ -22,6 +22,7 @@ public class Map : MonoBehaviour
             if(y == 0) matrixCell[x] = new Cell[height];
 
             Cell cell = cells[i];
+            cell.Init(x, y, this);
 
             matrixCell[x][y] = cell;
 

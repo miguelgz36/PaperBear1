@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
-using System.Reflection;
 using UnityEngine;
-using System.Linq;
 
 public class Squad : MonoBehaviour
 {
@@ -11,10 +9,10 @@ public class Squad : MonoBehaviour
     Placeable placeable;
     [SerializeField] float movementSpeed = 1;
     private Boolean isBusy = false;
-
+    private Boolean isMoving = false;
     public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
     public bool IsBusy { get => isBusy; set => isBusy = value; }
-
+    public bool IsMoving { get => isMoving; set => isMoving = value; }
 
     private void Awake()
     {
@@ -34,23 +32,28 @@ public class Squad : MonoBehaviour
 
     private void Update()
     {
-        if (units.Count == 0)
+        if (GetComponentsInChildren<UnitController>().Length == 0)
         {
             placeable.ReducePopulation();
-            Destroy(gameObject);
+
+            StartCoroutine(DestroySafe());
         }
     }
 
-    public void RemoveUnit(UnitController gameObject)
+    private IEnumerator DestroySafe()
     {
-        units.Remove(gameObject);
+        yield return new WaitForEndOfFrame();
+        DestroyImmediate(gameObject);
     }
 
     public void SetCell(Cell cell)
     {
         foreach (UnitController unit in units)
         {
-            unit.GetComponentInChildren<Health>().CurrentCell = cell;
+            if(unit != null)
+            {
+                unit.GetComponentInChildren<Health>().CurrentCell = cell;
+            }
         }
     }
 
@@ -84,4 +87,16 @@ public class Squad : MonoBehaviour
         }
     }
 
+    internal bool IsEnemy()
+    {
+        return gameObject.GetComponent<EnemySquad>() != null;
+    }
+
+    internal void SetSelectionUI(bool value)
+    {
+        foreach (UnitController unit in units)
+        {
+            unit.SetSelectionUI(value);
+        }
+    }
 }   

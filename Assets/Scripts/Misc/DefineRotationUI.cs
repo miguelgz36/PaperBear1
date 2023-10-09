@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class DefineRotationUI : MonoBehaviour
 {
-    [SerializeField] UnitController unitController;
-
 
     void Update()
     {

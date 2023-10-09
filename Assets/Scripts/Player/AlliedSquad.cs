@@ -5,5 +5,5 @@ using UnityEngine;
 
 public class AlliedSquad : Placeable
 {
-   
+ 
 }
