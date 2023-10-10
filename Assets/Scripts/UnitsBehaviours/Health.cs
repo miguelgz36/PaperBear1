@@ -1,39 +1,68 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
 
     [SerializeField] private GameObject currentUnit;
     [SerializeField] private float baseHealth = 100;
+    [SerializeField] private Slider sliderHealth;
 
     private float currentHealth;
     private bool isEnemy;
     private Structure onStructure;
+    private Cell currentCell;
+    private UnitController unitController;
+    private Squad squad;
 
-    public Structure OnStructure { get => onStructure; set => onStructure = value; }
+    public Structure OnStructure { set => onStructure = value; }
+    public Cell CurrentCell { set => currentCell = value; }
+
+    private void Awake()
+    {
+        unitController = currentUnit.GetComponent<UnitController>();
+        squad = unitController.Squad;
+    }
+
+    void Start()
+    {
+        currentHealth = baseHealth;
+        isEnemy = unitController.IsEnemy();
+    }
+
 
     public bool IsEnemy()
     {
         return isEnemy;
     }
-    
-    public bool GetDamage(float baseDamage)
+
+    public void DoDamage(float baseDamage)
     {
-        if (onStructure != null && onStructure.RejectProjectile()) return false;
-        currentHealth -= baseDamage;
-        StartCoroutine(GetComponent<HitBlink>().FlashRoutine());
-        if(currentHealth <= 0)
+        if (currentHealth <= 0) return;
+        if (squad.IsMoving && !unitController.gameObject.tag.Contains("Tank")) baseDamage *= 2;
+        if (onStructure != null ) baseDamage = onStructure.ReduceDamage(baseDamage);
+        if (currentCell != null ) baseDamage = currentCell.ReduceDamage(baseDamage);
+
+        if(baseDamage <= 0)
         {
-            Destroy(currentUnit);
+            baseDamage = 1f;
         }
-        return true;
+        currentHealth -= baseDamage;
+        sliderHealth.value = currentHealth / baseHealth;
+        StartCoroutine(GetComponent<HitBlink>().FlashRoutine());
+        if (currentHealth <= 0 && currentUnit && currentUnit.activeSelf)
+        {
+            StartCoroutine(DestroyNextUpdate());
+        }
     }
-    void Start()
+
+
+    private IEnumerator DestroyNextUpdate()
     {
-        currentHealth = baseHealth;
-        isEnemy = currentUnit.GetComponent<UnitController>().IsEnemy();
+        yield return new WaitForFixedUpdate();
+        DestroyImmediate(currentUnit);    
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,12 +70,16 @@ public class Health : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile"))
         {
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
-            if (isEnemy != bullet.IsEnemy()) 
+            if (bullet && isEnemy != bullet.IsEnemy()) 
             {
-                GetDamage(25);                               
+                DoDamage(bullet.Damage);
+                bullet.ImpactBullet();
             }
-            bullet.gameObject.SetActive(false);
-            Destroy(bullet.gameObject);
+            VolumetricDamage volumetricDamage = collision.gameObject.GetComponent<VolumetricDamage>();
+            if (volumetricDamage)
+            {
+                DoDamage(volumetricDamage.MaxDamage / volumetricDamage.RadiusDamage.radius);
+            }
         }
     }
     

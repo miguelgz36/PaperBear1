@@ -1,33 +1,40 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FireWeapon : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
-    [SerializeField] GameObject firePoint;
+    [SerializeField] Transform firePoint;
+    [SerializeField] GameObject aimPointVehicle;
     [SerializeField] UnitController unitController;
     [SerializeField] float fireRatePerMinute = 1;
     [SerializeField] float ammoPerCharger = 12;
     [SerializeField] float reloadedRate = 10;
-    [SerializeField] float ammoConsume = 1;
     [SerializeField] float dispersion = .1f;
     [SerializeField] float percentajeVarianceFireRate = 0.2f;
+    [SerializeField] float rangeFire = 10f;
+    [SerializeField] int burstAmount = 5;
+    [SerializeField] float fireRateBurst = 1f;
+    [SerializeField] bool primaryWeapon = true;
+    [SerializeField] bool burst = false;
 
     private float currentAmmo;
     private bool startShooting;
     private bool isShooting;
     private bool isRealoding;
-    private SoundWeapon soundWeapon;
+    private Sound soundWeapon;
     private float varianceFireRate;
+    private float initialReloadedTime;
+    private Health target;
 
     private void Awake()
     {
-        soundWeapon = GetComponent<SoundWeapon>();
+        soundWeapon = GetComponent<Sound>();
     }
-    public void SetIsShooting(bool startShooting)
+    public void SetIsShooting(bool startShooting, Health target)
     {
         this.startShooting = startShooting;
+        this.target = target;
     }
 
     private void Start()
@@ -42,52 +49,86 @@ public class FireWeapon : MonoBehaviour
     {
         if (currentAmmo == 0 && !isRealoding)
         {
-           StartCoroutine(ReloadWeapon());
+            isRealoding = true;
+            unitController.SliderAmmo.gameObject.SetActive(true);
+            initialReloadedTime = Time.unscaledTime;
+        }
+        else if (isRealoding)
+        {
+            if(!unitController.SliderAmmo.gameObject.activeSelf) unitController.SliderAmmo.gameObject.SetActive(true);
+            float currentTime = Time.unscaledTime - initialReloadedTime;
+            if (currentTime < reloadedRate)
+            {
+                if (primaryWeapon) unitController.SliderAmmo.value = currentTime / reloadedRate;
+            }
+            else
+            {
+                if (primaryWeapon) unitController.SliderAmmo.value = 1;
+                currentAmmo = ammoPerCharger;
+                isRealoding = false;
+                unitController.SliderAmmo.gameObject.SetActive(false);
+            }
         }
         else if (startShooting && !isRealoding && !isShooting)
         {
-           StartCoroutine(PullTheTrigger());
+            StartCoroutine(PullTheTrigger());
         }
     }
 
- 
+
 
     IEnumerator PullTheTrigger()
     {
-        while (currentAmmo > 0 && (unitController.IsEnemy() || !Resources.Instance.IsOutOfResources()) && startShooting)
+        while (currentAmmo > 0 && startShooting)
         {
             isShooting = true;
-            RaycastHit2D hit = Physics2D.Raycast(firePoint.transform.position, firePoint.transform.up, 100, LayerMask.GetMask("Units"));
-            if (hit.collider != null)
+            if (target != null && target.IsEnemy() != unitController.IsEnemy() && IsInRangeFire(target))
             {
-                Health enemy = hit.collider.gameObject.GetComponent<Health>();
-                if (enemy != null && enemy.IsEnemy() != unitController.IsEnemy())
+                if (burst)
                 {
-                    Quaternion rotation = this.transform.rotation;
-                    rotation.z += Random.Range(-dispersion,dispersion);
-                    GameObject instancie = Instantiate(bullet, firePoint.transform.position, rotation);
-                    instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
-                    soundWeapon.PlaySoundFire();
-                    currentAmmo--;
-                    if (!unitController.IsEnemy()) Resources.Instance.ConsumeBox(ammoConsume);
-                    float finalFireRate = Random.Range(fireRatePerMinute - varianceFireRate, fireRatePerMinute + varianceFireRate);
+                    int burstCount = 0;
+                    soundWeapon.PlayAtPoint();
+                    while (burstCount < burstAmount)
+                    {
+                        float finalFireRate = Shot();
+                        yield return new WaitForSeconds(finalFireRate);
+                        burstCount++;
+                    }
+                }
+                else
+                {
+                    float finalFireRate = Shot();
                     yield return new WaitForSeconds(finalFireRate);
-                }              
+                }
             }
-            yield return new WaitForSeconds(0.01f);
-
+            else
+            {
+                yield return new WaitForSeconds(1f);
+            }
+            if (burst)
+            {
+                yield return new WaitForSeconds(fireRateBurst);
+            }
         }
         isShooting = false;
     }
 
-    IEnumerator ReloadWeapon()
+    private float Shot()
     {
-        unitController.StartReloading();
-        isRealoding = true;
-        yield return new WaitForSeconds(reloadedRate);
-        currentAmmo = ammoPerCharger;
-        isRealoding = false;
-        unitController.StopReloading();
+        Quaternion rotation = this.transform.rotation;
+        rotation.z += Random.Range(-dispersion, dispersion);
+        GameObject instancie = Instantiate(bullet, firePoint.transform.position, rotation);
+        instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
+        if (!burst) soundWeapon.PlayAtPoint();
+        currentAmmo--;
+        if (primaryWeapon) unitController.SliderAmmo.value = currentAmmo / ammoPerCharger;
+        float finalFireRate = Random.Range(fireRatePerMinute - varianceFireRate, fireRatePerMinute + varianceFireRate);
+        return finalFireRate;
+    }
+
+    public bool IsInRangeFire(Health target)
+    {
+        return Vector2.Distance(transform.position, target.transform.position) < rangeFire;
     }
 
 }

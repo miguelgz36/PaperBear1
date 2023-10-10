@@ -24,13 +24,40 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ""name"": ""Player controls"",
     ""maps"": [
         {
-            ""name"": ""Build"",
+            ""name"": ""Mouse"",
             ""id"": ""34db57a1-6046-45f5-9e4e-5f565e492898"",
             ""actions"": [
                 {
-                    ""name"": ""PlaceUnit"",
+                    ""name"": ""Select"",
                     ""type"": ""Button"",
                     ""id"": ""633f0632-cc21-4a04-9d31-842ef7725e27"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Action"",
+                    ""type"": ""Button"",
+                    ""id"": ""c095e997-cb1c-4516-bdcb-3d2092b747a1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Zoom"",
+                    ""type"": ""Value"",
+                    ""id"": ""1f828eec-8212-47e7-a012-9564e907f431"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Order"",
+                    ""type"": ""Button"",
+                    ""id"": ""d62d7701-7688-49f6-9494-4a2532011c9f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -45,7 +72,51 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PlaceUnit"",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""349007bf-e078-41aa-aa6b-7df4bca645e9"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68d342be-a0d7-4c60-bd46-f8764de354be"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f643b52-a5d0-4b25-95c7-f5c73fa7de77"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d92cec8-aebd-446a-9a07-4e9f2eef70a9"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Order"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -54,9 +125,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Build
-        m_Build = asset.FindActionMap("Build", throwIfNotFound: true);
-        m_Build_PlaceUnit = m_Build.FindAction("PlaceUnit", throwIfNotFound: true);
+        // Mouse
+        m_Mouse = asset.FindActionMap("Mouse", throwIfNotFound: true);
+        m_Mouse_Select = m_Mouse.FindAction("Select", throwIfNotFound: true);
+        m_Mouse_Action = m_Mouse.FindAction("Action", throwIfNotFound: true);
+        m_Mouse_Zoom = m_Mouse.FindAction("Zoom", throwIfNotFound: true);
+        m_Mouse_Order = m_Mouse.FindAction("Order", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -115,53 +189,80 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Build
-    private readonly InputActionMap m_Build;
-    private List<IBuildActions> m_BuildActionsCallbackInterfaces = new List<IBuildActions>();
-    private readonly InputAction m_Build_PlaceUnit;
-    public struct BuildActions
+    // Mouse
+    private readonly InputActionMap m_Mouse;
+    private List<IMouseActions> m_MouseActionsCallbackInterfaces = new List<IMouseActions>();
+    private readonly InputAction m_Mouse_Select;
+    private readonly InputAction m_Mouse_Action;
+    private readonly InputAction m_Mouse_Zoom;
+    private readonly InputAction m_Mouse_Order;
+    public struct MouseActions
     {
         private @PlayerControls m_Wrapper;
-        public BuildActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @PlaceUnit => m_Wrapper.m_Build_PlaceUnit;
-        public InputActionMap Get() { return m_Wrapper.m_Build; }
+        public MouseActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Select => m_Wrapper.m_Mouse_Select;
+        public InputAction @Action => m_Wrapper.m_Mouse_Action;
+        public InputAction @Zoom => m_Wrapper.m_Mouse_Zoom;
+        public InputAction @Order => m_Wrapper.m_Mouse_Order;
+        public InputActionMap Get() { return m_Wrapper.m_Mouse; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(BuildActions set) { return set.Get(); }
-        public void AddCallbacks(IBuildActions instance)
+        public static implicit operator InputActionMap(MouseActions set) { return set.Get(); }
+        public void AddCallbacks(IMouseActions instance)
         {
-            if (instance == null || m_Wrapper.m_BuildActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_BuildActionsCallbackInterfaces.Add(instance);
-            @PlaceUnit.started += instance.OnPlaceUnit;
-            @PlaceUnit.performed += instance.OnPlaceUnit;
-            @PlaceUnit.canceled += instance.OnPlaceUnit;
+            if (instance == null || m_Wrapper.m_MouseActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MouseActionsCallbackInterfaces.Add(instance);
+            @Select.started += instance.OnSelect;
+            @Select.performed += instance.OnSelect;
+            @Select.canceled += instance.OnSelect;
+            @Action.started += instance.OnAction;
+            @Action.performed += instance.OnAction;
+            @Action.canceled += instance.OnAction;
+            @Zoom.started += instance.OnZoom;
+            @Zoom.performed += instance.OnZoom;
+            @Zoom.canceled += instance.OnZoom;
+            @Order.started += instance.OnOrder;
+            @Order.performed += instance.OnOrder;
+            @Order.canceled += instance.OnOrder;
         }
 
-        private void UnregisterCallbacks(IBuildActions instance)
+        private void UnregisterCallbacks(IMouseActions instance)
         {
-            @PlaceUnit.started -= instance.OnPlaceUnit;
-            @PlaceUnit.performed -= instance.OnPlaceUnit;
-            @PlaceUnit.canceled -= instance.OnPlaceUnit;
+            @Select.started -= instance.OnSelect;
+            @Select.performed -= instance.OnSelect;
+            @Select.canceled -= instance.OnSelect;
+            @Action.started -= instance.OnAction;
+            @Action.performed -= instance.OnAction;
+            @Action.canceled -= instance.OnAction;
+            @Zoom.started -= instance.OnZoom;
+            @Zoom.performed -= instance.OnZoom;
+            @Zoom.canceled -= instance.OnZoom;
+            @Order.started -= instance.OnOrder;
+            @Order.performed -= instance.OnOrder;
+            @Order.canceled -= instance.OnOrder;
         }
 
-        public void RemoveCallbacks(IBuildActions instance)
+        public void RemoveCallbacks(IMouseActions instance)
         {
-            if (m_Wrapper.m_BuildActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_MouseActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IBuildActions instance)
+        public void SetCallbacks(IMouseActions instance)
         {
-            foreach (var item in m_Wrapper.m_BuildActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_MouseActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_BuildActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_MouseActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public BuildActions @Build => new BuildActions(this);
-    public interface IBuildActions
+    public MouseActions @Mouse => new MouseActions(this);
+    public interface IMouseActions
     {
-        void OnPlaceUnit(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
+        void OnAction(InputAction.CallbackContext context);
+        void OnZoom(InputAction.CallbackContext context);
+        void OnOrder(InputAction.CallbackContext context);
     }
 }

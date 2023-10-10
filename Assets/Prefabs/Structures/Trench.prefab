@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1896788078563235362}
   - component: {fileID: 4740643456723374792}
   - component: {fileID: 1722069110857808415}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trench
   m_TagString: Structures
   m_Icon: {fileID: 0}
@@ -124,4 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d60dbdc31e43043912b7e144739481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  probabilityToRejectProjectile: 80
+  coverage: 0.8
+  secondsToBuild: 5

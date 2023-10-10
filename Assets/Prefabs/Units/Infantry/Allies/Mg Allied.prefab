@@ -11,9 +11,37 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 4134989008155721709}
+    - target: {fileID: 267453742970581912, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: objectToRotate
+      value: 
+      objectReference: {fileID: 1231182775548702557}
+    - target: {fileID: 3463784451582973751, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: baseHealth
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 4433437603108382498, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_TagString
       value: Allied
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629113216375734953, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629113216375734953, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.11764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629113216375734953, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795574498034801328, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795574498034801328, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5996279622273365688, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_FlipX
@@ -37,14 +65,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996279622273365688, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_Color.g
-      value: 0.74652016
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5996279622273365688, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_Color.r
-      value: 0.4009434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5996279622273365688, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996279622273365688, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498011983414197009, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498011983414197009, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7527488207122888416, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
@@ -54,6 +94,10 @@ PrefabInstance:
     - target: {fileID: 7527488207122888416, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_TagString
       value: Allied
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495770347656910998, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8756682713332659998, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_RootOrder
@@ -127,8 +171,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+--- !u!1 &1231182775548702557 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4433437603108382498, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+  m_PrefabInstance: {fileID: 3211266871672866943}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1236376155617012751 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4447528540238914672, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
@@ -163,11 +213,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 375742088946569780, guid: 6bf97e5460d6ccb4ca5f8f688bdab1a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.138
+      value: 0.087
       objectReference: {fileID: 0}
     - target: {fileID: 375742088946569780, guid: 6bf97e5460d6ccb4ca5f8f688bdab1a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.484
+      value: 0.479
       objectReference: {fileID: 0}
     - target: {fileID: 375742088946569780, guid: 6bf97e5460d6ccb4ca5f8f688bdab1a7, type: 3}
       propertyPath: m_LocalPosition.z
