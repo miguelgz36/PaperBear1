@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 160
+  spritePixelsToUnits: 124
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39e33d3254603894da667d4b154c18d8
-      internalID: 1819098026
+      spriteID: 6e3ad62111dd1cf4fb2d6968dbf48954
+      internalID: -1080102239
       vertices: []
       indices: 
       edges: []
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e282a40ea9e5c5418b009cc291de352
-      internalID: 368507842
+      spriteID: 64e6659ba1197cb408f6f1e759accace
+      internalID: -1631955039
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba35b268390ce42488293ac4929ffd6f
-      internalID: 433682973
+      spriteID: 9ef788ae3e49c9046a965e27981ea6c7
+      internalID: -578979023
       vertices: []
       indices: 
       edges: []
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89e426fed9ce9af4f854af2ecfd3d807
-      internalID: 1776603626
+      spriteID: 70cc6ac38ce0f2a44a5a326ba04a52c4
+      internalID: -597843139
       vertices: []
       indices: 
       edges: []
@@ -211,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      icon-squads-v2_0: 1819098026
-      icon-squads-v2_1: 368507842
-      icon-squads-v2_2: 433682973
-      icon-squads-v2_3: 1776603626
+      icon-squads-v2_0: -1080102239
+      icon-squads-v2_1: -1631955039
+      icon-squads-v2_2: -578979023
+      icon-squads-v2_3: -597843139
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -151,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 2662223918281465995, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1168261752, guid: 387e666ca6fbad0429a7becf1a121c7f, type: 3}
+      objectReference: {fileID: -597843139, guid: 6df62e0b352e66d4aa2fc44a2948a492, type: 3}
     - target: {fileID: 2662223918281465995, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -166,11 +166,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3485936036413482845, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3485936036413482845, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3485936036413482845, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: m_LocalPosition.y
