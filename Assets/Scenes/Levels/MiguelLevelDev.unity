@@ -4110,10 +4110,10 @@ MonoBehaviour:
   m_RefResolutionX: 1920
   m_RefResolutionY: 1080
   m_UpscaleRT: 1
-  m_PixelSnapping: 1
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 1
+  m_CropFrameY: 1
+  m_StretchFill: 1
 --- !u!1 &1554335883
 GameObject:
   m_ObjectHideFlags: 0
