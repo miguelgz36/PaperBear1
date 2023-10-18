@@ -15,9 +15,10 @@ public class ActionBuild : MonoBehaviour, IAction
 
     private float timeToBuildInSeconds;
 
-    private Image imageCoolDown;
-
     private float initialBuildingTime;
+
+    private float fillAmount = 0;
+    public float FillAmount { get => fillAmount; set => fillAmount = value; }
 
     public void Update()
     {
@@ -26,7 +27,7 @@ public class ActionBuild : MonoBehaviour, IAction
             float currentTime = Time.unscaledTime - this.initialBuildingTime;
             if (currentTime < timeToBuildInSeconds)
             {
-                this.imageCoolDown.fillAmount = 1 - currentTime / timeToBuildInSeconds;
+                FillAmount = 1 - currentTime / timeToBuildInSeconds;
             }
             else
             {
@@ -42,7 +43,6 @@ public class ActionBuild : MonoBehaviour, IAction
         this.squad = (Squad)args.GetValueOrDefault(CommandParamEnum.SQUAD);
         this.structurePrefab = (GameObject)args.GetValueOrDefault(CommandParamEnum.STRUCTURE_PREFAB);
         this.cellToPlaceTrench = this.squad.GetComponentInChildren<SquadCellDetector>().CurrentCell;
-        this.imageCoolDown = (Image)args.GetValueOrDefault(CommandParamEnum.IMAGE_COOLDOWN);
         this.timeToBuildInSeconds = this.structurePrefab.GetComponent<Structure>().SecondsToBuild;
 
         if (cellToPlaceTrench != null && !cellToPlaceTrench.HasStructure())
@@ -67,7 +67,7 @@ public class ActionBuild : MonoBehaviour, IAction
         if (isBuilding)
         {
             isBuilding = false;
-            this.imageCoolDown.fillAmount = 0;
+            fillAmount = 0;
             squad.IsBusy = false;
         }
     }

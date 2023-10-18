@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,7 @@ public abstract class ActionButton : MonoBehaviour
             {
                 currentSquad = SelectManager.Instance.ObjectSelected.GetComponent<Squad>();
                 button.interactable = ButtonIsAvailableToClick();
+                UpdateCoolDown();
             }
             else
             {
@@ -34,6 +36,10 @@ public abstract class ActionButton : MonoBehaviour
             button.interactable = false;
             currentSquad = null;
         }
+    }
+
+    protected virtual void UpdateCoolDown()
+    {
     }
 
     protected virtual bool ButtonIsAvailableToClick()
