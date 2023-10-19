@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CapturePoint : MonoBehaviour
 {
@@ -8,11 +9,17 @@ public class CapturePoint : MonoBehaviour
     [SerializeField] Sprite enemySprite;
     [SerializeField] Sprite neutralSprite;
 
+    [SerializeField] Sprite alliedSpriteFlag;
+    [SerializeField] Sprite enemySpriteFlag;
+    [SerializeField] Sprite neutralSpriteFlag;
 
     private CapturePointStateEnum state = CapturePointStateEnum.NEUTRAL;
     private SpriteRenderer spriteRenderer;
+    private Image imageUI;
+
 
     public CapturePointStateEnum State { get => state; }
+    public Image SpriteUI { set => imageUI = value; }
 
     private void Awake()
     {
@@ -27,6 +34,13 @@ public class CapturePoint : MonoBehaviour
             CapturePointStateEnum.ALLIED => alliedSprite,
             CapturePointStateEnum.ENEMY => enemySprite,
             _ => neutralSprite,
+        };
+
+        imageUI.sprite = state switch
+        {
+            CapturePointStateEnum.ALLIED => alliedSpriteFlag,
+            CapturePointStateEnum.ENEMY => enemySpriteFlag,
+            _ => neutralSpriteFlag,
         };
     }
 }
