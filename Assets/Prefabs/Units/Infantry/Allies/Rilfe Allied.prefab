@@ -93,6 +93,10 @@ PrefabInstance:
       propertyPath: objectToRotate
       value: 
       objectReference: {fileID: 1231182775548702557}
+    - target: {fileID: 3463784451582973751, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
+      propertyPath: baseHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4433437603108382498, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_TagString
       value: Allied
