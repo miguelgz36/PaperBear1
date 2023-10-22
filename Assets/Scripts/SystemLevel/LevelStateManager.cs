@@ -39,6 +39,8 @@ public class LevelStateManager : Singleton<LevelStateManager>
 
     public void LoadSameGame()
     {
+        isFinishedGame = false;
+        SelectManager.Instance.enabled = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
