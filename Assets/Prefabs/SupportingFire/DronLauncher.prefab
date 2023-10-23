@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73c1a38e884dc24b85f27d584f4b052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 50
+  cooldown: 25
   capPopulation: 0
   dron: {fileID: 3250085522396411977, guid: 19524acc294480c4da56f67253d7ec69, type: 3}
   particles: {fileID: 980775796410285947}

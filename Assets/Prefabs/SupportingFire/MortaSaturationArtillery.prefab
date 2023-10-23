@@ -14468,7 +14468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5813598248330015333, guid: 8fd7290f8bb992f4988edb60dabe6837, type: 3}
       propertyPath: maxDispersion
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8506213418471684275, guid: 8fd7290f8bb992f4988edb60dabe6837, type: 3}
       propertyPath: m_LocalPosition.x
