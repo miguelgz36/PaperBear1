@@ -125,4 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverage: 0.8
-  secondsToBuild: 5
+  secondsToBuild: 10

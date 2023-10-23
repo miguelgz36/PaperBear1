@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: cooldown
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 5813598248330015333, guid: 8fd7290f8bb992f4988edb60dabe6837, type: 3}
+      propertyPath: delaySplashs
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8839162871198466337, guid: 8fd7290f8bb992f4988edb60dabe6837, type: 3}
       propertyPath: m_RootOrder
       value: 0

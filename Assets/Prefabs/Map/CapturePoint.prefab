@@ -100,3 +100,6 @@ MonoBehaviour:
   alliedSprite: {fileID: -954322619, guid: c00ad3d03bc9c544b846de55b977d48e, type: 3}
   enemySprite: {fileID: 1064218425, guid: c00ad3d03bc9c544b846de55b977d48e, type: 3}
   neutralSprite: {fileID: -1632317134, guid: c00ad3d03bc9c544b846de55b977d48e, type: 3}
+  alliedSpriteFlag: {fileID: 210630602, guid: 984db27b3ddb98843b37421d27c0254b, type: 3}
+  enemySpriteFlag: {fileID: 1739112205, guid: 984db27b3ddb98843b37421d27c0254b, type: 3}
+  neutralSpriteFlag: {fileID: -1494202511, guid: 984db27b3ddb98843b37421d27c0254b, type: 3}

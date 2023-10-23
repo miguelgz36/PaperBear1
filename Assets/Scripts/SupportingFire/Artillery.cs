@@ -10,8 +10,11 @@ public class Artillery : Placeable
     [SerializeField] int amount = 1;
     [SerializeField] float delaySplashs = 1f;
     [SerializeField] private float maxDispersion = 0f;
+    [SerializeField] private Transform particles;
 
     bool firing = true;
+
+
 
     public void ActivedPreviewExplosion()
     {
@@ -24,11 +27,12 @@ public class Artillery : Placeable
 
     private void Update()
     {
-        if (!firing) Destroy(this.gameObject);
+        if (!firing) Destroy(this.gameObject, 10f);
     }
 
     public virtual void FireShells(Vector3 target, Vector3 origin)
     {
+        particles.position = target;
         StartCoroutine(StartFiring(target, maxDispersion, origin));
         DeactivedPreviewExplosion();
     }
