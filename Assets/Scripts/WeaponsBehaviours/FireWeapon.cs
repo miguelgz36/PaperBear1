@@ -8,7 +8,7 @@ public class FireWeapon : MonoBehaviour
     [SerializeField] GameObject aimPointVehicle;
     [SerializeField] UnitController unitController;
     [SerializeField] float fireRatePerMinute = 1;
-    [SerializeField] float ammoPerCharger = 12;
+    [SerializeField] float ammoPerMagazine = 12;
     [SerializeField] float reloadedRate = 10;
     [SerializeField] float dispersion = .1f;
     [SerializeField] float percentajeVarianceFireRate = 0.2f;
@@ -27,6 +27,9 @@ public class FireWeapon : MonoBehaviour
     private float initialReloadedTime;
     private Health target;
 
+    public float CurrentAmmo { get => currentAmmo; set => currentAmmo = value; }
+    public float AmmoPerMagazine { get => ammoPerMagazine; set => ammoPerMagazine = value; }
+
     private void Awake()
     {
         soundWeapon = GetComponent<Sound>();
@@ -40,7 +43,7 @@ public class FireWeapon : MonoBehaviour
     private void Start()
     {
         varianceFireRate = percentajeVarianceFireRate * fireRatePerMinute;
-        currentAmmo = ammoPerCharger;
+        currentAmmo = ammoPerMagazine;
         startShooting = false;
         isRealoding = false;
     }
@@ -64,7 +67,7 @@ public class FireWeapon : MonoBehaviour
             else
             {
                 if (primaryWeapon) unitController.SliderAmmo.value = 1;
-                currentAmmo = ammoPerCharger;
+                currentAmmo = ammoPerMagazine;
                 isRealoding = false;
                 unitController.SliderAmmo.gameObject.SetActive(false);
             }
@@ -121,7 +124,7 @@ public class FireWeapon : MonoBehaviour
         instancie.GetComponent<Bullet>().SetIsEnemy(unitController.IsEnemy());
         if (!burst) soundWeapon.PlayAtPoint();
         currentAmmo--;
-        if (primaryWeapon) unitController.SliderAmmo.value = currentAmmo / ammoPerCharger;
+        if (primaryWeapon) unitController.SliderAmmo.value = currentAmmo / ammoPerMagazine;
         float finalFireRate = Random.Range(fireRatePerMinute - varianceFireRate, fireRatePerMinute + varianceFireRate);
         return finalFireRate;
     }

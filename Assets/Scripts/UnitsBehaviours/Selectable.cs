@@ -6,6 +6,8 @@ public class Selectable : MonoBehaviour
 {
     Squad squad;
 
+    public Squad Squad { get => squad; set => squad = value; }
+
     private void Awake()
     {
         squad = GetComponent<Squad>();

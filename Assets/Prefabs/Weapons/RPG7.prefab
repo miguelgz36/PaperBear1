@@ -44,6 +44,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: ammoPerMagazine
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: fireRatePerMinute
       value: 2
       objectReference: {fileID: 0}

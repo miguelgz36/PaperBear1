@@ -103,6 +103,10 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3827044166213496442, guid: 9e244519883fd454aa7c9659b1fffed8, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: -597843139, guid: 6df62e0b352e66d4aa2fc44a2948a492, type: 3}
+    - target: {fileID: 3827044166213496442, guid: 9e244519883fd454aa7c9659b1fffed8, type: 3}
       propertyPath: isEnemy
       value: 0
       objectReference: {fileID: 0}
