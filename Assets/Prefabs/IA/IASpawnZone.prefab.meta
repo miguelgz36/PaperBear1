@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/IA/IASpawnZone.prefab.meta
+guid: e78b625b687d9dc4789d7053e2b3a2a6
+PrefabImporter:
+========
+guid: ba3ee7ad28563204fb88a7a8c46d056d
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> develop:Assets/Scripts/IA/instructions.meta
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

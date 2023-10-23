@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3934303848656773661, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a3674eee526906646b743a38ef1831f9, type: 3}
     - target: {fileID: 4213390104135834623, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_Name
       value: AK47
@@ -20,12 +24,40 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 2225f479e22a75d43893195f3cf1df84, type: 3}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: rangeFire
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: dispersion
-      value: 0.08
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: ammoConsume
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: burstAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: reloadedRate
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: ammoPerCharger
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: ammoPerMagazine
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: fireRatePerMinute
-      value: 0.8
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750939607522340647, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: percentajeVarianceFireRate
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5594717946205099722, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: m_RootOrder
@@ -74,6 +106,18 @@ PrefabInstance:
     - target: {fileID: 8006837228641442840, guid: b49f98137328b0744a6181428099f7ae, type: 3}
       propertyPath: soundFire
       value: 
-      objectReference: {fileID: 8300000, guid: 2225f479e22a75d43893195f3cf1df84, type: 3}
+      objectReference: {fileID: 8300000, guid: 900d5ebdbc50cb44dac9b86d7dcb9b7a, type: 3}
+    - target: {fileID: 8006837228641442840, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: volumeFire
+      value: 0.818
+      objectReference: {fileID: 0}
+    - target: {fileID: 9134193017431837156, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9134193017431837156, guid: b49f98137328b0744a6181428099f7ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.349
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b49f98137328b0744a6181428099f7ae, type: 3}

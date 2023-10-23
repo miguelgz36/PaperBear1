@@ -2,13 +2,40 @@
     "name": "Player controls",
     "maps": [
         {
-            "name": "Build",
+            "name": "Mouse",
             "id": "34db57a1-6046-45f5-9e4e-5f565e492898",
             "actions": [
                 {
-                    "name": "PlaceUnit",
+                    "name": "Select",
                     "type": "Button",
                     "id": "633f0632-cc21-4a04-9d31-842ef7725e27",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Action",
+                    "type": "Button",
+                    "id": "c095e997-cb1c-4516-bdcb-3d2092b747a1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Zoom",
+                    "type": "Value",
+                    "id": "1f828eec-8212-47e7-a012-9564e907f431",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Order",
+                    "type": "Button",
+                    "id": "d62d7701-7688-49f6-9494-4a2532011c9f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -23,7 +50,51 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PlaceUnit",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "349007bf-e078-41aa-aa6b-7df4bca645e9",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68d342be-a0d7-4c60-bd46-f8764de354be",
+                    "path": "<Mouse>/scroll/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f643b52-a5d0-4b25-95c7-f5c73fa7de77",
+                    "path": "<Mouse>/scroll/up",
+                    "interactions": "",
+                    "processors": "Invert",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d92cec8-aebd-446a-9a07-4e9f2eef70a9",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Order",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

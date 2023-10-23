@@ -5,15 +5,18 @@ using UnityEngine;
 public class Structure : MonoBehaviour
 {
 
-    [SerializeField] int probabilityToRejectProjectile = 50;
+    [SerializeField] float coverage = 0.5f;
+    [SerializeField] private float secondsToBuild = 0f;
 
-    public bool RejectProjectile()
+    public float SecondsToBuild { get => secondsToBuild; set => secondsToBuild = value; }
+
+    public float ReduceDamage(float damage)
     {
-        return Random.Range(0, 100) <= probabilityToRejectProjectile;
+        return damage - (damage * coverage);
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         ChangeStructureUnit(collision, this);
     }

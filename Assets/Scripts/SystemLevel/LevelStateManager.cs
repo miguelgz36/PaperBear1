@@ -9,25 +9,38 @@ public class LevelStateManager : Singleton<LevelStateManager>
     [SerializeField] private Canvas canvasWin;
     [SerializeField] private Canvas canvasLose;
 
+    private bool isFinishedGame;
+
+    public bool IsFinishedGame { get => isFinishedGame; }
+
     protected override void Awake()
     {
         base.Awake();
     }
 
+    private void Start()
+    {
+        isFinishedGame = false;
+    }
+
     public void Win()
     {
-        PlacementManager.Instance.enabled = false;
+        SelectManager.Instance.enabled = false;
         canvasWin.gameObject.SetActive(true);
+        isFinishedGame = true;
     }
 
     public void Lose()
     {
-        PlacementManager.Instance.enabled = false;
+        SelectManager.Instance.enabled = false;
         canvasLose.gameObject.SetActive(true);
+        isFinishedGame = true;
     }
 
     public void LoadSameGame()
     {
+        isFinishedGame = false;
+        SelectManager.Instance.enabled = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

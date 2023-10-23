@@ -1,3 +1,4 @@
+using Assets.Scripts.Misc;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,19 +6,21 @@ using UnityEngine;
 
 public class Aim : MonoBehaviour
 {
-    [SerializeField] private GameObject weapon;
-    [SerializeField] private GameObject currentUnit;
+    [SerializeField] protected GameObject weapon;
+    [SerializeField] protected GameObject secondaryWeapon;
+    [SerializeField] private GameObject objectToRotate;
+    [SerializeField] private EnemyMove enemyMove;
 
-    private GameObject target;
+    protected GameObject target;
     private Quaternion startedRotation;
-    private FireWeapon fireWeapon;
-    private EnemyMove enemyMove;
+    private FireWeapon primaryFireWeapon;
+    private FireWeapon secondaryFireWeapon;
 
-    private void Start()
+    private void Awake()
     {
-        startedRotation = currentUnit.transform.rotation;
-        fireWeapon = weapon.GetComponent<FireWeapon>();
-        enemyMove = currentUnit.GetComponent<EnemyMove>();
+        startedRotation = objectToRotate.transform.rotation;
+        primaryFireWeapon = weapon.GetComponent<FireWeapon>();
+        if (secondaryWeapon) secondaryFireWeapon = secondaryWeapon.GetComponent<FireWeapon>();
     }
     private void Update()
     {
@@ -28,32 +31,67 @@ public class Aim : MonoBehaviour
     {
         if (target != null && target.activeSelf)
         {
-            float angle = Mathf.Atan2(target.transform.position.y - currentUnit.transform.position.y,
-                          target.transform.position.x - currentUnit.transform.position.x)
-              * Mathf.Rad2Deg - 90;
-            currentUnit.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            if (enemyMove != null && primaryFireWeapon.IsInRangeFire(target.GetComponent<Health>())) enemyMove.SetIsMove(false);
+
+            float angle = RotationUtils.CalculateRotationToAimObject(gameObject.transform.position, target.transform.position);
+
+            objectToRotate.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    public void AimTarget(Collider2D collision)
+    {
+        LockTarget(collision);
+    }
+
+    protected void LockTarget(Collider2D collision)
     {
         Health health = collision.GetComponent<Health>();
-        if (target == null && !collision.gameObject.CompareTag(currentUnit.tag) && health)
+        if (collision.gameObject && IsFromTheOpposingTeam(collision.gameObject) 
+            && ShouldBeNewTarget(gameObject.gameObject) 
+            && !collision.gameObject.CompareTag(objectToRotate.tag) 
+            && health)
         {
             target = collision.gameObject;
-            AimTarger();
-            fireWeapon.SetIsShooting(true);
-            if (enemyMove != null) enemyMove.SetIsMove(false);
+            StartCoroutine(Shoot(health));
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private IEnumerator Shoot(Health target)
+    {
+        do
+        {
+            yield return new WaitForSeconds(0.5f);
+            if(target != null)
+            {
+                primaryFireWeapon.SetIsShooting(true, target);
+                if (secondaryWeapon) secondaryFireWeapon.SetIsShooting(true, target);
+            }         
+        }
+        while (!weapon.activeSelf || (secondaryWeapon != null && !secondaryWeapon.activeSelf));
+    }
+
+    private bool IsFromTheOpposingTeam(GameObject gameObject)
+    {
+        if (objectToRotate == null || gameObject == null) return false;
+        return gameObject.tag.Contains("Enemy") && objectToRotate.tag.Contains("Allied")
+                || gameObject.tag.Contains("Allied") && objectToRotate.tag.Contains("Enemy");
+    }
+
+
+    protected virtual bool ShouldBeNewTarget(GameObject newTarget)
+    {
+        return target == null;
+    }
+
+    public void UnAimTarget(Collider2D collision)
     {
         if(target != null && target == collision.gameObject)
         {
             target = null;
-            currentUnit.transform.rotation = startedRotation;
-            fireWeapon.SetIsShooting(false);
+            objectToRotate.transform.rotation = startedRotation;
+            primaryFireWeapon.SetIsShooting(false, null);
+            if (secondaryWeapon) secondaryFireWeapon.SetIsShooting(false, null);
             if (enemyMove != null) enemyMove.SetIsMove(true);
         }
     }

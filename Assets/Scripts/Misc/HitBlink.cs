@@ -24,4 +24,5 @@ public class HitBlink : MonoBehaviour
         yield return new WaitForSeconds(RestoreDefualtMatTime);
         spriteRenderer.material = defaultMat;
     }
+
 }

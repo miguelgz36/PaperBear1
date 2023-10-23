@@ -1,41 +1,46 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class UnitController : MonoBehaviour
 {
     [SerializeField] private bool isEnemy = false;
-    [SerializeField] private FloatingText reloadingText;
+    [SerializeField] private Slider sliderAmmo;
+    [SerializeField] private Aim aim;
+    [SerializeField] private GameObject SelectSprite;
+    [SerializeField] private Sprite icon;
 
     private Squad squad;
 
+    public Slider SliderAmmo { get => sliderAmmo; set => sliderAmmo = value; }
+    public Squad Squad { get => squad; }
+    public Sprite Icon { get => icon; set => icon = value; }
 
     private void Awake()
     {
         squad = GetComponentInParent<Squad>();
     }
 
-    public void StartReloading()
-    {
-        reloadingText.Show();
-    }
-
-    public void StopReloading()
-    {
-        reloadingText.Hide();
-    }
     public bool IsEnemy()
     {
         return isEnemy;
     }
 
-    public void OnDestroy()
+    public void AimTarget(Collider2D collider2D)
     {
-        if (squad)
-        {
-            squad.RemoveUnit(gameObject);
-        }
+        aim.AimTarget(collider2D);
     }
 
+    public void UnAimTarget(Collider2D collider2D)
+    {
+        aim.UnAimTarget(collider2D);
+    }
 
+    internal void SetSelectionUI(bool value)
+    {
+        if (SelectSprite) {
+            SelectSprite.SetActive(value);
+        }
+    }
 }
