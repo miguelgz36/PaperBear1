@@ -9,11 +9,13 @@ public class UnitController : MonoBehaviour
     [SerializeField] private Slider sliderAmmo;
     [SerializeField] private Aim aim;
     [SerializeField] private GameObject SelectSprite;
+    [SerializeField] private Sprite icon;
 
     private Squad squad;
 
     public Slider SliderAmmo { get => sliderAmmo; set => sliderAmmo = value; }
     public Squad Squad { get => squad; }
+    public Sprite Icon { get => icon; set => icon = value; }
 
     private void Awake()
     {

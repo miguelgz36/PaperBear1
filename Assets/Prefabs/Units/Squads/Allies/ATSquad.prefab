@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6573739329344426530}
     m_Modifications:
+    - target: {fileID: 2317697971372780247, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4944666623392674670, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -62,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 6299514836813529443, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
       propertyPath: m_Name
       value: Infantry Allied (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201555156837290602, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9006832533616710351, guid: 2de3eb3e6dd6b244aa70b9fea303f0f9, type: 3}
       propertyPath: m_AnchorMax.x
@@ -308,6 +316,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -1807478350246293265, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 85998c50de8a4b24283c1f5bf8c45f5b, type: 3}
+    - target: {fileID: -1807478350246293265, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
       propertyPath: cooldown
       value: 75
       objectReference: {fileID: 0}
@@ -415,6 +427,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6920144326237638775, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 85998c50de8a4b24283c1f5bf8c45f5b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8efbab8707123194b90cf1589ae51963, type: 3}
 --- !u!4 &6573739329344426530 stripped

@@ -19,6 +19,8 @@ public class Health : MonoBehaviour
 
     public Structure OnStructure { set => onStructure = value; }
     public Cell CurrentCell { set => currentCell = value; }
+    public float CurrentHealth { get => currentHealth; set => currentHealth = value; }
+    public float BaseHealth { get => baseHealth; set => baseHealth = value; }
 
     private void Awake()
     {

@@ -8,11 +8,14 @@ public class Squad : MonoBehaviour
     List<UnitController> units;
     Placeable placeable;
     [SerializeField] float movementSpeed = 1;
+    [SerializeField] private Sprite icon;
     private Boolean isBusy = false;
     private Boolean isMoving = false;
     public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
     public bool IsBusy { get => isBusy; set => isBusy = value; }
     public bool IsMoving { get => isMoving; set => isMoving = value; }
+    public List<UnitController> Units { get => units; set => units = value; }
+    public Sprite Icon { get => icon; set => icon = value; }
 
     private void Awake()
     {

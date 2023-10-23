@@ -43,6 +43,7 @@ public class SelectManager : Singleton<SelectManager>
             }
             objectSelected = objectReadyToSelect;
             objectSelected.SetSelectionUI(true);
+            SquadUIManager.Instance.UpdateSquadUI(objectSelected);
         }
         else
         {
@@ -50,16 +51,12 @@ public class SelectManager : Singleton<SelectManager>
             {
                 PlacePlaceable();
             }
-
-
-
             selectedObjectToPlace = null;
             placementButton = null;
             PlaceableCells.Instance.HidePlaceableZones();
         }
 
     }
-
     private void PlacePlaceable()
     {
         Vector3 inputMouse = Input.mousePosition;
