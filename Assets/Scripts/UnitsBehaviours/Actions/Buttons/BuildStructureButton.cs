@@ -12,14 +12,21 @@ public class BuildStructureButton : ActionButton
 
     public override void execute()
     {
+
         Dictionary<CommandParamEnum, object> args = new()
         {
             { CommandParamEnum.SQUAD, this.currentSquad },
-            { CommandParamEnum.STRUCTURE_PREFAB, structurePrefab },
-            { CommandParamEnum.IMAGE_COOLDOWN, this.imageCooldown }
+            { CommandParamEnum.STRUCTURE_PREFAB, structurePrefab }
         };
 
         this.currentSquad.ExecuteAction<ActionBuild>(args);
-
     }
+
+    protected override void UpdateCoolDown()
+    {
+        base.UpdateCoolDown();
+        ActionBuild actionBuild = this.currentSquad.GetComponent<ActionBuild>();
+        imageCooldown.fillAmount = actionBuild.FillAmount;
+    }
+
 }

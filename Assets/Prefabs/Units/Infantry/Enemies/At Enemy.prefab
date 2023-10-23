@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6889397831797777461, guid: 41ae8b0de67c4f84f9526824cd692c6d, type: 3}
       propertyPath: primaryWeapon
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6889397831797777461, guid: 41ae8b0de67c4f84f9526824cd692c6d, type: 3}
       propertyPath: unitController

@@ -17,10 +17,5 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
         {
             instance = (T)this;
         }
-
-        if (!instance.transform.parent)
-        {
-            DontDestroyOnLoad(instance);
-        }
     }
 }

@@ -87,7 +87,7 @@ PrefabInstance:
       objectReference: {fileID: 6034869118639509442}
     - target: {fileID: 3463784451582973751, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: baseHealth
-      value: 300
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 3738756307646533153, guid: dee30df53da3e1f42a4a21973ee0d5e5, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
